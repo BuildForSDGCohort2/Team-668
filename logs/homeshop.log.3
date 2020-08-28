@@ -1,0 +1,79 @@
+2020-08-27 10:39:05,349 ERROR: Exception on /shop/Checkers [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 119, in shop
+    return render_template('shop.html', products=products, form=form)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\shop.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base.html", line 64, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\shop.html", line 23, in block "app_content"
+    {{ form.check_out(class_='btn btn-default')}}
+TypeError: 'UnboundField' object is not callable
+2020-08-27 10:44:25,878 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 11:28:59,644 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 11:30:08,897 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 11:32:51,435 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 11:35:44,440 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 11:37:11,716 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 11:38:29,046 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 11:39:38,943 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 11:41:02,457 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 11:42:18,712 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 13:07:50,336 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 13:12:13,975 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 13:15:01,973 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 13:18:17,110 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 13:22:52,329 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 13:23:41,841 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 13:25:41,760 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 13:26:12,714 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:09:18,944 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:09:40,611 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:11:10,506 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:25:20,812 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:29:42,427 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:32:21,059 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:32:57,484 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:33:57,226 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:34:29,746 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:36:35,969 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:36:46,048 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:37:09,546 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:37:53,602 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:38:13,296 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:41:22,967 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:43:42,115 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:45:36,877 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+2020-08-27 15:50:23,641 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]

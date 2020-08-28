@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<div class="container">
+    <div class="jumbotron" style="border-left-width: 60px; border-right-width: 60px;">
+        <h1>HomeShop</h1>
+        <p class="lead">To acces the Shops and buy all you groceries with just a click away</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+      </div>
+  </div>
+  <div class="container">
+      <div class="jumbotron" style="padding-left: 15px; padding-right: 15px; border-radius: 6px;">
+    <h1>Sign In</h1>
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+    <br>
+    <p>New User? <a href="{{ url_for('auth.register') }}">Click to Register!</a></p>
+    <p>
+        Forgot Your Password?
+        <a href="{{ url_for('auth.reset_password_request') }}">Click to Reset It</a>
+    </p>
+</div></div>
+{% endblock %}

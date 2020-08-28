@@ -1,0 +1,81 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    {% if title %}{{ title }} - HomeShop{% else %}Welcome to HomeShop{% endif %}
+{% endblock %}
+
+{% block body %}
+<body style="background-color:powderblue;"></body>
+
+{% block navbar %}
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-inverse navbar-nav" style="float: none;">
+        <div class="container">
+            <div class="navbar-header" style="margin-top: -18px;">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}"><h3>HomeShop</h3></a>
+            </div>
+            <div class="navbar" id="navbar-collapse collapse" style="margin-top: 6px; margin-bottom: 4px;">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                    <li><a href="{{ url_for('main.community') }}">Community</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shopping <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('main.shop', shopname='Spar') }}">Spar</a></li>
+                            <li><a href="{{ url_for('main.shop', shopname='Pink n Pay') }}">Pick 'n Pay</a></li>
+                            <li><a href="{{ url_for('main.shop', shopname='Checkers') }}">Checkers</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                                        
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="margin-bottom: -20px; margin-top: -1px;">
+                    <li><nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                        <form class="form-inline" action="/action_page.php">
+                          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                          <button class="btn btn-success" type="submit">Search</button>
+                        </form>
+                      </nav></li>
+                    {% if current_user.is_anonymous %}
+                    <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profile</a></li>
+                    <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+{% endblock %}
+
+{% block content %}
+{% block app_content %}{% endblock %}
+<div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {# application content needs to be provided in the app_content block #}
+        
+        
+</div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+{% endblock %}
+
+{% endblock %}

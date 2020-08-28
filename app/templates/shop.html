@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+<div class="container">
+    <div class="jumbotron" style="border-left-width: 60px; border-right-width: 60px;">
+        <h1>HomeShop</h1>
+        <p class="lead">To acces the Shops and buy all you groceries with just a click away</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+      </div>
+</div>
+<div class="container">
+
+    <div class="row">
+      {% for product in products %}
+      <div class="col-md-4">        
+        <div class="card mb-4 shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="85%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="85%" height="85%" fill="#55595c"></rect></svg>
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <form action="{{ url_for('main.checkout') }}">
+                  {{ form.hidden_tag() }}
+                  {{ form.check_out(class_='btn btn-default') }} {{ form.add_card(class_='btn btn-default') }} 
+                </form> 
+                <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>    
+  </div>
+{% endblock %}
