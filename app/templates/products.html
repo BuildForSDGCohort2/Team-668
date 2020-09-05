@@ -1,0 +1,72 @@
+{% extends "base2.html" %}
+
+{% block app_content %}
+<div class="container">
+    <div class="jumbotron" style="width: 100%; min-width: 998px;">
+        <h1>HomeShop</h1>
+        <p class="lead">To acces the Shops and buy all you groceries with just a click away</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+      </div>
+</div>
+<div class="container" style="width: 100%;min-width: 998px;">
+    <div class="row" style="width: 100%;">
+      <div class="col-sm-9" style="width: 100%;"><h1 style="text-align: center; margin-top: 0px;
+        margin-bottom: 0px;">Happy Grocery Shopping</h1>
+        <div class="row" style="width: 100%; margin-left: 15px;">
+          <div class="col-8 col-sm-6" style="float: left;width: 15%;margin-left: 25px; margin-top: 30px;          ">
+            <div class="categories"><h4>Categories</h4></div>
+            <div class="category-item"><ul style="
+    padding: 0;
+    margin: 0;
+    color: #111;
+"><li style="
+    margin: 0 0 0px;
+    list-style-type: none;
+    white-space: nowrap;
+    list-style: none;
+    font-size: medium;
+">Bread</li><li style="
+    margin: 0 0 0px;
+    list-style-type: none;
+    white-space: nowrap;
+    list-style: none;
+    font-size: medium;
+">Bread</li><li style="
+    margin: 0 0 0px;
+    list-style-type: none;
+    white-space: nowrap;
+    list-style: none;
+    font-size: medium;
+">Bread</li></ul></div>
+          </div>
+          <div class="col-4 col-sm-6" style="width: 82%;float: right;min-width: 70%;">
+      <div class="heading">
+      <h4> <b>Goceries</b> </h4>
+      <p>All your groceries can be found in the Aisles, Household, Personal Care, Breakfast, Beverages, etc...</p>
+  </div>
+        {% for product in products %}
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4" style="width: 200px;">
+                      <div class="card h-100" style="margin-bottom: 7px;
+                      ">                        
+                          <div class="card-img-top" style="background: url('../static/images/item.jpg');background-repeat:no-repeat;background-size: cover;height: 125px;width:100%;background-position: center;">
+                          </div>                        
+                          <div class="card-body" style="width: 180px;">
+                              <h5 class="card-title">Sergio</h5>
+                              <p class="card-text">Details</p>
+                              
+                                {{ form.hidden_tag() }}
+                                <input id="add_card" name="add_card" type="submit" value="Add To Card" style="border: 1px solid #ddd;">
+                                <a href="/checkout" style="border: 1px solid #ddd;"><input id="check_out" name="check_out" type="submit" value="Check Out" style="border: 1px solid #ddd;"></a>
+                          </div>
+                          <div class="card-footer">
+                              <small class="text-muted"></small>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

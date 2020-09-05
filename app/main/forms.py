@@ -39,9 +39,12 @@ class OrdersForm(FlaskForm):
     order_place = StringField('', validators=[Length(min=1), DataRequired()],
                               render_kw={'placeholder': 'Order Place'})
 
+QUANTITY_CHOICES = [(i, str(i)) for i in range(1,30)]
+
 class ProductForm(FlaskForm):
     add_card = SubmitField('Add To Card')
     check_out = SubmitField('Check Out')
+    quantity = SelectField('Quantity', validators=[DataRequired()], choices=QUANTITY_CHOICES)
 
 class RetailStoreForm(FlaskForm):
     submin = SubmitField('Enter')

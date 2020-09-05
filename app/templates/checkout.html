@@ -1,12 +1,370 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 
 {% block app_content %}
 <div class="container">
-    <div class="jumbotron" style="border-left-width: 60px; border-right-width: 60px;">
-        <h1>HomeShop</h1>
-        <p class="lead">To acces the Shops and buy all you groceries with just a click away</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
+  <div class="py-5 text-center" style="
+    padding-bottom: 3rem!important;
+    padding-top: 3rem!important;
+">
+    <img class="d-block mx-auto mb-4" src="../static/images/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h2>Checkout form</h2>
+    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
   </div>
 
+  <div class="row" style="
+    display: flex;
+    flex-wrap: wrap;
+">
+    <div class="col-md-4 order-md-2 mb-4" style="
+    margin-bottom: 1.5rem!important;
+    order: 2;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    width: 100%;
+">
+      <h4 class="d-flex justify-content-between align-items-center mb-3" style="
+    margin-top: 0px;
+    margin-bottom: 1rem!important;
+    align-items: center!important;
+    justify-content: space-between!important;
+    display: flex!important;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+">
+        <span class="text-muted" style="
+    color: #6c757d!important;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+">Your Cart</span>
+        <span class="badge badge-secondary badge-pill" style="
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 9rem;
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+">3</span>
+      </h4>
+      <ul class="list-group mb-3" style="
+    margin-bottom: 1rem!important;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    border-radius: .25rem;
+    margin-top: 4px;
+">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0" style="
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 20px;
+">Product name</h6>
+            <small class="text-muted" style="
+    font-size: 16px;
+">Brief description</small>
+          </div>
+          <span class="text-muted">$12</span>
+        </li>
+        
+        
+        
+        <li class="list-group-item d-flex justify-content-between" style="
+    font-size: 20px;
+">
+          <span>Total (USD)</span>
+          <strong>$20</strong>
+        </li>
+      </ul>
+
+      
+    </div>
+    <div class="col-md-8 order-md-1" style="
+    order: 1;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+    width: 100%;
+">
+      <h4 class="mb-3" style="
+    margin-bottom: 1rem!important;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 0;
+">Billing address</h4>
+      <form class="needs-validation" novalidate="">
+        <div class="row" style="
+    display: flex;
+    flex-wrap: wrap;
+">
+          <div class="col-md-6 mb-3" style="
+    margin-bottom: 1rem!important;
+    flex: 0 0 50%;
+    max-width: 50%;
+    width: 100%;
+">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="" style="
+    display: block;
+    width: 100%;
+">
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3" style="
+    margin-bottom: 1rem!important;
+">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="" style="
+    display: block;
+    width: 100%;
+">
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3" style="
+    margin-bottom: 1rem!important;
+    flex: 0 0 50%;
+    max-width: 100%;
+    width: 100%;
+">
+          <label for="username">Username</label>
+          <div class="input-group" style="
+    margin-bottom: 1rem!important;
+    flex: 0 0 50%;
+    max-width: 50%;
+    width: 100%;
+">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input type="text" class="form-control" id="username" placeholder="Username" required="">
+            
+          </div>
+        </div>
+
+        <div class="mb-3" style="
+    margin-bottom: 1rem!important;
+    flex: 0 0 50%;
+    max-width: 100%;
+    width: 100%;
+">
+          <label for="email">Email <span class="text-muted">(Optional)</span></label>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          
+        </div>
+
+        <div class="mb-3" style="
+    margin-bottom: 1rem!important;
+    flex: 0 0 50%;
+    max-width: 100%;
+    width: 100%;
+">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+          
+        </div>
+
+        <div class="mb-3" style="
+    margin-bottom: 1rem!important;
+    flex: 0 0 50%;
+    max-width: 100%;
+    width: 100%;
+">
+          <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+        </div>
+
+        <div class="row" style="display: flex;">
+          <div class="col-md-5 mb-3" style="
+    margin-bottom: 1rem!important;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+    width: 100%;
+">
+            <label for="country">Country</label>
+            <select class="custom-select d-block w-100" id="country" required="" style="
+    width: 100%!important;
+    display: block!important;
+    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    height: calc(2.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    appearance: none;">
+              <option value="">Choose...</option>
+              <option>United States</option>
+            </select>
+            
+          <div class="invalid-feedback" style="
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+">
+              Please select a valid country.
+            </div></div>
+          <div class="col-md-4 mb-3" style="
+    margin-bottom: 1rem!important;
+    width: 100%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+">
+            <label for="state">State</label>
+            <select class="custom-select d-block w-100" id="state" required="" style="
+    width: 100%!important;
+    display: block!important;
+    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    height: calc(2.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    appearance: none;
+">
+              <option value="">Choose...</option>
+              <option>California</option>
+            </select>
+            <div class="invalid-feedback" style="
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+">
+              Please provide a valid state.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3" style="
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin-bottom: 1rem!important;
+    width: 100%;
+">
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" id="zip" placeholder="" required="" style="
+    width: 100%!important;
+    display: block!important;
+    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    height: calc(2.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    appearance: none;
+">
+            <div class="invalid-feedback" style="
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+">
+              Zip code required.
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="same-address">
+          <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="save-info">
+          <label class="custom-control-label" for="save-info">Save this information for next time</label>
+        </div>
+        <hr class="mb-4">
+
+        <h4 class="mb-3">Payment</h4>
+
+        <div class="d-block my-3" style="
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+">
+          <div class="custom-control custom-radio">
+            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+            <label class="custom-control-label" for="credit">Credit card</label>
+          </div>
+          
+          <div class="custom-control custom-radio">
+            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="paypal">PayPal</label>
+          </div>
+        </div>
+        <div class="row" style="
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+">
+          <div class="col-md-6 mb-3">
+            <label for="cc-name">Name on card</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+            <small class="text-muted">Full name as displayed on card</small>
+            <div class="invalid-feedback">
+              Name on card is required
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cc-number">Credit card number</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+            <div class="invalid-feedback">
+              Credit card number is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="cc-expiration">Expiration</label>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+            <div class="invalid-feedback">
+              Expiration date required
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="cc-cvv">CVV</label>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+            <div class="invalid-feedback">
+              Security code required
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2017-2020 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>
 {% endblock %}

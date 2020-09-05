@@ -1,4 +1,4 @@
-2020-08-27 10:33:03,278 ERROR: Exception on /shop/Checkers [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-03 08:58:18,716 ERROR: Exception on /shop/Spar [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,8 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 119, in shop
-    return render_template('shop.html', products=products, form=form)
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\main\routes.py", line 127, in shop
+    return render_template('shop.html', products=products.items, form=form, next_url=next_url, prev_url=prev_url)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
     return _render(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -24,9 +24,9 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\shop.html", line 1, in top-level template code
-    {% extends 'base.html' %}
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base.html", line 1, in top-level template code
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\shop.html", line 1, in top-level template code
+    {% extends 'base2.html' %}
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
     {% block doc -%}
@@ -34,15 +34,25 @@ Traceback (most recent call last):
     {%- block html %}
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
     {% block body -%}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base.html", line 64, in block "content"
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 457, in block "body"
+    {% block content %}
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 467, in block "content"
     {% block app_content %}{% endblock %}
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\shop.html", line 22, in block "app_content"
-    {{ form.hidden_tag() }}
-jinja2.exceptions.UndefinedError: 'app.main.forms.ProductForm object' has no attribute 'hidden_tag'
-2020-08-27 10:36:34,899 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
-2020-08-27 10:36:44,976 ERROR: Exception on /shop/Checkers [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\shop.html", line 73, in block "app_content"
+    <h6><a href="{{ url_for('products') }}">Product</a></h6>
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'products'. Did you mean 'main.products' instead?
+2020-09-03 08:58:59,038 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 08:59:03,032 ERROR: Exception on /shop/Spar [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -56,8 +66,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 119, in shop
-    return render_template('shop.html', products=products, form=form)
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\main\routes.py", line 127, in shop
+    return render_template('shop.html', products=products.items, form=form, next_url=next_url, prev_url=prev_url)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
     return _render(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -68,9 +78,9 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\shop.html", line 1, in top-level template code
-    {% extends 'base.html' %}
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base.html", line 1, in top-level template code
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\shop.html", line 1, in top-level template code
+    {% extends 'base2.html' %}
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
     {% block doc -%}
@@ -78,53 +88,36 @@ Traceback (most recent call last):
     {%- block html %}
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
     {% block body -%}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\shop.html", line 22, in block "content"
-    {{ form.hidden_tag() }}
-jinja2.exceptions.UndefinedError: 'app.main.forms.ProductForm object' has no attribute 'hidden_tag'
-2020-08-27 10:38:07,308 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
-2020-08-27 10:38:13,026 ERROR: Exception on /shop/Checkers [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 119, in shop
-    return render_template('shop.html', products=products, form=form)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
-    return _render(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\shop.html", line 1, in top-level template code
-    {% extends 'base.html' %}
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base.html", line 64, in block "content"
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 457, in block "body"
+    {% block content %}
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 467, in block "content"
     {% block app_content %}{% endblock %}
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\shop.html", line 22, in block "app_content"
-    {{ form.hidden_tag() }}
-jinja2.exceptions.UndefinedError: 'app.main.forms.ProductForm object' has no attribute 'hidden_tag'
-2020-08-27 10:38:52,565 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:69]
+  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\shop.html", line 73, in block "app_content"
+    <h6><a href="{{ url_for('items') }}">Product</a></h6>
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'items'. Did you mean 'main.items' instead?
+2020-09-03 08:59:27,599 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:02:59,067 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:04:07,773 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:06:29,186 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:15:01,478 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:17:01,435 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:17:37,978 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:21:00,852 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:24:22,138 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:25:13,278 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:36:29,264 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:43:14,605 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 09:45:42,546 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 10:10:40,865 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 10:36:20,937 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-03 10:49:50,214 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]

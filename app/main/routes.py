@@ -117,9 +117,33 @@ def unfollow(username):
 @bp.route('/shop/<shopname>', methods=['GET', 'POST'])
 def shop(shopname):
     form = ProductForm()
+    page = request.args.get('page', 1, type=int)
+    products = Product.query.paginate(
+        page, current_app.config['SHOPAISLES_PER_PAGE'], False)
+    next_url = url_for('main.shop', shopname=shopname, page=products.next_num) \
+        if products.has_next else None
+    prev_url = url_for('main.shop', shopname=shopname, page=products.prev_num) \
+        if products.has_prev else None
+    return render_template('shop.html', products=products.items, form=form, next_url=next_url, prev_url=prev_url)
+
+@bp.route('/product', methods=['GET', 'POST'])
+def items():
+    form = ProductForm()
     products = Product.query.all()
-    return render_template('shop.html', products=products, form=form)
+    return render_template('products.html', products=products, form=form)
 
 @bp.route('/checkout', methods=['GET', 'POST'])
 def checkout():
     return render_template('checkout.html')
+
+@bp.route('/cart', methods=['GET', 'POST'])
+def cart():
+    return render_template('cart.html')
+
+@bp.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html')
+
+@bp.route('/contact', methods=['GET', 'POST'])
+def contact():
+    return render_template('contact.html')

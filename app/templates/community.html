@@ -1,14 +1,14 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-<div class="container">
-    <div class="jumbotron" style="border-left-width: 60px; border-right-width: 60px;">
-        <h1>HomeShop</h1>
-        <p class="lead">To acces the Shops and buy all you groceries with just a click away</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
-  </div>
+    <div class="contianer" style="
+    width: 970px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+"> 
     <h1><h1>Hi, {{ current_user.username }}!</h1></h1>
     {% if form %}
     {{ wtf.quick_form(form) }}
@@ -30,5 +30,5 @@
                 </a>
             </li>
         </ul>
-    </nav>
+    </nav></div>
 {% endblock %}
