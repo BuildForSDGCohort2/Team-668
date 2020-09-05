@@ -54,3 +54,4 @@ jinja2.exceptions.UndefinedError: 'app.auth.forms.LoginForm object' has no attri
 2020-09-04 13:22:32,761 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
 2020-09-04 13:23:59,617 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
 2020-09-05 10:33:56,665 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+2020-09-05 10:35:50,255 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
