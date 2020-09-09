@@ -3,7 +3,7 @@
 {% block app_content %}
 <div class="container">
     <div class="jumbotron" style="border-left-width: 60px; border-right-width: 60px;">
-        <h1>HomeShop</h1>
+        {% if shopname %}<h1>{{shopname}}</h1>{% else%}<h1>HomeShop</h1>{% endif %}
         <p class="lead">To acces the Shops and buy all you groceries with just a click away</p>
         <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
       </div>
@@ -14,42 +14,25 @@
       margin-bottom: 0px;">Aisles</h1>
       <div class="row" style=" width: 100%; margin-left: 15px;">
         <div class="col-8 col-sm-6" style="float: left;width: 15%;margin-left: 25px; margin-top: 30px;          ">
-          <div class="categories"><h4>Categories</h4></div>
-          <div class="category-item"><ul style="
-  padding: 0;
-  margin: 0;
-  color: #111;
-"><li style="
-  margin: 0 0 0px;
-  list-style-type: none;
-  white-space: nowrap;
-  list-style: none;
-  font-size: medium;
-">Bread</li><li style="
-  margin: 0 0 0px;
-  list-style-type: none;
-  white-space: nowrap;
-  list-style: none;
-  font-size: medium;
-">Bread</li><li style="
-  margin: 0 0 0px;
-  list-style-type: none;
-  white-space: nowrap;
-  list-style: none;
-  font-size: medium;
-">Bread</li></ul></div>
+          <div class="categories"><h3><b>Categories</b></h3></div>
+          <div class="category-item">
+            <ul style="padding: 0; margin: 0; color: #111;">
+              {% for cat in category%}
+              <li style="margin: 0 0 0px; list-style-type: none; white-space: nowrap; list-style: none; font-size: medium;">{{ cat.name }}</li>
+              {% endfor %}
+           </ul></div>
         </div>
         <div class="col-4 col-sm-6" style="width: 82%;float: right;min-width: 70%;">
     <div class="heading">
-    <h4> <b>Shopping Aisles</b> </h4>
-    <p>All your groceries can be found in the Aisles, Household, Personal Care, Breakfast, Beverages, etc...</p>
+    <h2> <b>Shopping Aisles</b> </h2>
+    <p style="font-size: 20px;">All your groceries can be found in the Aisles, Household, Personal Care, Breakfast, Beverages, etc...</p>
       </div>
       {% for product in products %}
       <div class="col-lg-3 col-md-4 col-sm-6" style="width: 250px;">
         <div class="col-mb-4" > 
-          <h6><a href="{{ url_for('main.items') }}">Aisle Name</a></h6>       
+          <h6><a href="{{ url_for('main.items', shopname=shopname) }}">Aisle Name</a></h6>       
           <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="185" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><a href="products.html"><rect width="85%" height="85%" fill="#55595c"></rect></a></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="185" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><a href="{{ url_for('main.items', shopname=shopname) }}"><rect width="85%" height="85%" fill="#55595c"></rect></a></svg>
             
           </div>
         </div>

@@ -4,7 +4,7 @@
 {% block app_content %}
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="
-    height: 500px;
+    height: 600px;
     margin-bottom: 30px; min-width: 1000px;
 ">
   <!-- Indicators -->
@@ -17,7 +17,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="../static/images/item.jpg" alt="Los Angeles" style="width:100%; height: 500px;">
+      <img src="../static/images/item.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
       <div class="container">
         <div class="carousel-caption">
           <h1>Example headline.</h1>
@@ -28,11 +28,25 @@
     </div>
 
     <div class="item">
-      <img src="../static/images/item.jpg" alt="Chicago" style="width:100%; height: 500px;">
+      <img src="../static/images/item3.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Example headline.</h1>
+          <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+        </div>
+      </div>
     </div>
   
     <div class="item">
-      <img src="../static/images/item.jpg" alt="New york" style="width:100%; height: 500px;">
+      <img src="../static/images/item2.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Example headline.</h1>
+          <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -56,13 +70,13 @@ height: 150px;;">
   <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
 </span></li><!-- /.col-lg-4 -->
 <li class="feed-carousel-card" aria-posinset="2" aria-hidden="false" role="listitem" style="display: inline-block;max-width: 210px;max-height: 150px;" aria-setsize="6"><span class="a-list-item">
-  <img class="w3-round" src="../static/images/item.jpg" alt="Generic placeholder image" width="300" height="200" style="width: 200px;height: 150px;">
+  <img class="w3-round" src="../static/images/item2.jpg" alt="Generic placeholder image" width="300" height="200" style="width: 200px;height: 150px;">
   <h2>Specials!!!</h2>
   <p>Spcial come here</p>
   <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
 </span></li><!-- /.col-lg-4 -->
 <li class="feed-carousel-card" aria-posinset="3" aria-hidden="false" role="listitem" style="display: inline-block;max-width: 210px;max-height: 150px;" aria-setsize="6"><span class="a-list-item">
-  <img class="w3-round" src="../static/images/item.jpg" alt="Generic placeholder image" width="300" height="200" style="width: 200px;height: 150px;">
+  <img class="w3-round" src="../static/images/item4.jpg" alt="Generic placeholder image" width="300" height="200" style="width: 200px;height: 150px;">
   <h2>Specials!!!</h2>
   <p>Special come here</p>
   <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
@@ -74,7 +88,7 @@ height: 150px;;">
   <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
 </span></li>
   <li class="feed-carousel-card" aria-posinset="5" aria-hidden="false" role="listitem" style="display: inline-block;max-width: 210px;max-height: 150px;position: relative;" aria-setsize="6"><span class="a-list-item">
-  <img class="w3-round" src="../static/images/item.jpg" alt="Generic placeholder image" width="300" height="200" style="
+  <img class="w3-round" src="../static/images/item2.jpg" alt="Generic placeholder image" width="300" height="200" style="
 width: 200px;
 height: 150px;
 ">
@@ -84,15 +98,15 @@ height: 150px;
 </span></li>
 </ul></div></div>
 
-<div class="container marketing" style="min-width: 1000px;">
+<div class="container marketing" style="width: 95%;">
   <!-- Three columns of text below the carousel -->
   
   <!-- START THE FEATURETTES -->
 
   <hr class="featurette-divider">
-
+  {% for str in store %}
   <div class="row featurette">
-    <div class="col-md-7">
+    <div class="col-md-7" style="width: 40%">
       <h2 class="featurette-heading">Spar<br> <span class="text-muted">It'll blow your mind.</span></h2>
       <p class="lead">To just be able to shop all your Groceries at your favourite shop Spar, from the comfort of you Home</p>
       <br><br>
@@ -100,35 +114,13 @@ height: 150px;
         {{ form.hidden_tag() }}
         {{ form.submin(class_='btn btn-default') }} 
       </form></div>
-      <div class="col-md-5">
+      <div class="col-md-5" style="width: 60%;">
         <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="../static/images/item.jpg" data-holder-rendered="true">
       </div>        
   </div>
+  {% endfor %}
 
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
-    <div class="col-md-7 col-md-push-5">
-      <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-    <div class="col-md-5 col-md-pull-7">
-      <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="../static/images/item.jpg" data-holder-rendered="true">
-      </div>
-  </div>
-
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="../static/images/item.jpg" data-holder-rendered="true">
-      </div>
-  </div>
-
+  
   <hr class="featurette-divider">
 
  

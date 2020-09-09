@@ -12,7 +12,7 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['your-email@example.com']
     POSTS_PER_PAGE = 3
-    SHOPAISLES_PER_PAGE = 10
+    SHOPAISLES_PER_PAGE = 30
     PRODUCTS_PER_PAGE = 3
     UPLOAD_FOLDER = '/app/static/uploads'
     ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}

@@ -19,7 +19,6 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     followed = db.relationship(
@@ -27,7 +26,7 @@ class User(UserMixin, db.Model):
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
-    order = db.relationship('Order', backref='order', lazy='dynamic')
+    posts = db.relationship('Post', backref='author', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -91,34 +90,56 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 
-class Order(db.Model):
+class CustomerOrderDetails(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    pname = db.Column(db.String(64), index=True)
-    qauntity = db.Column(db.Integer)
-    uid = db.Column(db.Integer, db.ForeignKey('user.id'))
-    odate = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    ddate = db.Column(db.DateTime, nullable=True)
+    first_name = db.Column(db.String(64), index=True)
+    last_name = db.Column(db.String(64)) 
+    email = db.Column(db.String(64)) 
+    address = db.Column(db.String(64)) 
+    city = db.Column(db.String(64))
     mobile = db.Column(db.Integer)
-    prize = db.Column(db.Integer)
-
-    # define CRUD operationmethods
+    odate = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    order_item = db.relationship('OrderItem', backref='client', lazy=True)
     
     def __repr__(self):
-        return '<Order {}>'.format(self.pname)
+        return '<Customer order details: {}>'.format(self.first_name)
+
+class OrderItem(db.Model):
+    id= db.Column(db.Integer, primary_key=True)
+    order_client = db.Column(db.Integer, db.ForeignKey('customer_order_details.id'))
+    product = db.Column(db.Integer, db.ForeignKey('product.id'))
+    prize = db.Column(db.Float)
+    quantity = db.Column(db.Integer)
+    purchase_date = db.Column(db.DateTime, default=datetime.utcnow)
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.Integer, db.ForeignKey('category.id'))
     pname = db.Column(db.String(64), index=True)
-    prize = db.Column(db.Integer)
-    availabilty = db.Column(db.Integer)
-    category = db.Column(db.String(64))
-    item = db.Column(db.String(64))
-    picture = db.Column(db.Text)
     description = db.Column(db.String(140))
-    date = db.Column(db.DateTime, index=True, default=datetime.utcnow)    
+    prize = db.Column(db.Float)
+    availabilty = db.Column(db.Integer)
+    picture = db.Column(db.Text)
+    store_id = db.Column(db.Integer, db.ForeignKey('retail_stores.id')) 
+    order = db.relationship('OrderItem', backref='item', lazy=True)  
 
     def __repr__(self):
         return '<Product {}>'.format(self.pname) 
+
+class RetailStores(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    store_name = db.Column(db.String(64), nullable=False)
+    categoryrel = db.relationship('Category', backref='rstore', lazy=True)
+    productsrel = db.relationship('Product', backref='store', lazy=True)
+
+    def __repr__(self):
+        return '{}'.format(self.store_name) 
+
+class Category(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), index=True)
+    store_id = db.Column(db.Integer, db.ForeignKey('retail_stores.id'))
+    product_items = db.relationship('Product', backref='catdetails', lazy=True)
 
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -130,9 +151,7 @@ class Admin(db.Model):
     def __repr__(self):
         return '<Admin {}>'.format(self.fname) 
 
-class RetailStores(db.Model):
+class Supervisor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    store_name = db.Column(db.String(64), nullable=False)
+    fname = db.Column(db.String(64), index=True)
 
-    def __repr__(self):
-        return '{}'.format(self.store_name) 

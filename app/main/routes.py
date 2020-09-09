@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request, g, current
 from flask_login import current_user, login_required
 from app import db
 from app.main.forms import EditProfileForm, EmptyForm, PostForm, OrdersForm, ProductForm, RetailStoreForm
-from app.models import User, Post, Product, RetailStores
+from app.models import User, Post, Product, RetailStores, Category
 from app.main import bp
 
 @bp.before_request
@@ -120,17 +120,19 @@ def shop(shopname):
     page = request.args.get('page', 1, type=int)
     products = Product.query.paginate(
         page, current_app.config['SHOPAISLES_PER_PAGE'], False)
+    category = Category.query.all()
     next_url = url_for('main.shop', shopname=shopname, page=products.next_num) \
         if products.has_next else None
     prev_url = url_for('main.shop', shopname=shopname, page=products.prev_num) \
         if products.has_prev else None
-    return render_template('shop.html', products=products.items, form=form, next_url=next_url, prev_url=prev_url)
+    return render_template('shop.html', products=products.items, form=form, next_url=next_url, prev_url=prev_url, category=category, shopname=shopname)
 
-@bp.route('/product', methods=['GET', 'POST'])
-def items():
+@bp.route('/shop/<shopname>/product', methods=['GET', 'POST'])
+def items(shopname):
     form = ProductForm()
-    products = Product.query.all()
-    return render_template('products.html', products=products, form=form)
+    product = Product.query.all()
+    category = Category.query.all()
+    return render_template('products.html', product=product, form=form, category=category, shopname=shopname)
 
 @bp.route('/checkout', methods=['GET', 'POST'])
 def checkout():
