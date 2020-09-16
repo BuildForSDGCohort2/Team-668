@@ -23,11 +23,13 @@
                 {% endfor %}
               </ul></div>
           </div>
-          <div class="col-4 col-sm-6" style="width: 80%;float: right;min-width: 70%;">
+  <div class="col-4 col-sm-6" style="width: 80%;float: right;min-width: 70%; border-left: 1px solid #ddd;
+  border-width: 3px;
+  height: 100%;">
       <div class="heading">
       <h2> <b>Goceries</b> </h2>
       <p style="font-size: 20px;">All your groceries can be found in the Aisles, Household, Personal Care, Breakfast, Beverages, etc...</p>
-  </div>
+    </div>
         {% for pro in product %}
       <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4" style="width: 200px;">
                       <div class="card h-100" style="margin-bottom: 7px;">                        
@@ -36,7 +38,7 @@
                                         </div>                        
                           <div class="card-body" style="width: 180px;">
                               <h5 class="card-title">{{ pro.name }}</h5>
-                              <p class="card-text">{{pro.description}}</p> 
+                              <p class="card-text"><a href="{{url_for('main.singleitem', id=pro.id, shopname=shopname)}}">{{pro.description}}</a></p> 
                               <p>Price: N${{pro.prize}}</p>
                               
                                 {{ form.hidden_tag() }}

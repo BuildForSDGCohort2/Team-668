@@ -2,37 +2,269 @@
 
 {% block app_content %}
 
-  <div class="contianer" style="width: 970px; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;"> 
-    <table class="table table-hover">
-        <tr>
-            <td width="256px"><img src="{{ user.avatar(256) }}"></td>
-            <td>
-                <h1>User: {{ user.username }}</h1>
-                {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
-                {% if user.last_seen %}
-                <p>Last seen on: {{ moment(user.last_seen).format('LLL') }}</p>
-                {% endif %}
-                <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
-                {% if user == current_user %}
-                <p><a href="{{ url_for('main.edit_profile') }}">Edit your profile</a></p>
-                {% elif not current_user.is_following(user) %}
-                <p>
-                    <form action="{{ url_for('main.follow', username=user.username) }}" method="post">
-                        {{ form.hidden_tag() }}
-                        {{ form.submit(value='Follow', class_='btn btn-default') }}
-                    </form>
-                </p>
-                {% else %}
-                <p>
-                    <form action="{{ url_for('main.unfollow', username=user.username) }}" method="post">
-                        {{ form.hidden_tag() }}
-                        {{ form.submit(value='Unfollow', class_='btn btn-default') }}
-                    </form>
-                </p>
-                {% endif %}
-            </td>
-        </tr>
-    </table>
+  <div class="contianer" style="width: 95%; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;margin-top: 50px;"> 
+    <div class="main-agileits" style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+">
+		<div class="inner-w3-agile" style="
+    max-width: 1000px; min-width: 95%;
+    margin: 0 5vw;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+">
+			<!-- left section -->
+			<div class="left-section" style="
+    -webkit-flex-basis: 50%;
+    background: url({{ user.avatar(256) }})no-repeat 0px 0px;
+    -webkit-background-size: cover;
+">
+				<div class="left-btns" style="
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+">
+					<a href="#" class="btn1" style="
+    border-right: 3px solid #fff;
+    -webkit-flex-basis: 50%;
+    text-align: center;
+    padding: 1em 0em;
+    bottom: 0;
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: rgba(0, 0, 0, 0.78);
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+">
+						<i class="fas fa-user-plus"></i>Follow</a>
+					<a href="#" class="btn2" style="
+  -webkit-flex-basis: 50%;
+  text-align: center;
+  padding: 1em 0em;
+  bottom: 0;
+  display: block;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: rgba(0, 0, 0, 0.78);
+  font: inherit;
+  vertical-align: baseline;
+  border: 0;
+  margin: 0;
+">
+						<i class="far fa-envelope"></i>Message</a>
+				</div>
+			</div>
+			<!-- //left section -->
+			<!-- right section -->
+			<div class="right-w3-agile" style="
+    -webkit-flex-basis: 50%;
+    background: #ffffff;
+    box-shadow: 0 6px 43px 0 rgba(0, 0, 0, 0.4);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+">
+				<div class="right-info" style="
+    padding: 3em 2em;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+">
+					<h2 style="
+    color: #000;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+">{{ user.username }}</h2>
+					<span class="designation" style="
+    display: block;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #949292;
+    margin: 6px 0px 10px;
+">Creative designer</span>
+					<p class="para-wthree" style="
+    color: #717171;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    line-height: 31px;
+"><span class="designation" style="
+display: block;
+font-size: 13px;
+letter-spacing: 4px;
+color: #949292;
+margin: 6px 0px 10px;
+">{% if user.last_seen %}<p>Last seen on: {{ moment(user.last_seen).format('LLL') }}</p>
+{% endif %}</span>
+						<a href="mailto:example@mail.com">mail@example.com</a>
+					</p>
+					<p class="para-wthree" style="
+    color: #717171;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    line-height: 31px;">{% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}</p>
+
+<div>
+    {% if user == current_user %}
+    <p><a href="{{ url_for('main.edit_profile') }}">Edit your profile</a></p>
+
+    {% elif not current_user.is_following(user) %}
+    <p>
+        <form action="{{ url_for('main.follow', username=user.username) }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ form.submit(value='Follow', class_='btn btn-default') }}
+        </form>
+    </p>
+    {% else %}
+    <p>
+        <form action="{{ url_for('main.unfollow', username=user.username) }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ form.submit(value='Unfollow', class_='btn btn-default') }}
+        </form>
+    </p>
+    {% endif %}</div>
+					<div class="social-w3layouts" style="
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+">
+	<ul style="list-style: none; margin: 0px; padding: 0px;">
+		<li style="display: inline-block;">
+			<a class="icon fb" href="#" style="
+    background: #6788ce;
+    color: #656565;
+    transition: .5s all;
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+">
+                              <i class="fa fa-facebook" style="
+    color: #fff;
+    line-height: 34px;
+    font-size: 1em;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    padding: 0;
+"></i>
+                          </a>
+							</li>
+							<li style="
+    display: inline-block;
+">
+								<a href="#" style="
+    background: #1da1f2;
+    color: #656565;
+    transition: .5s all;
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+">
+									<i class="fa fa-twitter" style="
+    color: #fff;
+    line-height: 34px;
+    font-size: 1em;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    padding: 0;
+"></i>
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="right-grids-w3-agileits" style="
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: -webkit-flex;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+">
+					
+					<div class="grids g2" style="
+    background: rgba(255, 102, 208, 0.73);
+    -webkit-flex-basis: 50%;
+    padding: 1.5em 0em;
+">
+						<h6 style="
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px #8c8c8c;
+">
+							<span style="
+    display: block;
+    font-size: 33px;
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+">{{ user.followers.count() }}</span>Followers</h6>
+					</div>
+					<div class="grids g3" style="
+    background: burlywood;
+    -webkit-flex-basis: 50%;
+    padding: 1.5em 0em;
+">
+						<h6 style="
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px #8c8c8c;
+">
+							<span style="
+    display: block;
+    font-size: 33px;
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+">{{ user.followed.count() }}</span>Following</h6>
+					</div>
+				</div>
+			</div>
+			<!-- //right section -->
+		</div>
+	</div>
+    <hr>
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}

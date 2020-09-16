@@ -1,17 +1,4 @@
-2020-09-09 10:36:39,332 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:37:31,112 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:38:19,095 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:39:03,809 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:39:35,063 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:41:10,119 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:41:32,959 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:54:18,318 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 11:00:30,448 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 11:03:13,578 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 11:13:19,252 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 11:17:38,662 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 11:29:17,847 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 11:29:22,660 ERROR: Exception on /shop/Spar [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-15 14:41:16,381 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -25,26 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 120, in shop
-    spar = request.path('Spar')
-TypeError: 'str' object is not callable
-2020-09-09 11:40:46,010 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 11:40:52,971 ERROR: Exception on /shop/Spar [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 128, in shop
-    return render_template('shop.html', products=products.items, form=form, next_url=next_url, prev_url=prev_url, category=category)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 193, in cart
+    return render_template('cart.html')
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 138, in render_template
     ctx.app.jinja_env.get_or_select_template(template_name_or_list),
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
@@ -61,17 +30,11 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\shop.html", line 6, in template
-    {% if {{url_for('main.shop', shopname='Spar')}} %}<h1>Spar</h1>{% else%}<h1>HomeShop</h1>{% endif %}
-jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
-2020-09-09 11:45:21,949 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 11:46:06,922 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 13:59:34,626 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 14:06:38,821 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 14:08:45,613 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 14:12:04,104 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 14:15:48,685 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 14:15:50,913 ERROR: Exception on / [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\cart.html", line 107, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2020-09-15 14:41:45,796 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:41:48,195 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -85,28 +48,68 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 21, in index
-    return render_template('index.html', title='Home', store=store, form=form)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\loaders.py", line 127, in load
-    code = environment.compile(source, name, filename)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 638, in compile
-    self.handle_exception(source=source_hint)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 193, in cart
+    return render_template('cart.html')
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\index.html", line 121, in template
-    {% end for %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'end'. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
-2020-09-09 14:16:12,649 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 14:29:55,025 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 14:41:39,135 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 14:46:39,244 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\cart.html", line 1, in top-level template code
+    {% extends "base2.html" %}
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base2.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base2.html", line 477, in block "body"
+    {% block content %}
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base2.html", line 487, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\cart.html", line 64, in block "app_content"
+    {% for pro in session['Shoppingcart'].item() %}
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'item'
+2020-09-15 14:42:47,469 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:45:36,553 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:47:16,552 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:49:25,478 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:50:05,543 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:52:04,351 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:54:21,886 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:02:52,885 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:08:50,032 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:10:16,298 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:20:50,925 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:22:44,294 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:25:19,710 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:26:48,896 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:28:04,726 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:28:58,515 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:30:10,654 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:31:32,115 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:32:46,321 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:34:34,846 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:36:22,509 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:37:49,022 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:43:29,245 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:47:58,487 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:48:39,784 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:49:03,969 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:49:33,836 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 15:56:29,969 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 16:03:06,187 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 17:38:08,101 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 17:41:02,808 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 17:47:45,147 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 22:05:40,003 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:81]
+2020-09-16 07:43:07,716 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:81]
+2020-09-16 07:44:33,172 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:81]
+2020-09-16 07:55:43,408 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:81]

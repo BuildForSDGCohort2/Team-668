@@ -1,7 +1,7 @@
 from flask import request
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField,TextAreaField, SelectField
-from wtforms.validators import ValidationError, DataRequired, Length
+from wtforms import StringField, SubmitField,TextAreaField, SelectField, BooleanField, IntegerField, DecimalField
+from wtforms.validators import ValidationError, DataRequired, Length, Email
 from app.models import User
 import sqlite3
 
@@ -24,10 +24,30 @@ class EditProfileForm(FlaskForm):
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
 
-
 class PostForm(FlaskForm):
     post = TextAreaField('Say something', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+
+class CheckoutForm(FlaskForm):
+    first_name = StringField('First Name', validators=[DataRequired()])
+    last_name = StringField('Last Name', validators=[DataRequired()])
+    email = StringField('Email Address', validators=[DataRequired(), Email()])
+    address = StringField('Address', validators=[DataRequired()])
+    city = StringField('City', validators=[DataRequired()])
+    mobile = IntegerField('Moble Number', validators=[DataRequired()])
+    ship_address = BooleanField('Shipping address is the same as billing address')
+    remeber_details = BooleanField('Remember details for next order')
+    proceed = SubmitField('Proceed to Payment')
+
+QUANTITY_CHOICES = [(i, str(i)) for i in range(1,30)]
+
+class ProductForm(FlaskForm):
+    title = StringField('')
+    add_card = SubmitField('Add To Card')
+    check_out = SubmitField('Check Out')
+    quantity = SelectField('Quantity', validators=[DataRequired()], choices=QUANTITY_CHOICES)
+
 
 class OrdersForm(FlaskForm):
     name = StringField('', validators=[Length(min=1), DataRequired()],
@@ -35,16 +55,24 @@ class OrdersForm(FlaskForm):
     mobile_num = StringField('', validators=[Length(min=1), DataRequired()],
                              render_kw={'autofocus': True, 'placeholder': 'Mobile'})
     quantity = SelectField('', validators=[DataRequired()],
-                           choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')])
+                           choices=QUANTITY_CHOICES)
     order_place = StringField('', validators=[Length(min=1), DataRequired()],
                               render_kw={'placeholder': 'Order Place'})
 
-QUANTITY_CHOICES = [(i, str(i)) for i in range(1,30)]
-
-class ProductForm(FlaskForm):
-    add_card = SubmitField('Add To Card')
-    check_out = SubmitField('Check Out')
-    quantity = SelectField('Quantity', validators=[DataRequired()], choices=QUANTITY_CHOICES)
-
 class RetailStoreForm(FlaskForm):
     submin = SubmitField('Enter')
+
+
+class Products(FlaskForm):
+    category = StringField('Category')
+    pname = StringField('Product Name')
+    description = StringField('Decription')
+    prize = DecimalField('Prize')
+    availability = BooleanField('Availabile')
+    picture = StringField('Picture')
+    store_id = IntegerField('Store ID')
+    submit = SubmitField('Add Product')
+
+class Categories(FlaskForm):
+    name = StringField('Category Name')
+    store_id = IntegerField('Store ID')

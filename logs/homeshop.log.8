@@ -1,4 +1,4 @@
-2020-09-03 08:48:33,610 ERROR: Exception on /shop/Spar [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-14 09:46:12,768 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,34 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\main\routes.py", line 127, in shop
-    return render_template('shop.html', products=products.items, form=form, next_url=next_url, prev_url=prev_url)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
-    return _render(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\shop.html", line 1, in top-level template code
-    {% extends 'base2.html' %}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 457, in block "body"
-    {% block content %}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 467, in block "content"
-    {% block app_content %}{% endblock %}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\shop.html", line 73, in block "app_content"
-    <h6><a href="{{ url_for('main.products') }}">Product</a></h6>
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 87, in admin_login
+    return redirect(url_for('main.admin'))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
     return appctx.app.handle_url_build_error(error, endpoint, values)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
@@ -50,11 +24,9 @@ Traceback (most recent call last):
     rv = url_adapter.build(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2179, in build
     raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.products'. Did you forget to specify values ['shopname']?
-2020-09-03 08:53:01,720 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 08:55:54,980 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 08:57:46,035 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 08:57:51,195 ERROR: Exception on /shop/Spar [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.admin'. Did you mean 'main.payment' instead?
+2020-09-14 09:47:22,963 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-14 09:47:31,413 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -68,25 +40,76 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\main\routes.py", line 127, in shop
-    return render_template('shop.html', products=products.items, form=form, next_url=next_url, prev_url=prev_url)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\loaders.py", line 127, in load
-    code = environment.compile(source, name, filename)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 638, in compile
-    self.handle_exception(source=source_hint)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\shop.html", line 81, in template
-    <script type="text/javascript">if (typeof uex == 'function') uex('ld', 'acsux-widgets_category-tiles-softlines_merchandised-search-4', {wb: 1});  // timestamp page-loaded + send the metrics</script>
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'function'
-2020-09-03 08:58:14,277 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 87, in admin_login
+    login_user(user, remember=form.remember_me.data)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 166, in login_user
+    if not force and not user.is_active:
+AttributeError: 'Admin' object has no attribute 'is_active'
+2020-09-14 09:47:43,956 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-14 09:47:52,838 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 87, in admin_login
+    login_user(user, remember=form.remember_me.data)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 166, in login_user
+    if not force and not user.is_active:
+AttributeError: 'Admin' object has no attribute 'is_active'
+2020-09-14 09:49:09,065 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 87, in admin_login
+    login_user(user, remember=form.remember_me.data)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 166, in login_user
+    if not force and not user.is_active:
+AttributeError: 'Admin' object has no attribute 'is_active'
+2020-09-14 09:49:23,230 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-14 09:49:31,399 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 89, in admin_login
+    next_page = url_for('main.admin_login')
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.admin_login'. Did you mean 'auth.admin_login' instead?
+2020-09-14 09:50:57,076 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]

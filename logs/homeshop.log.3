@@ -1,12 +1,4 @@
-2020-09-04 12:57:50,620 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:00:26,844 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:01:38,142 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:03:26,529 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:08:25,397 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:09:46,253 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:17:05,456 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:18:26,647 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:18:33,864 ERROR: Exception on /auth/login [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-15 10:44:29,309 ERROR: Exception on /shop/Spar/product [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -20,8 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\auth\routes.py", line 26, in login
-    return render_template('auth/login.html', title='Sign In', form=form)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 135, in items
+    return render_template('products2.html', product=product, form=form, category=category, shopname=shopname)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
     return _render(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -32,40 +24,18 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\auth\login.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 479, in block "body"
-    {% block content %}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 489, in block "content"
-    {% block app_content %}{% endblock %}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\auth\login.html", line 11, in block "app_content"
-    {{ form.hidden() }}
-jinja2.exceptions.UndefinedError: 'app.auth.forms.LoginForm object' has no attribute 'hidden'
-2020-09-04 13:19:28,123 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:19:58,408 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:22:32,761 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-04 13:23:59,617 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-05 10:33:56,665 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-05 10:35:50,255 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-09 09:18:32,591 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 09:18:51,771 ERROR: Exception on /shop/Spar [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such column: product.store_id
-
-The above exception was the direct cause of the following exception:
-
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\products2.html", line 1170, in top-level template code
+    <a href="{{url_for('main.singleitem', id=pro.id, shopname=shopname)}}">{{p.pname}}</a>
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'pro' is undefined
+2020-09-15 10:45:05,561 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 10:46:31,161 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 10:47:04,435 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 11:10:42,975 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 11:24:11,520 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 11:25:21,817 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 11:25:29,221 ERROR: Exception on /shop/Spar/product/7 [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -79,44 +49,60 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 121, in shop
-    products = Product.query.paginate(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 496, in paginate
-    items = self.limit(per_page).offset((page - 1) * per_page).all()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3346, in all
-    return list(self)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3508, in __iter__
-    return self._execute_and_instances(context)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3533, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
-    return meth(self, multiparams, params)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
-    ret = self._execute_context(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
-    self._handle_dbapi_exception(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
-    util.raise_(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
-    raise exception
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.store_id
-[SQL: SELECT product.id AS product_id, product.category AS product_category, product.pname AS product_pname, product.description AS product_description, product.prize AS product_prize, product.availabilty AS product_availabilty, product.picture AS product_picture, product.store_id AS product_store_id 
-FROM product
- LIMIT ? OFFSET ?]
-[parameters: (10, 0)]
-(Background on this error at: http://sqlalche.me/e/13/e3q8)
-2020-09-09 09:19:38,901 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 09:19:54,070 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 09:20:04,228 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 09:20:15,156 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 09:20:47,439 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:19:49,327 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:22:37,018 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:30:45,712 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-09 10:31:30,596 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 140, in singleitem
+    return render_template('singleitem.html', shopname=shopname, product=product)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\singleitem.html", line 511, in top-level template code
+    <form action="{{url_for('addtocart')}}" method="POST">
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'addtocart'. Did you mean 'main.addtocart' instead?
+2020-09-15 11:26:08,230 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 11:26:32,118 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 11:26:50,277 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 11:44:29,865 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 11:46:10,833 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 11:50:31,151 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 11:59:42,110 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:02:33,851 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:14:36,312 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:16:01,141 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:16:52,203 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:25:54,849 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:30:13,876 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:32:43,893 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:34:45,023 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:37:00,637 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:38:12,316 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:39:06,241 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:40:57,305 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 12:42:27,927 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 13:55:41,925 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 13:57:55,217 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:00:51,620 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:02:17,305 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:05:47,843 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:08:35,422 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:09:23,179 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:11:54,382 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:14:57,937 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:23:46,460 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:38:51,830 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 14:41:13,033 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]

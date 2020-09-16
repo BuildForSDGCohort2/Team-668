@@ -1,14 +1,23 @@
 {% extends "base2.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
 <div class="container">
   <div class="py-5 text-center" style="
     padding-bottom: 3rem!important;
-    padding-top: 3rem!important;
-">
-    <img class="d-block mx-auto mb-4" src="../static/images/bootstrap-solid.svg" alt="" width="72" height="72">
+    padding-top: 3rem!important;">
+    
+      <a href="#" style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;"><li style="line-height: 70px;
+        font-size: 1em;
+        width: 39px;
+        height: 75px;
+        border-radius: 50%;
+        padding: 0;
+        display: inline-block;
+        margin-right: 70px;">HS</li>
+        </a>
     <h2>Checkout form</h2>
-    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    <p class="lead">Complete you billing information and proceed to Payment and place you order to receive your Groceries</p>
   </div>
 
   <div class="row" style="
@@ -86,274 +95,56 @@
 
       
     </div>
-    <div class="col-md-8 order-md-1" style="
-    order: 1;
-    flex: 0 0 66.666667%;
-    max-width: 66.666667%;
-    width: 100%;
-">
-      <h4 class="mb-3" style="
-    margin-bottom: 1rem!important;
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1.2;
-    margin-top: 0;
-">Billing address</h4>
-      <form class="needs-validation" novalidate="">
-        <div class="row" style="
-    display: flex;
-    flex-wrap: wrap;
-">
-          <div class="col-md-6 mb-3" style="
-    margin-bottom: 1rem!important;
-    flex: 0 0 50%;
-    max-width: 50%;
-    width: 100%;
-">
-            <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="" style="
-    display: block;
-    width: 100%;
-">
-            <div class="invalid-feedback">
-              Valid first name is required.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3" style="
-    margin-bottom: 1rem!important;
-">
-            <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="" style="
-    display: block;
-    width: 100%;
-">
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
-        </div>
+    <div class="col-md-8 order-md-1" style="order: 1; flex: 0 0 66.666667%;
+    max-width: 66.666667%; width: 100%;">
 
-        <div class="mb-3" style="
-    margin-bottom: 1rem!important;
-    flex: 0 0 50%;
-    max-width: 100%;
-    width: 100%;
-">
-          <label for="username">Username</label>
-          <div class="input-group" style="
-    margin-bottom: 1rem!important;
-    flex: 0 0 50%;
-    max-width: 50%;
-    width: 100%;
-">
-            <div class="input-group-prepend">
-              <span class="input-group-text">@</span>
-            </div>
-            <input type="text" class="form-control" id="username" placeholder="Username" required="">
-            
-          </div>
-        </div>
+      <h4 class="mb-3" style="margin-bottom: 1rem!important; color: #6c757d!important;
+    font-size: 2.5rem;font-weight: 500;line-height: 1.2;
+    margin-top: 0;">Billing address</h4>
 
-        <div class="mb-3" style="
-    margin-bottom: 1rem!important;
-    flex: 0 0 50%;
-    max-width: 100%;
-    width: 100%;
-">
-          <label for="email">Email <span class="text-muted">(Optional)</span></label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
-          
-        </div>
+<form action="" method="post" class="form" role="form">
+  {{ form.csrf_token }}
+    <div class="form-group  required"><label class="control-label" for="first_name" style="font-size: 15px;">First Name</label>       
+          <input class="form-control" id="first_name" name="first_name" required="" type="text" value="">        
+  </div>
 
-        <div class="mb-3" style="
-    margin-bottom: 1rem!important;
-    flex: 0 0 50%;
-    max-width: 100%;
-    width: 100%;
-">
-          <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
-          
-        </div>
+    <div class="form-group  required" style="font-size: 15px;"><label class="control-label" for="last_name">Last Name</label>        
+          <input class="form-control" id="last_name" name="last_name" required="" type="text" value="">        
+  </div>
 
-        <div class="mb-3" style="
-    margin-bottom: 1rem!important;
-    flex: 0 0 50%;
-    max-width: 100%;
-    width: 100%;
-">
-          <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-        </div>
+    <div class="form-group  required" style="    font-size: 15px;"><label class="control-label" for="email">Email Address</label>        
+          <input class="form-control" id="email" name="email" required="" type="text" value="">        
+      </div>
 
-        <div class="row" style="display: flex;">
-          <div class="col-md-5 mb-3" style="
-    margin-bottom: 1rem!important;
-    flex: 0 0 41.666667%;
-    max-width: 41.666667%;
-    width: 100%;
-">
-            <label for="country">Country</label>
-            <select class="custom-select d-block w-100" id="country" required="" style="
-    width: 100%!important;
-    display: block!important;
-    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    height: calc(2.5em + .75rem + 2px);
-    padding: .375rem 1.75rem .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    vertical-align: middle;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    appearance: none;">
-              <option value="">Choose...</option>
-              <option>United States</option>
-            </select>
-            
-          <div class="invalid-feedback" style="
-    display: none;
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #dc3545;
-">
-              Please select a valid country.
-            </div></div>
-          <div class="col-md-4 mb-3" style="
-    margin-bottom: 1rem!important;
-    width: 100%;
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-">
-            <label for="state">State</label>
-            <select class="custom-select d-block w-100" id="state" required="" style="
-    width: 100%!important;
-    display: block!important;
-    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    height: calc(2.5em + .75rem + 2px);
-    padding: .375rem 1.75rem .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    vertical-align: middle;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    appearance: none;
-">
-              <option value="">Choose...</option>
-              <option>California</option>
-            </select>
-            <div class="invalid-feedback" style="
-    display: none;
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #dc3545;
-">
-              Please provide a valid state.
-            </div>
-          </div>
-          <div class="col-md-3 mb-3" style="
-    flex: 0 0 25%;
-    max-width: 25%;
-    margin-bottom: 1rem!important;
-    width: 100%;
-">
-            <label for="zip">Zip</label>
-            <input type="text" class="form-control" id="zip" placeholder="" required="" style="
-    width: 100%!important;
-    display: block!important;
-    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    height: calc(2.5em + .75rem + 2px);
-    padding: .375rem 1.75rem .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    vertical-align: middle;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    appearance: none;
-">
-            <div class="invalid-feedback" style="
-    display: none;
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #dc3545;
-">
-              Zip code required.
-            </div>
-          </div>
-        </div>
-        <hr class="mb-4">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="same-address">
-          <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-        </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="save-info">
-          <label class="custom-control-label" for="save-info">Save this information for next time</label>
-        </div>
-        <hr class="mb-4">
+    <div class="form-group  required" style="    font-size: 15px;"><label class="control-label" for="address">Address</label>        
+          <input class="form-control" id="address" name="address" required="" type="text" value="">        
+    </div>
 
-        <h4 class="mb-3">Payment</h4>
+    <div class="form-group  required" style="font-size: 15px;"><label class="control-label" for="city">City</label>        
+          <input class="form-control" id="city" name="city" required="" type="text" value="">        
+    </div>
 
-        <div class="d-block my-3" style="
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-">
-          <div class="custom-control custom-radio">
-            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-            <label class="custom-control-label" for="credit">Credit card</label>
-          </div>
-          
-          <div class="custom-control custom-radio">
-            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="paypal">PayPal</label>
-          </div>
-        </div>
-        <div class="row" style="
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-">
-          <div class="col-md-6 mb-3">
-            <label for="cc-name">Name on card</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-            <small class="text-muted">Full name as displayed on card</small>
-            <div class="invalid-feedback">
-              Name on card is required
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="cc-number">Credit card number</label>
-            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-            <div class="invalid-feedback">
-              Credit card number is required
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3 mb-3">
-            <label for="cc-expiration">Expiration</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-            <div class="invalid-feedback">
-              Expiration date required
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="cc-cvv">CVV</label>
-            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-            <div class="invalid-feedback">
-              Security code required
-            </div>
-          </div>
-        </div>
-        <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+    <div class="form-group  required" style="font-size: 15px;"><label class="control-label" for="mobile">Moble Number</label>        
+          <input class="form-control" id="mobile" name="mobile" required="" type="text" value="">        
+    </div>
+
+    <div class="checkbox" style="font-size: 18px;">
+      <label>
+        <input id="ship_address" name="ship_address" type="checkbox" value="y"> Shipping address is the same as billing address
+      </label>
+    </div>
+  
+    <div class="checkbox" style="margin-bottom: 10px;margin-top: 10px;font-size: 18px;">
+      <label>
+        <input id="remeber_details" name="remeber_details" type="checkbox" value="y"> Remember details for next order
+      </label>
+    </div>
+  
+    <input class="btn btn-primary btn-lg btn-block" id="proceed" name="proceed" type="submit" value="Proceed to Payment" style="
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;">
+
       </form>
     </div>
   </div>

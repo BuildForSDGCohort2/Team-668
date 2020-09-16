@@ -1,0 +1,36 @@
+{% extends "base2.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h2>Admin</h2>
+    {% if product %}
+    <h2>Product</h2>
+        <ul>
+            {% for pro in product %}
+            <li>{{pro.pname}}</li>
+            {% endfor %}
+        </ul>
+        {% if pro_form %}
+            <div class="contianer">
+            {{ wtf.quick_form(pro_form) }}</div>
+        {% endif %}
+        {% if title == 'admin' %}
+        <button><a href="{{ url_for('main.add_product') }}">Add Product</a></button>
+        {% endif %}
+    {% endif %}
+    {% if category %}
+    <h2>Category</h2>
+        <ul>
+            {% for cat in category%}
+            <li>{{cat.name}}</li>
+            {% endfor %}
+         </ul>
+         {% if cat_form %}
+            <div class="contianer">
+            {{ wtf.quick_form(cat_form) }}</div>
+            {% endif %}
+            {% if title == 'admin' %}
+            <button><a href="{{ url_for('main.add_category') }}">Add Category</a></button>
+            {% endif %} 
+    {% endif %}
+{% endblock %}

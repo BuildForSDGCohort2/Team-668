@@ -2,103 +2,79 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel" style="
-    height: 600px;
-    margin-bottom: 30px; min-width: 1000px;
-">
-  <!-- Indicators -->
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators-->
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="3" class=""></li>
   </ol>
-
-  <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="../static/images/item.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Example headline.</h1>
-          <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-        </div>
+      <div class="item active left">
+          <div class="container">
+              <div class="carousel-caption">
+                  <h3>Big
+                      <span>Save</span>
+                  </h3>
+                  <p>Get flat
+                      <span>10%</span> Cashback</p>
+                  <a class="button2" href="#">Shop Now </a>
+              </div>
+          </div>
       </div>
-    </div>
-
-    <div class="item">
-      <img src="../static/images/item3.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Example headline.</h1>
-          <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-        </div>
+      <div class="item item2 next left">
+          <div class="container">
+              <div class="carousel-caption">
+                  <h3>Healthy
+                      <span>Saving</span>
+                  </h3>
+                  <p>Get Upto
+                      <span>30%</span> Off</p>
+                  <a class="button2" href="#">Shop Now </a>
+              </div>
+          </div>
       </div>
-    </div>
-  
-    <div class="item">
-      <img src="../static/images/item2.jpg" alt="Los Angeles" style="width:100%; height: 600px;">
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Example headline.</h1>
-          <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-        </div>
+      <div class="item item3">
+          <div class="container">
+              <div class="carousel-caption">
+                  <h3>Big
+                      <span>Deal</span>
+                  </h3>
+                  <p>Get Best Offer Upto
+                      <span>20%</span>
+                  </p>
+                  <a class="button2" href="#">Shop Now </a>
+              </div>
+          </div>
       </div>
-    </div>
+      <div class="item item4">
+          <div class="container">
+              <div class="carousel-caption">
+                  <h3>Today
+                      <span>Discount</span>
+                  </h3>
+                  <p>Get Now
+                      <span>40%</span> Discount</p>
+                  <a class="button2" href="#">Shop Now </a>
+              </div>
+          </div>
+      </div>
   </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
   </a>
 </div>
 <br>
-<div class="container" style="min-width: 1000px;"><div class="carousel-inner" style="width: 100%;" role="listbox"><ul class="a-unordered-list a-nostyle a-horizontal feed-carousel-shelf" role="list"><li class="feed-carousel-card" aria-posinset="1" aria-hidden="false" role="listitem" style="display: inline-block;max-width: 210px;max-height: 300px;position: relative;" aria-setsize="6"><span class="a-list-item">
-  <img class="w3-round" src="../static/images/item.jpg" alt="Generic placeholder image" width="300" height="200" style="
-width: 200px;
-height: 150px;;">
-  <h2>Specials!!!</h2>
-  <p>Special come here</p>
-  <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-</span></li><!-- /.col-lg-4 -->
-<li class="feed-carousel-card" aria-posinset="2" aria-hidden="false" role="listitem" style="display: inline-block;max-width: 210px;max-height: 150px;" aria-setsize="6"><span class="a-list-item">
-  <img class="w3-round" src="../static/images/item2.jpg" alt="Generic placeholder image" width="300" height="200" style="width: 200px;height: 150px;">
-  <h2>Specials!!!</h2>
-  <p>Spcial come here</p>
-  <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-</span></li><!-- /.col-lg-4 -->
-<li class="feed-carousel-card" aria-posinset="3" aria-hidden="false" role="listitem" style="display: inline-block;max-width: 210px;max-height: 150px;" aria-setsize="6"><span class="a-list-item">
-  <img class="w3-round" src="../static/images/item4.jpg" alt="Generic placeholder image" width="300" height="200" style="width: 200px;height: 150px;">
-  <h2>Specials!!!</h2>
-  <p>Special come here</p>
-  <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-</span></li>
-<li class="feed-carousel-card" aria-posinset="3" aria-hidden="false" role="listitem" style="display: inline-block;max-width: 210px;max-height: 150px;" aria-setsize="6"><span class="a-list-item">
-  <img class="w3-round" src="../static/images/item.jpg" alt="Generic placeholder image" width="300" height="200" style="width: 200px;height: 150px;">
-  <h2>Specials!!!</h2>
-  <p>Special come here</p>
-  <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-</span></li>
-  <li class="feed-carousel-card" aria-posinset="5" aria-hidden="false" role="listitem" style="display: inline-block;max-width: 210px;max-height: 150px;position: relative;" aria-setsize="6"><span class="a-list-item">
-  <img class="w3-round" src="../static/images/item2.jpg" alt="Generic placeholder image" width="300" height="200" style="
-width: 200px;
-height: 150px;
-">
-  <h2>Specials!!!</h2>
-  <p>Special come here</p>
-  <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-</span></li>
-</ul></div></div>
 
-<div class="container marketing" style="width: 95%;">
+
+<div class="container marketing" style="width: 95%; margin-bottom: 40px;">
   <!-- Three columns of text below the carousel -->
   
   <!-- START THE FEATURETTES -->
@@ -126,6 +102,24 @@ height: 150px;
  
 
 </div><!-- /END THE FEATURETTES -->
- 
+
+<div class="footer-top">
+  <div class="container-fluid">
+      <div class="col-xs-8 agile-leftmk">
+          <h2>Get your Groceries delivered from local stores</h2>
+          <p>Free Delivery on your first order!</p>
+          <form action="#" method="post">
+            {% if current_user.is_anonymous %}<a href="{{ url_for('auth.register') }}"><input type="submit" value="Sign Up"></a>{% else %}<input type="hidden" value="Sign">{% endif %}
+          </form>
+          <div class="newsform-w3l">
+              <span class="fa fa-envelope-o" aria-hidden="true"></span>
+          </div>
+      </div>
+      <div class="col-xs-4 w3l-rightmk">
+          <img src="/static/images/tab3.png" alt=" ">
+      </div>
+      <div class="clearfix"></div>
+  </div>
+</div>
 
 {% endblock %}

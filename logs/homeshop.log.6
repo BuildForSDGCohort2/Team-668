@@ -1,10 +1,4 @@
-2020-09-03 11:34:15,789 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 11:37:27,633 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:05:07,879 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:05:21,684 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:06:29,772 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:17:18,004 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:17:22,305 ERROR: Exception on /product [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-14 14:05:52,460 ERROR: Exception on /admin/product [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -18,54 +12,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\main\routes.py", line 132, in items
-    return render_template('products2.html', products=products)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\loaders.py", line 115, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: products2.html
-2020-09-03 12:17:43,155 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:23:14,643 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:26:26,487 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:27:14,845 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:28:22,770 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:30:17,499 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:36:15,886 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:37:33,620 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 12:45:07,653 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 14:06:06,672 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 14:06:50,622 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 14:20:09,755 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 14:20:48,918 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 14:23:19,308 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 14:24:42,444 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 14:24:46,493 ERROR: Exception on /auth/login [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\auth\routes.py", line 26, in login
-    return render_template('auth/login2.html', title='Sign In', form=form)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 181, in add_product
+    return render_template('admin.html', product=product, pro_form=pro_form, title='add product')
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
     return _render(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -76,9 +26,9 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\auth\login2.html", line 2, in top-level template code
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\admin.html", line 2, in top-level template code
     {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 1, in top-level template code
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base2.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
     {% block doc -%}
@@ -86,16 +36,50 @@ Traceback (most recent call last):
     {%- block html %}
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
     {% block body -%}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 457, in block "body"
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base2.html", line 478, in block "body"
     {% block content %}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\base2.html", line 467, in block "content"
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\base2.html", line 488, in block "content"
     {% block app_content %}{% endblock %}
-  File "C:\Users\Sergio\Desktop\SDG Project\Team-668\app\templates\auth\login2.html", line 8, in block "app_content"
-    <label for="input" class="sr-only"> {{ wtf.quick_form(form.username) }}</label>
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\runtime.py", line 679, in _invoke
-    rv = self._func(*arguments)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 176, in template
-    {%- for field in form %}
-TypeError: 'StringField' object is not iterable
-2020-09-03 14:25:24,668 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
-2020-09-03 14:26:28,050 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project\Team-668\app\__init__.py:78]
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\admin.html", line 10, in block "app_content"
+    <li>{{pro[0].pname}}</li>
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: app.models.Product object has no element 0
+2020-09-14 14:15:18,242 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 10:03:42,437 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 10:04:31,147 ERROR: Exception on /shop/Spar/product/1 [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 139, in singleitem
+    product = Product.query.get_404(id)
+AttributeError: 'BaseQuery' object has no attribute 'get_404'
+2020-09-15 10:04:52,057 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+2020-09-15 10:06:47,364 ERROR: Exception on /shop/Spar/product/1 [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 139, in singleitem
+    product = Product.query.get_404(id)
+AttributeError: 'BaseQuery' object has no attribute 'get_404'
+2020-09-15 10:08:00,413 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
