@@ -3,16 +3,18 @@ from flask import render_template, flash, redirect, url_for, request, g, current
 from flask_login import current_user, login_required
 from functools import wraps
 from app import db
-from app.main.forms import EditProfileForm, EmptyForm, PostForm, OrdersForm, ProductForm, Products, RetailStoreForm, CheckoutForm, Categories
-from app.models import User, Post, Product, RetailStores, Category, CustomerOrderDetails
+from app.main.forms import EditProfileForm, EmptyForm, PostForm, OrdersForm, ProductForm, Products, RetailStoreForm, CheckoutForm, Categories, SearchForm
+from app.models import User, Post, Product, RetailStores, Category, CustomerOrderDetails, Aisles
 from app.main import bp
+from flask_babel import get_locale, _
 
-@bp.before_request
+@bp.before_app_request
 def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
-
+        g.search_form = SearchForm()
+    g.locale = str(get_locale())
 
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/index', methods=['GET', 'POST'])
@@ -63,7 +65,7 @@ def user(username):
 @login_required
 def edit_profile():
     form = EditProfileForm(current_user.username)
-    if form.validate_on_submit():
+    if form.validate_on_submit() and request.method == 'POST':
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
         db.session.commit()
@@ -119,14 +121,14 @@ def unfollow(username):
 def shop(shopname):
     form = ProductForm()
     page = request.args.get('page', 1, type=int)
-    products = Product.query.paginate(
+    aisles = Aisles.query.paginate(
         page, current_app.config['SHOPAISLES_PER_PAGE'], False)
     category = Category.query.all()
-    next_url = url_for('main.shop', shopname=shopname, page=products.next_num) \
-        if products.has_next else None
-    prev_url = url_for('main.shop', shopname=shopname, page=products.prev_num) \
-        if products.has_prev else None
-    return render_template('shop.html', products=products.items, form=form, next_url=next_url, prev_url=prev_url, category=category, shopname=shopname)
+    next_url = url_for('main.shop', shopname=shopname, page=aisles.next_num) \
+        if aisles.has_next else None
+    prev_url = url_for('main.shop', shopname=shopname, page=aisles.prev_num) \
+        if aisles.has_prev else None
+    return render_template('shop2.html', aisles=aisles.items, form=form, next_url=next_url, prev_url=prev_url, category=category, shopname=shopname)
 
 @bp.route('/shop/<shopname>/product', methods=['GET', 'POST'])
 def items(shopname):
@@ -149,7 +151,14 @@ def checkout():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('main.payment'))
-    return render_template('checkout.html', form=form)
+    if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
+        return redirect(url_for('main.index'))
+    subtotal = 0
+    total = 0
+    for key, pro in session['Shoppingcart'].items():
+        subtotal += float(pro['prize']) * int(pro['quantity'])
+        total = subtotal
+    return render_template('checkout2.html', form=form, total=total)
 
 @bp.route('/payment', methods=['POST'])
 def payment():
@@ -189,8 +198,8 @@ def addtocart():
 
 @bp.route('/cart', methods=['GET', 'POST'])
 def cart():
-    if 'Shoppingcart' not in session:
-        return redirect(request.referrer)
+    if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
+        return redirect(url_for('main.index'))
     subtotal = 0
     total = 0
     for key, pro in session['Shoppingcart'].items():
@@ -201,7 +210,7 @@ def cart():
 
 @bp.route('/updatecart/<int:code>', methods=['GET', 'POST'])
 def updatecart(code):
-    if 'Shoppingcart' not in session and len(session['Shoppingcart']) <= 0:
+    if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
         return redirect(url_for('main.index'))
     if request.method == 'POST':
         quantity = request.form.get('quantity')
@@ -216,6 +225,20 @@ def updatecart(code):
             print(e)
             return redirect(url_for('main.cart'))
 
+@bp.route('/removeitem/<int:id>')
+def removeitem(id):
+    if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
+        return redirect(url_for('main.index'))
+    try:
+        session.modified = True
+        for k, pro in session['Shoppingcart'].items():
+            if int(k) == id:
+                session['Shoppingcart'].pop(k, None)
+                return redirect(url_for('main.cart'))
+    except Exception as e:
+        print(e)
+        return redirect(url_for('main.cart'))
+
 @bp.route('/about', methods=['GET'])
 def about():
     return render_template('about.html')
@@ -223,6 +246,21 @@ def about():
 @bp.route('/contact', methods=['GET', 'POST'])
 def contact():
     return render_template('contact.html')
+
+# @bp.route('/search')
+# @login_required
+# def search():
+#     if not g.search_form.validate():
+#         return redirect(url_for('main.index'))
+#     page = request.args.get('page', 1, type=int)
+#     posts, total = Post.search(g.search_form.q.data, page,
+#                                current_app.config['POSTS_PER_PAGE'])
+#     next_url = url_for('main.search', q=g.search_form.q.data, page=page + 1) \
+#         if total > page * current_app.config['POSTS_PER_PAGE'] else None
+#     prev_url = url_for('main.search', q=g.search_form.q.data, page=page - 1) \
+#         if page > 1 else None
+#     return render_template('search.html', title=_('Search'), posts=posts,
+#                            next_url=next_url, prev_url=prev_url)
 
 
 

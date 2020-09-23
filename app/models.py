@@ -6,7 +6,52 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from app import db, login, admin_control
+from app.search import add_to_index, remove_from_index, query_index
+from flask_admin import BaseView,expose
 from flask_admin.contrib.sqla import ModelView
+
+
+# class SearchableMixin(object):
+#     @classmethod
+#     def search(cls, expression, page, per_page):
+#         ids, total = query_index(cls.__tablename__, expression, page, per_page)
+#         if total == 0:
+#             return cls.query.filter_by(id=0), 0
+#         when = []
+#         for i in range(len(ids)):
+#             when.append((ids[i], i))
+#         return cls.query.filter(cls.id.in_(ids)).order_by(
+#             db.case(when, value=cls.id)), total
+
+#     @classmethod
+#     def before_commit(cls, session):
+#         session._changes = {
+#             'add': list(session.new),
+#             'update': list(session.dirty),
+#             'delete': list(session.deleted)
+#         }
+
+#     @classmethod
+#     def after_commit(cls, session):
+#         for obj in session._changes['add']:
+#             if isinstance(obj, SearchableMixin):
+#                 add_to_index(obj.__tablename__, obj)
+#         for obj in session._changes['update']:
+#             if isinstance(obj, SearchableMixin):
+#                 add_to_index(obj.__tablename__, obj)
+#         for obj in session._changes['delete']:
+#             if isinstance(obj, SearchableMixin):
+#                 remove_from_index(obj.__tablename__, obj)
+#         session._changes = None
+
+#     @classmethod
+#     def reindex(cls):
+#         for obj in cls.query:
+#             add_to_index(cls.__tablename__, obj)
+
+
+#db.event.listen(db.session, 'before_commit', SearchableMixin.before_commit)
+#db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
 
 followers = db.Table(
     'followers',
@@ -27,7 +72,7 @@ class User(UserMixin, db.Model):
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
     posts = db.relationship('Post', backref='author', lazy='dynamic')
-    order = db.relationship('Order', backref='user', lazy='dynamic')
+    order = db.relationship('Order', backref='user', lazy=True)
     order_items = db.relationship('OrderItem', backref='user1', lazy='dynamic')
 
     def __repr__(self):
@@ -84,6 +129,7 @@ def load_user(id):
 
 
 class Post(db.Model):
+    __searchable__ = ['body']
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
@@ -127,8 +173,8 @@ class Product(db.Model):
     pname = db.Column(db.String(64), index=True)
     description = db.Column(db.String(140))
     prize = db.Column(db.Float)
-    availabilty = db.Column(db.Integer)
-    picture = db.Column(db.Text)
+    availabilty = db.Column(db.Boolean)
+    picture = db.Column(db.String(150))
     store_id = db.Column(db.Integer, db.ForeignKey('retail_stores.id')) 
     orderitem = db.relationship('OrderItem', backref='item', lazy=True)  
 
@@ -171,11 +217,18 @@ class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
     store_id = db.Column(db.Integer, db.ForeignKey('retail_stores.id'))
+    aisles_id = db.Column(db.Integer, db.ForeignKey('aisles.id'))
     product_items = db.relationship('Product', backref='catdetails', lazy=True)
 
     def __init__(self, name, store_id):
         self.name = name
         self.store_id = store_id
+
+class Aisles(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), index=True)
+    store_id = db.Column(db.Integer, db.ForeignKey('retail_stores.id'))
+    cate = db.relationship('Category', backref='catedetails', lazy=True)        
 
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True, index=True)

@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>HomeShop Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Emporium registration Form Bootstrap Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates">
+    <link href="/static/register/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/register/css/style.css" rel="stylesheet" type="text/css">
+    <!--webfonts-->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <!--//webfonts-->
+    
+    </head>
+    <body>
+        <div class="container" style="
+        background: transparent;
+        height: 79px;
+        text-align: center;
+    ">
+     <a href="#" style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;">
+     <li style="line-height: 105px;
+     font-size: 1em;
+     width: 39px;
+     height: 75px;
+     border-radius: 50%;
+     padding: 0;
+     display: inline-block;
+     margin-right: 66px;">HS</li></a></div>
+     <div class="w3l_frm">
+     <div class="container">
+     <h2 style="color: tan;">HomeShop Register Form</h2>
+                <div class="header-social wthree">
+                    
+                    <ul>
+                        <li><a href="#" class="f"><span class="fa fa-facebook" aria-hidden="true"></span>Login with Facebook</a></li>
+                     </ul>
+                    <div class="line-mid">
+                        <h4>or</h4>
+                    </div>
+                </div>
+                <div class="header-social wthree">
+                <ul>
+    <li>
+        <a href="#popup1" class="m"> <span class="fa fa-envelope-o" aria-hidden="true"></span>Register With Email</a>
+    </li>
+    </ul>
+    
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <form action="" method="post" class="form" role="form">
+                {{ form.hidden_tag() }}
+
+              <div class="form-group  required"><label class="control-label" for="username">Username</label>
+                      
+                        <input class="form-control" id="username" name="username" required="" type="text" value="">
+                      
+                </div>
+              
+              
+              <div class="form-group  required"><label class="control-label" for="email">Email</label>
+                      
+                        <input class="form-control" id="email" name="email" required="" type="text" value="">
+                      
+                </div>
+              
+              <div class="form-group  required"><label class="control-label" for="password">Password</label>
+                      
+                        <input class="form-control" id="password" name="password" required="" type="password" value="">
+                      
+                </div>
+              
+              <div class="form-group  required"><label class="control-label" for="password2">Repeat Password</label>
+                      
+                        <input class="form-control" id="password2" name="password2" required="" type="password" value="">
+                      
+                </div>
+              
+                  <input class="btn btn-default" id="submit" name="submit" type="submit" value="Register">
+                
+              </form>
+            <a class="close" href="#">×</a>
+            
+        </div>
+    </div>
+    
+                </div>
+                <h3>By Signing I agree to the <a href="#">Terms and Conditions</a></h3>
+                
+                <div class="w3_acc">
+                <ul>
+                        <li><h4>Already had an Account?</h4></li>
+                        <li>
+                        <div class="w3ls_su">
+        <a href="{{url_for('auth.login')}}">Sign In</a>
+        </div>
+    </li>
+                    </ul>
+                   
+                </div>
+            
+    
+     </div>
+     </div>
+            
+            <div class="copyright">
+            
+            
+        </div>
+        
+         
+    
+    
+    </body></html>

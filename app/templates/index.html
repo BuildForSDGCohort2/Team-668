@@ -3,7 +3,7 @@
 
 {% block app_content %}
 <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all">
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="min-width: 1000px;">
   <!-- Indicators-->
   <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class=""></li>
@@ -74,7 +74,7 @@
 <br>
 
 
-<div class="container marketing" style="width: 95%; margin-bottom: 40px;">
+<div class="container marketing" style="width: 95%; margin-bottom: 40px; min-width: 1000px;">
   <!-- Three columns of text below the carousel -->
   
   <!-- START THE FEATURETTES -->
@@ -91,7 +91,7 @@
         {{ form.submin(class_='btn btn-default') }} 
       </form></div>
       <div class="col-md-5" style="width: 60%;">
-        <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="../static/images/item.jpg" data-holder-rendered="true">
+        <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="../static/images/banner1.jpg" data-holder-rendered="true">
       </div>        
   </div>
   {% endfor %}
@@ -103,7 +103,7 @@
 
 </div><!-- /END THE FEATURETTES -->
 
-<div class="footer-top">
+<div class="footer-top" style="min-width: 1000px;">
   <div class="container-fluid">
       <div class="col-xs-8 agile-leftmk">
           <h2>Get your Groceries delivered from local stores</h2>

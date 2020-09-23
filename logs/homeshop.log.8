@@ -1,4 +1,46 @@
-2020-09-14 09:46:12,768 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-21 16:53:29,450 ERROR: Exception on /community [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 245, in perform_request
+    response = self.pool.urlopen(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connectionpool.py", line 726, in urlopen
+    retries = retries.increment(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\util\retry.py", line 379, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\packages\six.py", line 735, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connectionpool.py", line 670, in urlopen
+    httplib_response = self._make_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1230, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1276, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1225, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1004, in _send_output
+    self.send(msg)
+  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 944, in send
+    self.connect()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x05035850>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,104 +54,30 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 87, in admin_login
-    return redirect(url_for('main.admin'))
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.admin'. Did you mean 'main.payment' instead?
-2020-09-14 09:47:22,963 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:47:31,413 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 87, in admin_login
-    login_user(user, remember=form.remember_me.data)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 166, in login_user
-    if not force and not user.is_active:
-AttributeError: 'Admin' object has no attribute 'is_active'
-2020-09-14 09:47:43,956 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:47:52,838 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 87, in admin_login
-    login_user(user, remember=form.remember_me.data)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 166, in login_user
-    if not force and not user.is_active:
-AttributeError: 'Admin' object has no attribute 'is_active'
-2020-09-14 09:49:09,065 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 87, in admin_login
-    login_user(user, remember=form.remember_me.data)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 166, in login_user
-    if not force and not user.is_active:
-AttributeError: 'Admin' object has no attribute 'is_active'
-2020-09-14 09:49:23,230 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:49:31,399 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 89, in admin_login
-    next_page = url_for('main.admin_login')
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.admin_login'. Did you mean 'auth.admin_login' instead?
-2020-09-14 09:50:57,076 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 33, in community
+    db.session.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1042, in commit
+    self.transaction.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 511, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\models.py", line 37, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\search.py", line 10, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 391, in index
+    return self.transport.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 390, in perform_request
+    raise e
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 258, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x05035850>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x05035850>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)

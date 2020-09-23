@@ -1,5 +1,8 @@
 import os 
+from dotenv import load_dotenv
+
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 class Config(object):
     SECRET_KEY=os.environ.get('SECRET_KEY') or 'secret'
@@ -16,3 +19,5 @@ class Config(object):
     PRODUCTS_PER_PAGE = 3
     UPLOAD_FOLDER = '/app/static/uploads'
     ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    UPLOADED_PHOTOS_DEST = os.path.join(basedir, 'app/static/images/profileImages')

@@ -10,16 +10,19 @@ from flask_bootstrap import Bootstrap
 from config import Config
 from flask_moment import Moment
 from flask_admin import Admin
+from elasticsearch import Elasticsearch
+from flask_babel import Babel
+
 
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
 login.login_view = "auth.login"
 mail = Mail()
+babel = Babel()
 bootstrap = Bootstrap()
 moment = Moment()
 admin_control = Admin()
-
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -31,7 +34,12 @@ def create_app(config_class=Config):
     mail.init_app(app)
     bootstrap.init_app(app)
     moment.init_app(app)
+    babel.init_app(app)
     admin_control.init_app(app)
+    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
+        if app.config['ELASTICSEARCH_URL'] else None
+    
+    
 
     from app.errors import bp as errors_bp
 

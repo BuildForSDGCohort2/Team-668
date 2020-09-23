@@ -1,0 +1,432 @@
+<header class="nav-opt-sprite nav-locale-us nav-lang-en nav-ssl nav-unrec">
+    
+    <div id="navbar" cel_widget_id="Navigation-desktop-navbar" data-template="layoutSwapToolBar" role="navigation" class="nav-sprite-v1 celwidget nav-bluebeacon nav-a11y-t1 layout2 nav-packard-glow hamburger bold-focus-hover nav-xsc-font-size using-mouse" data-csa-c-id="mni9t1-lsb24-1unmtx-7u71lc" data-cel-widget="Navigation-desktop-navbar" style="
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 198;
+      font-family: inherit;
+      font-size: 12px;
+      line-height: 1em;
+      display: block;
+      zoom: 1;
+      min-width: 1000px;">
+          
+      
+      <div id="nav-belt" style="background-color: #131921;
+      position: relative;
+      width: 100%;
+      font-size: 14px;
+      z-index: 5;">
+              
+        
+    <div class="nav-left" style="height: 60px;
+      position: relative; float: left;
+      width: auto;
+      display: inline-block;">
+      <ul class="nav navbar-nav">
+        <div class="navbar-header" style="
+      width: auto;
+      margin-top: 2px;
+      padding: 3px 0 0 0;
+  ">
+                    
+                    <a class="navbar-brand" href="/index"><h3 style="
+      margin-top: 0px;
+      margin-bottom: 0px;
+      "><b style="color: tan;">HomeShop</b></h3></a><a class="navbar-brand" href="/index" style="
+    float: left;
+    height: 50px;
+    padding: 19px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 0px;
+    color: white;
+    background-color: transparent;
+    ">Home</a>
+  <a class="navbar-brand" href="/community" style="
+    float: left;
+    height: 50px;
+    padding: 19px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 0px;
+    color: white;
+    background-color: transparent;
+    ">Community</a><li class="dropdown" style="
+          float: left;
+    height: 50px;
+    padding: 19px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 0px;
+  ">
+                            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="
+        color: white;
+        background-color: transparent;
+        margin-top: -15px;
+        ">Shopping <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for('main.shop', shopname='Spar')}}">Spar</a></li>
+                                <li><a href="/shop/Pink%20n%20Pay">Pick 'n Pay</a></li>
+                                <li><a href="{{ url_for('main.shop', shopname='Checkers')}}">Checkers</a></li>
+                            </ul>
+                        </li>
+  
+                </div>               
+                        <li></li>
+      
+    <script type="text/javascript">
+      var hmenu = document.getElementById("nav-hamburger-menu");
+      hmenu.setAttribute("href", "javascript: void(0)");
+      window.navHamburgerMetricLogger = function() {
+        if (window.ue && window.ue.count) {
+          var metricName = "Nav:Hmenu:IconClickActionPending";
+          window.ue.count(metricName, (ue.count(metricName) || 0) + 1);
+        }
+        window.$Nav && $Nav.declare("navHMenuIconClicked",!0);
+        window.$Nav && $Nav.declare("navHMenuIconClickedNotReadyTimeStamp", Date.now());
+      };
+      hmenu.addEventListener("click", window.navHamburgerMetricLogger);
+      window.$Nav && $Nav.declare('hamburgerMenuIconAvailableOnLoad', false);
+      window.$Nav && $Nav.declare('hamburgerMenuWeblabTreatment', 'T1');
+    </script>  
+    <script type="text/javascript">window.navmet.push({key:'HamburgerMenuIcon',end:+new Date(),begin:window.navmet.tmp});</script>
+            <script type="text/javascript">window.navmet.tmp=+new Date();</script>
+      
+    <script type="text/javascript">window.navmet.push({key:'Logo',end:+new Date(),begin:window.navmet.tmp});</script>
+          </ul>
+          <script type="text/javascript">window.navmet.tmp=+new Date();</script>
+      </div>
+        
+        <div class="nav-right" style="
+      height: 60px;
+      min-width: auto;
+      position: relative;
+      float: right;
+      width: auto;
+      display: inline-block;">
+            <script type="text/javascript">window.navmet.tmp=+new Date();</script>
+            <div id="nav-tools" class="layoutToolbarPadding" style="
+      float: left;
+      text-decoration: none;
+      margin-top: 2px;
+      padding: 3px 0 0 0;">
+       {% if current_user.is_anonymous %}
+        <a href="{{ url_for('auth.login') }}" style=" height: 50px; margin-right: 4px; padding-left: 6px;
+      padding-right: 0; overflow: hidden; top: 1px; margin: 0 1px; display: inline-block; position: relative;
+      float: right; padding: 6px 20px 0 9px; line-height: 44px; color: white; font-family: inherit;
+      text-decoration: none; cursor: pointer; font-size: 18px;">Login</a>
+      <a href="{{ url_for('auth.register') }}" style=" height: 50px; margin-right: 4px; padding-left: 6px;
+      padding-right: 0; overflow: hidden; top: 1px; margin: 0 1px; display: inline-block; position: relative;
+      float: right; padding: 6px 20px 0 9px; line-height: 44px; color: white; font-family: inherit;
+      text-decoration: none; cursor: pointer; font-size: 18px;">Sign Up</a>
+      {% else %}
+        
+        <a href="{{ url_for('auth.logout') }}" style=" height: 50px; margin-right: 4px; padding-left: 6px;
+            padding-right: 0; overflow: hidden; top: 1px; margin: 0 1px; display: inline-block; position: relative;
+            float: right; padding: 6px 20px 0 9px; line-height: 44px; color: white; font-family: inherit;
+            text-decoration: none; cursor: pointer; font-size: 18px;">Logout</a>
+        <a href="{{ url_for('main.user', username=current_user.username) }}" style="height: 50px; margin-right: 4px; padding-left: 6px; padding-right: 0; overflow: hidden;
+        top: 1px; margin: 0 1px; display: inline-block; position: relative; float: right; padding: 6px 20px 0 9px;
+        line-height: 44px; color: white; font-family: inherit; text-decoration: none; cursor: pointer;
+        font-size: 18px;">Profile</a>
+        {% endif %}
+  
+            </div>
+            <script type="text/javascript">window.navmet.push({key:'Tools',end:+new Date(),begin:window.navmet.tmp});</script>
+  
+        </div>
+        
+            <div class="nav-fill" style="
+      height: 60px;
+      overflow: visible;
+      width: auto;
+      white-space: nowrap;
+  ">
+              <script type="text/javascript">window.navmet.tmp=+new Date();</script>
+  <div id="nav-search" style="
+      position: relative;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 10px 4px 0 3px;
+      height: 60px;
+      border-radius: 4px 4px 4px 4px;
+      -webkit-box-sizing: border-box;
+      width: auto;
+  ">
+    <div id="nav-bar-left"></div>
+    <form accept-charset="utf-8" action="/s/ref=nb_sb_noss" class="nav-searchbar" method="GET" name="site-search" role="search" style="
+      display: block;
+      position: relative;
+      height: 40px;
+      margin-bottom: 0;
+      border-radius: 4px 4px 4px 4px;
+  ">
+      
+      <div class="nav-right" style="
+      height: 60px;
+      min-width: 0;
+      position: relative;
+      top: -5px;
+      float: right;
+      width: auto;
+      display: inline-block;
+  ">
+        <div class="nav-search-submit nav-sprite" style="
+      background-color: #febd69;
+      background-image: none;
+      border: none;
+      width: 45px;
+      position: relative;
+      top: 5px;
+      right: 0;
+      height: 40px;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+      background-position: 0 -381px;
+      background-repeat: repeat-x;
+  ">
+          <span id="nav-search-submit-text" class="nav-search-submit-text nav-sprite" style="
+      background-position: -10px -290px;
+      width: 21px;
+      height: 21px;
+      text-indent: -500px;
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      color: #111;
+      text-shadow: none;
+      background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global_bluebeacon-1x_optimized_layout1._CB468670774_.png);
+      background-repeat: repeat-x;
+  ">
+            Go
+          </span>
+          <input type="submit" class="nav-input" value="Go" tabindex="20" style="
+      position: relative;
+      display: block;
+      height: 100%;
+      width: 100%;
+      font-size: 14px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      outline: 0;
+      color: #fff;
+      background: 0 0;
+      border: none;
+      text-indent: -1000px;
+      line-height: 1px;
+      transition: all .1s linear;
+      vertical-align: middle;
+      font-family: inherit;
+  ">
+        </div>
+      </div>
+      <div class="nav-fill" style="
+      height: 60px;
+      zoom: 1;
+      overflow: hidden;
+      position: relative;
+      top: -5px;
+      width: auto;
+      white-space: nowrap;">
+        
+          {% if g.search_form %}
+          <form class="navbar-form navbar-left" method="get"
+                  action="{{ url_for('main.search') }}">
+              <div class="form-group">
+                  {{ g.search_form.q(size=20, class='form-control',
+                      placeholder=g.search_form.q.label.text) }}
+              </div>
+          </form>
+          {% endif %}
+        <div id="nav-iss-attach"></div>
+      </div>
+    </form>
+  </div>
+  <script type="text/javascript">window.navmet.push({key:'Search',end:+new Date(),begin:window.navmet.tmp});</script>
+            </div>
+        
+      </div>
+      <div id="nav-main" class="nav-sprite" style="
+      height: 45px;
+      padding-top: 0;
+      background-image: none;
+      background-color: #232f3e;
+      position: relative;
+      transform: translate3d(0,0,0);
+      z-index: 4;
+      background-position: 0 -725px;
+  ">
+       
+        
+        <div class="nav-fill" style="
+      height: 45px;
+      width: auto;
+      overflow: hidden;
+      white-space: nowrap;
+  ">
+          
+          
+          
+            
+   <div id="nav-shop" style="
+      padding-top: 0;
+      margin-top: 0;
+      padding-right: 7px;
+      padding: 6px 15px 0 0;
+      width: auto;
+      float: left;
+      text-decoration: none;
+  ">
+   </div>
+            <div id="nav-xshop-container" style="
+      padding: 0;
+      position: static;
+      float: none;
+      margin: 0;
+      z-index: 20;
+  ">
+              
+              <div id="nav-xshop" style="
+  ">
+                <script type="text/javascript">window.navmet.tmp=+new Date();</script>
+  <a href="#" class="nav-a  " tabindex="47" style="
+      margin-top: 6px;
+      padding: 15px 8px 7px 8px;
+      margin: 1px 2px 12px 1px;
+      color: #ccc;
+      font-size: 14px;
+      text-decoration: none;
+      float: left;
+      cursor: pointer;
+      font-family: inherit;
+  ">Today's Deals</a>
+  
+  <a href="#" class="nav-a  " tabindex="48" style="
+      padding: 15px 8px 7px 8px;
+      margin: 1px 2px 12px 1px;
+      color: #ccc;
+      font-size: 14px;
+      text-decoration: none;
+      float: left;
+      font-family: inherit;
+      cursor: pointer;
+  ">Customer Service</a>
+  
+  <a href="#" aria-label="Click to call our Disability Customer Support line, or reach us directly at 1-888-283-1678" class="nav-hidden-aria  " tabindex="52" style="
+      padding: 15px 8px 7px 8px;
+      margin: 1px 2px 12px 1px;
+      color: #ccc;
+      font-size: 14px;
+      text-decoration: none;
+      float: left;
+      font-family: inherit;
+      cursor: pointer;
+  ">Disability Customer Support</a>
+  <script type="text/javascript">window.navmet.push({key:'CrossShop',end:+new Date(),begin:window.navmet.tmp});</script>
+      
+      <a href="{{url_for('main.cart')}}" aria-label="0 item in cart" class="nav-a nav-a-2" id="nav-cart" tabindex="26" style="
+      height: 50px; margin-right: 4px;
+      padding-left: 6px;
+      padding-right: 0;
+      overflow: hidden;
+      outline: none;
+      top: 1px;
+      margin: 0 1px;
+      display: inline-block;
+      position: relative;
+      float: right;
+      padding: 0px 0 0 9px;
+      line-height: 44px;
+      color: #d6d6d6;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+  ">
+      <span aria-hidden="true" class="nav-line-1" style="
+      color: #ccc;
+      margin-left: 42px;
+      font-size: 12px;
+      line-height: 14px;
+      height: 14px;
+      font-weight: 400;
+      margin-top: 9px;
+      float: left;
+      clear: both;
+      display: inline-block;
+      white-space: nowrap;
+      padding-right: 9px;
+      font-family: inherit;
+  "></span>
+      <span aria-hidden="true" class="nav-line-2" style="margin-left: 42px;color: #fff;font-size: 14px;line-height: 15px;font-weight: 700;padding-bottom: 5px;float: left;clear: both;display: inline-block;white-space: nowrap;padding-right: 9px;font-family: inherit;">Cart<span class="nav-icon nav-arrow" style="
+      border-top-color: #a7acb2;
+      display: inline-block;
+      border-style: solid;
+      border-width: 4px;
+      border-color: transparent;
+      border-top: 4px solid #606060;
+      border-bottom-width: 0;
+      width: 0;
+      height: 0;
+      font-size: 0;
+      line-height: 0;
+      margin: 0 0 2px 5px;
+      visibility: hidden;
+      background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global_bluebeacon-1x_optimized_layout1._CB468670774_.png);
+      background-position: 0 1000px;
+      background-repeat: repeat-x;
+  "></span>
+      </span>
+      <span class="nav-cart-icon nav-sprite" style="
+      color: #d6d6d6;
+      display: block;
+      overflow: hidden;
+      position: absolute;
+      left: 10px;
+      top: 11px;
+      background-position: -10px -340px;
+      width: 38px;
+      height: 26px;
+      background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global_bluebeacon-1x_optimized_layout1._CB468670774_.png);
+      background-repeat: repeat-x;
+  "></span>
+      <span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-1" style="
+      color: #f08804;
+      top: 7px;
+      left: 23px;
+      font-size: 16px;
+      width: 19px;
+      font-weight: 700;
+      font-family: inherit;
+      position: absolute;
+      line-height: 16px;
+      text-align: center;
+  ">{{session['Shoppingcart']|length}}</span>
+    </a>
+              </div>
+              
+              
+              
+                
+              
+            </div>
+          
+        </div>
+        
+      </div>
+  
+      <div id="nav-subnav-toaster"></div>
+  
+      
+      
+  
+      
+      
+      
+    </div>
+  
+  </header>

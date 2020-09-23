@@ -1,56 +1,4 @@
-2020-09-10 20:19:25,820 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:21:45,138 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:25:36,610 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:27:21,804 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:29:24,769 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:29:51,805 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:30:41,663 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:31:58,520 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:34:44,194 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:35:57,789 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:36:43,867 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:38:26,589 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:39:45,583 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:48:01,461 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:53:27,933 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:55:05,293 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:56:46,718 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 20:57:34,753 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 21:00:56,541 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 21:03:31,268 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 21:05:00,907 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 21:09:44,402 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 21:10:12,249 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-10 21:11:17,235 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-11 08:15:23,030 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-11 08:20:07,339 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-11 17:54:27,831 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-11 17:54:40,864 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-11 17:55:02,598 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-11 17:55:11,155 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-11 17:55:21,937 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-11 18:04:43,004 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:20:15,201 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:20:32,624 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:20:38,437 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:20:53,629 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:21:00,964 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:49:46,911 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:49:51,811 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:49:59,341 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:51:26,250 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:51:30,556 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-13 17:51:33,941 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 08:43:28,692 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 08:43:42,458 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 08:43:48,660 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:13:01,238 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:13:07,312 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:13:14,476 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:24:59,839 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:28:22,760 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:33:58,185 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:34:07,600 ERROR: Exception on /adminlogin [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-18 13:09:45,441 ERROR: Exception on /community [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -64,19 +12,29 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 168, in admin_login
-    form = LoginForm()
-NameError: name 'LoginForm' is not defined
-2020-09-14 09:36:46,217 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:37:50,524 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:78]
-2020-09-14 09:38:13,664 ERROR: Exception on /auth/adminlogin [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\base.py", line 406, in _entity_descriptor
-    return getattr(entity, key)
-AttributeError: type object 'Admin' has no attribute 'username'
-
-The above exception was the direct cause of the following exception:
-
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 41, in community
+    return render_template('community.html', title='Community', form=form,
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\community.html", line 12, in template
+    {% if user %}<h1>Hi, {% user %}</h1>{{% else %}<h1>Welcome to the Community</h1>{% endif %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'user'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2020-09-18 13:10:24,152 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:84]
+2020-09-18 13:10:26,178 ERROR: Exception on /community [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -90,14 +48,66 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\auth\routes.py", line 83, in admin_login
-    user = Admin.query.filter_by(username=form.username.data).first()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1905, in filter_by
-    clauses = [
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1906, in <listcomp>
-    _entity_descriptor(zero, key) == value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\base.py", line 408, in _entity_descriptor
-    util.raise_(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
-    raise exception
-sqlalchemy.exc.InvalidRequestError: Entity '<class 'app.models.Admin'>' has no property 'username'
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 41, in community
+    return render_template('community.html', title='Community', form=form,
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\community.html", line 12, in template
+    {% if user %}<h1>Hi, {{ user }}</h1>{{% else %}<h1>Welcome to the Community</h1>{% endif %}
+jinja2.exceptions.TemplateSyntaxError: unexpected '%'
+2020-09-18 13:10:43,967 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:84]
+2020-09-18 13:20:22,488 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:84]
+2020-09-18 13:20:25,364 ERROR: Exception on /community [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 34, in community
+    posts = current_user.followed_posts().paginate(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'AnonymousUserMixin' object has no attribute 'followed_posts'
+2020-09-18 13:28:45,809 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:84]
+2020-09-18 13:28:48,065 ERROR: Exception on /community [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 34, in community
+    posts = current_user.followed_posts().paginate(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'AnonymousUserMixin' object has no attribute 'followed_posts'
+2020-09-18 13:35:04,429 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:84]

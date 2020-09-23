@@ -361,3 +361,80 @@ def add_category():
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<table class="table table-hover">
+  <tr>
+      <td width="70px">
+          <a href="{{ url_for('main.user', username=post.author.username) }}">
+              <img src="{{ post.author.avatar(70) }}" />
+          </a>
+      </td>
+      <td>
+          <a href="{{ url_for('main.user', username=post.author.username) }}">
+              {{ post.author.username }}
+          </a>
+          said {{ moment(post.timestamp).fromNow() }}:
+          <br>
+          {{ post.body }}
+      </td>
+  </tr>
+</table>
+
+
+<div class="navigation-agileits">
+  <div class="container">
+      <nav class="navbar navbar-default">
+                      <!-- Brand and toggle get grouped for better mobile display -->
+                      <div class="navbar-header nav_2">
+                          <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                          </button>
+                      </div> 
+                      <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                          <ul class="nav navbar-nav">
+                              <li class="active"><a style="font-size: 20px;" href="{{url_for('main.index')}}" class="act">Home</a></li>	
+                              <!-- Mega Menu -->
+                              <li class="dropdown">
+                                  <a href="#" style="font-size: 20px;" class="dropdown-toggle" data-toggle="dropdown">Groceries<b class="caret"></b></a>
+                                  <ul class="dropdown-menu multi-column columns-3">
+                                      <div class="row">
+                                          <div class="multi-gd-img">
+                                              <ul class="multi-column-dropdown">
+                                                  <h6>All Groceries</h6>
+                                                  <li><a href="#">Dals &amp; Pulses</a></li>
+                                                  <li><a href="#">Almonds</a></li>
+                                                  <li><a href="#">Cashews</a></li>
+                                                  <li><a href="#">Dry Fruit</a></li>
+                                                  <li><a href="#"> Mukhwas </a></li>
+                                                  <li><a href="#">Rice &amp; Rice Products</a></li>
+                                              </ul>
+                                          </div>	
+                                          
+                                      </div>
+                                  </ul>
+                              </li>
+                              <li class="dropdown">
+                                  <a href="#" style="font-size: 20px;" class="dropdown-toggle" data-toggle="dropdown">Household<b class="caret"></b></a>
+                                  
+                              </li>
+                              <li class="dropdown">
+                                  <a href="#" style="font-size: 20px;" class="dropdown-toggle" data-toggle="dropdown">Personal Care<b class="caret"></b></a>
+                                  
+                              </li>
+                              <li class="dropdown">
+                                  <a href="#" style="font-size: 20px;" class="dropdown-toggle" data-toggle="dropdown">Packaged Foods<b class="caret"></b></a>
+                                  
+                              </li>
+                              <li class="dropdown">
+                                  <a href="#" style="font-size: 20px;" class="dropdown-toggle" data-toggle="dropdown">Beverages<b class="caret"></b></a>
+                                  
+                              </li>
+                              <li><a style="font-size: 20px;" href="contact.html">Contact</a></li>
+                          </ul>
+                      </div>
+                      </nav>
+      </div>
+  </div>

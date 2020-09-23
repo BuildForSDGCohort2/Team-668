@@ -1,8 +1,10 @@
 from flask import request
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed, FileField, FileRequired
 from wtforms import StringField, SubmitField,TextAreaField, SelectField, BooleanField, IntegerField, DecimalField
 from wtforms.validators import ValidationError, DataRequired, Length, Email
 from app.models import User
+from flask_babel import lazy_gettext as _l
 import sqlite3
 
 class EditProfileForm(FlaskForm):
@@ -76,3 +78,13 @@ class Products(FlaskForm):
 class Categories(FlaskForm):
     name = StringField('Category Name')
     store_id = IntegerField('Store ID')
+
+class SearchForm(FlaskForm):
+    q = StringField(_l('Search'), validators=[DataRequired()])
+
+    def __init__(self, *args, **kwargs):
+        if 'formdata' not in kwargs:
+            kwargs['formdata'] = request.args
+        if 'csrf_enabled' not in kwargs:
+            kwargs['csrf_enabled'] = False
+        super(SearchForm, self).__init__(*args, **kwargs)
