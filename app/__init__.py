@@ -24,7 +24,6 @@ bootstrap = Bootstrap()
 moment = Moment()
 admin_control = Admin()
 
-
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
@@ -37,11 +36,10 @@ def create_app(config_class=Config):
     moment.init_app(app)
     babel.init_app(app)
     admin_control.init_app(app)
-    app.elasticsearch = (
-        Elasticsearch([app.config["ELASTICSEARCH_URL"]])
-        if app.config["ELASTICSEARCH_URL"]
-        else None
-    )
+    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
+        if app.config['ELASTICSEARCH_URL'] else None
+    
+    
 
     from app.errors import bp as errors_bp
 
@@ -91,7 +89,6 @@ def create_app(config_class=Config):
         app.logger.info("HomeShop startup")
 
     return app
-
 
 from app import models
 
