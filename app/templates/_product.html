@@ -1,0 +1,30 @@
+
+<div class="col-md-4 product-men">
+    <div class="men-pro-item simpleCart_shelfItem">
+        <div class="men-thumb-item">
+            <img src="/static/images/spar-products/{{ p.picture }}" alt="" width="200" height="200">
+            <div class="men-cart-pro">
+                <div class="inner-men-cart-pro">
+                    <a href="#" class="link-product-add-cart">Quick View</a>
+                </div>
+            </div>
+        </div>
+        <div class="item-info-product ">
+            <h4>
+                <a href="{{url_for('main.singleitem', id=p.id, shopname=shopname)}}">{{p.pname}}</a>
+            </h4>
+            <div class="info-product-price">
+                <span class="item_price">${{p.prize}}</span>
+                <del>$25.00</del>
+            </div>
+            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                <form action="{{url_for('main.addtocart')}}" method="POST">
+                        <input type="hidden" name="product_id" value="{{p.id}}">
+                        <input type="hidden" name="quantity" value="1" min="1" max="30">
+                        <input type="submit" name="submit" value="Add to cart" class="button">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

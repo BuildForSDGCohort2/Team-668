@@ -1,7 +1,7 @@
 <link href="/static/shop/css/style.css" rel="stylesheet" type="text/css" media="all">
 <!-- font-awesome icons -->
 <link href="/static/shop/css/font-awesome.css" rel="stylesheet"> 
-<header class="nav-opt-sprite nav-locale-us nav-lang-en nav-ssl nav-unrec">
+<header class="nav-opt-sprite nav-locale-us nav-lang-en nav-ssl nav-unrec" style="min-width: 1000px;">
     
     <div id="navbar" cel_widget_id="Navigation-desktop-navbar" data-template="layoutSwapToolBar" role="navigation" class="nav-sprite-v1 celwidget nav-bluebeacon nav-a11y-t1 layout2 nav-packard-glow hamburger bold-focus-hover nav-xsc-font-size using-mouse" data-csa-c-id="mni9t1-lsb24-1unmtx-7u71lc" data-cel-widget="Navigation-desktop-navbar" style="
       position: relative;
@@ -160,75 +160,75 @@
       width: auto;
   ">
     <div id="nav-bar-left"></div>
-    {% if g.search_form %}
-    <form class="nav-searchbar" method="get"
-            action="{{ url_for('main.search') }}" style="
-            display: block;
-            position: relative;
-            height: 40px;
-            margin-bottom: 0;
-            border-radius: 4px 4px 4px 4px;">
-            <div class="nav-right" style="
-            height: 60px;
-            min-width: 0;
-            position: relative;
-            top: -5px;
-            float: right;
-            width: auto;
-            display: inline-block;
-        ">
-              <div class="nav-search-submit nav-sprite" style="
-            background-color: tan;
-            background-image: none;
-            border: none;
-            width: 45px;
-            position: relative;
-            top: 5px;
-            right: 0;
-            height: 40px;
-            overflow: hidden;
-            cursor: pointer;
-            border-radius: 0 4px 4px 0;
-            background-position: 0 -381px;
-            background-repeat: repeat-x;
-        ">
-                <span id="nav-search-submit-text" class="nav-search-submit-text nav-sprite" style="
-            background-position: -10px -290px;
-            width: 21px;
-            height: 21px;
-            text-indent: -500px;
-            position: absolute;
-            top: 10px;
-            left: 12px;
-            color: #111;
-            text-shadow: none;
-            background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global_bluebeacon-1x_optimized_layout1._CB468670774_.png);
-            background-repeat: repeat-x;
-        ">
-                  Go
-                </span>
-                <input type="submit" class="nav-input" value="Go" tabindex="20" style="
-            position: relative;
-            display: block;
-            height: 100%;
-            width: 100%;
-            font-size: 14px;
-            padding: 0;
-            margin: 0;
-            cursor: pointer;
-            outline: 0;
-            color: #fff;
-            background: 0 0;
-            border: none;
-            text-indent: -1000px;
-            line-height: 1px;
-            transition: all .1s linear;
-            vertical-align: middle;
-            font-family: inherit;
-        ">
-              </div>
-            </div>
-            <div class="nav-fill" style="
+    <form action="{{ url_for('main.search') }}" class="nav-searchbar" method="GET" name="q" role="search" style="
+      display: block;
+      position: relative;
+      height: 40px;
+      margin-bottom: 0;
+      border-radius: 4px 4px 4px 4px;
+  ">
+      
+      <div class="nav-right" style="
+      height: 60px;
+      min-width: 0;
+      position: relative;
+      top: -5px;
+      float: right;
+      width: auto;
+      display: inline-block;
+  ">
+        <div class="nav-search-submit nav-sprite" style="
+      background-color: #febd69;
+      background-image: none;
+      border: none;
+      width: 45px;
+      position: relative;
+      top: 5px;
+      right: 0;
+      height: 40px;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+      background-position: 0 -381px;
+      background-repeat: repeat-x;
+  ">
+          <span id="nav-search-submit-text" class="nav-search-submit-text nav-sprite" style="
+      background-position: -10px -290px;
+      width: 21px;
+      height: 21px;
+      text-indent: -500px;
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      color: #111;
+      text-shadow: none;
+      background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global_bluebeacon-1x_optimized_layout1._CB468670774_.png);
+      background-repeat: repeat-x;
+  ">
+            Go
+          </span>
+          <input type="submit" class="nav-input" value="Go" tabindex="20" style="
+      position: relative;
+      display: block;
+      height: 100%;
+      width: 100%;
+      font-size: 14px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      outline: 0;
+      color: #fff;
+      background: 0 0;
+      border: none;
+      text-indent: -1000px;
+      line-height: 1px;
+      transition: all .1s linear;
+      vertical-align: middle;
+      font-family: inherit;
+  ">
+        </div>
+      </div>
+      <div class="nav-fill" style="
       height: 60px;
       zoom: 1;
       overflow: hidden;
@@ -245,14 +245,48 @@
       height: 40px;
       background: #fff;
   ">
-        <div class="form-group">
-            {{ g.search_form.q(size=20, class='form-control',
-                placeholder=g.search_form.q.label.text, style='border: transparent') }}
+          <label id="nav-search-label" for="twotabsearchtextbox" class="aok-offscreen" style="
+      color: #fff;
+      top: 1px;
+      font-weight: 400;
+      display: inline-block;
+      float: left;
+      line-height: 35px;
+      padding: 0 10px 0 0;
+      margin-top: 10px;
+      font-family: inherit;
+      position: absolute!important;
+      left: 0!important;
+      bottom: -1px!important;
+      z-index: -1!important;
+      opacity: 0;
+  ">
+            Search
+          </label>
+          <input type="text" id="twotabsearchtextbox" value="" name="field-keywords" autocomplete="off" placeholder="" class="nav-input" dir="auto" tabindex="19" style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      line-height: 15px;
+      padding: 7px 10px 10px 0;
+      margin: 0;
+      border: 0;
+      height: 38px;
+      font-family: inherit;
+      font-size: 15px;
+      background: 0 0;
+      color: #111;
+      outline: 0;
+      box-shadow: none;
+      text-indent: 8px;
+      direction: ltr;
+  ">
         </div>
-        </div>
-            </div>
+        <div id="nav-iss-attach"></div>
+      </div>
     </form>
-    {% endif %}
   </div>
   <script type="text/javascript">window.navmet.push({key:'Search',end:+new Date(),begin:window.navmet.tmp});</script>
             </div>
@@ -313,7 +347,7 @@
       font-family: inherit;
   ">Today's Deals</a>
   
-  <a href="#" class="nav-a  " tabindex="48" style="
+  <!-- <a href="#" class="nav-a  " tabindex="48" style="
       padding: 15px 8px 7px 8px;
       margin: 1px 2px 12px 1px;
       color: #ccc;
@@ -333,7 +367,9 @@
       float: left;
       font-family: inherit;
       cursor: pointer;
-  ">Disability Customer Support</a>
+  ">Disability Customer Support</a> -->
+
+
   <script type="text/javascript">window.navmet.push({key:'CrossShop',end:+new Date(),begin:window.navmet.tmp});</script>
       
       <a href="{{url_for('main.cart')}}" aria-label="0 item in cart" class="nav-a nav-a-2" id="nav-cart" tabindex="26" style="

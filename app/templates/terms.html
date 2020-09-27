@@ -30,151 +30,157 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 {% include 'navbar.html' %}
-    <h1>{{ _('Search Results') }}</h1>
-    <!-- {% for post in posts %}
-        {% include '_post.html' %}
-    {% endfor %} -->
-    <div class="ads-grid" style="width: 100; min-width: 1000px;">
-        <div class="container" style="width: 90%;">
-            <div class="agileinfo-ads-display col-md-9">
-                <div class="wrapper">
-                        {% for p in product %}
-                            {% include '_product.html' %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container" style="width: 30%; text-align: center;">
-                        <nav aria-label="...">
-                            <ul class="pager">
-                                <li class="previous{% if not prev_url %} disabled{% endif %}">
-                                    <a href="{{ prev_url or '#' }}">
-                                        <span aria-hidden="true">&larr;</span> {{ _('Previous results') }}
-                                    </a>
-                                </li>
-                                <li class="next{% if not next_url %} disabled{% endif %}">
-                                    <a href="{{ next_url or '#' }}">
-                                        {{ _('Next results') }} <span aria-hidden="true">&rarr;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-        </div>
+<section class="terms-of-use">
+    <!-- terms -->
+    <div class="terms">
+        <div class="container">
+            <!-- tittle heading -->
+            <h3 class="tittle-w3l">Terms of Use
+                <span class="heading-style">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </h3>
+            <!-- //tittle heading -->
+            <h5>PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY .</h5>
+            <h6>Personal Information</h6>
+            <ol start="1">
+                <li></li>
+                <li></li>
+            </ol>
 
-    {% include 'footer.html' %}
+            <h6>License &amp; Site access</h6>
+            <p></p>
 
-    <script src="/static/js/jquery-2.1.4.min.js"></script>
-    <script src="/static/js/jquery.magnific-popup.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.popup-with-zoom-anim').magnificPopup({
-                type: 'inline',
-                fixedContentPos: false,
-                fixedBgPos: true,
-                overflowY: 'auto',
-                closeBtnInside: true,
-                preloader: false,
-                midClick: true,
-                removalDelay: 300,
-                mainClass: 'my-mfp-zoom-in'
-            });
-    
+            <h6>Eligibility :</h6>
+            <p></p>
+
+            <h6>Account &amp; Registration</h6>
+            <p></p>
+            <h6>Cancellation by Site / Customer</h6>
+            <p> <p>
+            <h6>You Agree and Confirm</h6>
+            <p></p>
+            <h6>Copyright &amp; Trademark</h6>
+            <p></p>
+        </div>
+    </div>
+    <!-- /terms -->
+</section>
+{% include 'footer.html' %}
+
+<script src="/static/js/jquery-2.1.4.min.js"></script>
+<script src="/static/js/jquery.magnific-popup.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
         });
-    </script>
-    
-    <script src="/static/js/jquery-ui.js"></script>
-    <script>
-        //<![CDATA[ 
-        $(window).load(function () {
-            $("#slider-range").slider({
-                range: true,
-                min: 0,
-                max: 9000,
-                values: [50, 6000],
-                slide: function (event, ui) {
-                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+
+    });
+</script>
+
+<script src="/static/js/jquery-ui.js"></script>
+<script>
+    //<![CDATA[ 
+    $(window).load(function () {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 9000,
+            values: [50, 6000],
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            }
+        });
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+    }); //]]>
+</script>
+<script src="/static/js/jquery.flexisel.js"></script>
+<script>
+    $(window).load(function () {
+        $("#flexiselDemo1").flexisel({
+            visibleItems: 3,
+            animationSpeed: 1000,
+            autoPlay: true,
+            autoPlaySpeed: 3000,
+            pauseOnHover: true,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 1
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 2
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 2
                 }
-            });
-            $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
-    
-        }); //]]>
-    </script>
-    <script src="/static/js/jquery.flexisel.js"></script>
-    <script>
-        $(window).load(function () {
-            $("#flexiselDemo1").flexisel({
-                visibleItems: 3,
-                animationSpeed: 1000,
-                autoPlay: true,
-                autoPlaySpeed: 3000,
-                pauseOnHover: true,
-                enableResponsiveBreakpoints: true,
-                responsiveBreakpoints: {
-                    portrait: {
-                        changePoint: 480,
-                        visibleItems: 1
-                    },
-                    landscape: {
-                        changePoint: 640,
-                        visibleItems: 2
-                    },
-                    tablet: {
-                        changePoint: 768,
-                        visibleItems: 2
-                    }
-                }
-            });
-    
+            }
         });
-    </script>
-    <script>
-        window.onload = function () {
-            document.getElementById("password1").onchange = validatePassword;
-            document.getElementById("password2").onchange = validatePassword;
-        }
-    
-        function validatePassword() {
-            var pass2 = document.getElementById("password2").value;
-            var pass1 = document.getElementById("password1").value;
-            if (pass1 != pass2)
-                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-            else
-                document.getElementById("password2").setCustomValidity('');
-            //empty string means no validation error
-        }
-    </script>
-    <script src="/static/js/SmoothScroll.min.js"></script>
-    <script src="/static/js/move-top.js"></script>
-    <script src="/static/js/easing.js"></script>
-    <script>
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-    
-                $('html,body').animate({
-                    scrollTop: $(this.hash).offset().top
-                }, 1000);
-            });
+
+    });
+</script>
+<script>
+    window.onload = function () {
+        document.getElementById("password1").onchange = validatePassword;
+        document.getElementById("password2").onchange = validatePassword;
+    }
+
+    function validatePassword() {
+        var pass2 = document.getElementById("password2").value;
+        var pass1 = document.getElementById("password1").value;
+        if (pass1 != pass2)
+            document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+        else
+            document.getElementById("password2").setCustomValidity('');
+        //empty string means no validation error
+    }
+</script>
+<script src="/static/js/SmoothScroll.min.js"></script>
+<script src="/static/js/move-top.js"></script>
+<script src="/static/js/easing.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 1000);
         });
-    </script>
-    <script>
-        $(document).ready(function () {
-            /*
-            var defaults = {
-                containerID: 'toTop', // fading element id
-                containerHoverID: 'toTopHover', // fading element hover id
-                scrollSpeed: 1200,
-                easingType: 'linear' 
-            };
-            */
-            $().UItoTop({
-                easingType: 'easeOutQuart'
-            });
-    
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        /*
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear' 
+        };
+        */
+        $().UItoTop({
+            easingType: 'easeOutQuart'
         });
-    </script>
-    <script src="/static/js/bootstrap.js"></script>
-    <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 0;"></span>To Top</a>
-    </body>
-    </html>
+
+    });
+</script>
+<script src="/static/js/bootstrap.js"></script>
+<a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 0;"></span>To Top</a>
+</body>
+</html>

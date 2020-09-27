@@ -1,46 +1,8 @@
-2020-09-21 16:58:01,042 ERROR: Exception on /community [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
-    conn = connection.create_connection(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
-    raise err
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 245, in perform_request
-    response = self.pool.urlopen(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connectionpool.py", line 726, in urlopen
-    retries = retries.increment(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\util\retry.py", line 379, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\packages\six.py", line 735, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connectionpool.py", line 670, in urlopen
-    httplib_response = self._make_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1230, in request
-    self._send_request(method, url, body, headers, encode_chunked)
-  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1276, in _send_request
-    self.endheaders(body, encode_chunked=encode_chunked)
-  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1225, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1004, in _send_output
-    self.send(msg)
-  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 944, in send
-    self.connect()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 187, in connect
-    conn = self._new_conn()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 171, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x05223BF8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
-
-During handling of the above exception, another exception occurred:
-
+2020-09-23 10:56:00,136 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 11:35:38,675 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
+2020-09-23 11:42:26,355 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 11:45:52,136 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 11:45:56,187 ERROR: Exception on /shop/Spar [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -54,31 +16,55 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 33, in community
-    db.session.commit()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1042, in commit
-    self.transaction.commit()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 511, in commit
-    self.session.dispatch.after_commit(self.session)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
-    fn(*args, **kw)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\models.py", line 37, in after_commit
-    add_to_index(obj.__tablename__, obj)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\search.py", line 10, in add_to_index
-    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
-    return func(*args, params=params, headers=headers, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 391, in index
-    return self.transport.perform_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 390, in perform_request
-    raise e
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
-    status, headers_response, data = connection.perform_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 258, in perform_request
-    raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x05223BF8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x05223BF8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
-2020-09-21 17:16:03,229 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:87]
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 131, in shop
+    return render_template('shop2.html', aisles=aisles.items, form=form, next_url=next_url, prev_url=prev_url, category=category, shopname=shopname)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Sergio\Desktop\SDG Project 2\app\templates\shop2.html", line 192, in template
+    {% include 'footer.html' %}
+jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2020-09-23 11:46:25,731 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 11:47:08,476 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 11:50:04,490 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 11:55:12,741 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 12:04:27,505 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 12:12:45,246 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 12:15:42,691 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 12:16:47,761 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 12:19:23,400 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 12:20:12,435 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 12:20:34,093 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 12:20:57,601 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 13:29:47,795 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 13:30:30,190 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-23 13:43:25,153 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:89]
+2020-09-24 08:48:51,261 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-24 09:07:51,336 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-24 09:08:45,680 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-24 09:14:08,344 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-24 09:19:17,978 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-24 09:20:23,840 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-24 11:00:52,226 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-24 11:06:47,930 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-24 11:08:43,674 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-24 11:09:43,506 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-24 11:13:33,782 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-25 08:27:46,265 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-25 10:12:24,122 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-25 10:13:46,470 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-25 10:16:14,655 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-25 10:19:18,487 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]

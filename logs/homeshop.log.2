@@ -1,12 +1,34 @@
-2020-09-23 10:03:07,170 ERROR: Exception on /admin/post/ [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-25 14:41:00,617 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such column: user_1.picture
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1183, in delete_model
+    self.session.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1042, in commit
+    self.transaction.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 511, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\models.py", line 44, in after_commit
+    remove_from_index(obj.__tablename__, obj)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\search.py", line 16, in remove_from_index
+    current_app.elasticsearch.delete(index=index, id=model.id)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 582, in delete
+    return self.transport.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 392, in perform_request
+    raise e
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 269, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\base.py", line 300, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, '{"_index":"product","_type":"_doc","_id":"25","_version":1,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}')
 
-The above exception was the direct cause of the following exception:
+During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
@@ -25,36 +47,79 @@ Traceback (most recent call last):
     return self._run_view(f, *args, **kwargs)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 368, in _run_view
     return fn(self, *args, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\model\base.py", line 1969, in index_view
-    count, data = self.get_list(view_args.page, sort_column, view_args.sort_desc,
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1079, in get_list
-    query = query.all()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3346, in all
-    return list(self)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3508, in __iter__
-    return self._execute_and_instances(context)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3533, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
-    return meth(self, multiparams, params)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
-    ret = self._execute_context(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
-    self._handle_dbapi_exception(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
-    util.raise_(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
-    raise exception
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user_1.picture
-[SQL: SELECT post.id AS post_id, post.body AS post_body, post.timestamp AS post_timestamp, post.user_id AS post_user_id, user_1.id AS user_1_id, user_1.username AS user_1_username, user_1.email AS user_1_email, user_1.password_hash AS user_1_password_hash, user_1.about_me AS user_1_about_me, user_1.last_seen AS user_1_last_seen, user_1.picture AS user_1_picture 
-FROM post LEFT OUTER JOIN user AS user_1 ON user_1.id = post.user_id
- LIMIT ? OFFSET ?]
-[parameters: (20, 0)]
-(Background on this error at: http://sqlalche.me/e/13/e3q8)
-2020-09-23 10:05:36,762 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\model\base.py", line 2224, in delete_view
+    if self.delete_model(model):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1189, in delete_model
+    self.session.rollback()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1006, in rollback
+    self.transaction.rollback()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 520, in rollback
+    self._assert_active(prepared_ok=True, rollback_ok=True)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This session is in 'committed' state; no further SQL can be emitted within this transaction.
+2020-09-25 14:41:17,456 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-25 14:41:29,846 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1183, in delete_model
+    self.session.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1042, in commit
+    self.transaction.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 511, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\models.py", line 44, in after_commit
+    remove_from_index(obj.__tablename__, obj)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\search.py", line 16, in remove_from_index
+    current_app.elasticsearch.delete(index=index, id=model.id)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 582, in delete
+    return self.transport.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 392, in perform_request
+    raise e
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 269, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\base.py", line 300, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, '{"_index":"product","_type":"_doc","_id":"24","_version":1,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":3,"_primary_term":1}')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 69, in inner
+    return self._run_view(f, *args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 368, in _run_view
+    return fn(self, *args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\model\base.py", line 2224, in delete_view
+    if self.delete_model(model):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1189, in delete_model
+    self.session.rollback()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1006, in rollback
+    self.transaction.rollback()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 520, in rollback
+    self._assert_active(prepared_ok=True, rollback_ok=True)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This session is in 'committed' state; no further SQL can be emitted within this transaction.
