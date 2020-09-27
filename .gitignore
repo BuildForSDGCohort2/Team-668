@@ -1,11 +1,10 @@
 __pycache__
 .vscode
 
-migrations/*
+migrations
 app.db
 
 static/*
-venv/*
+venv
 
 .env
-logs/*
