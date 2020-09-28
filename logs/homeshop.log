@@ -57,3 +57,5 @@ jinja2.exceptions.TemplateSyntaxError: expected token ',', got ';'
 2020-09-25 16:15:04,902 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
 2020-09-25 16:17:29,131 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
 2020-09-25 16:19:22,777 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-27 13:04:20,286 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:89]
+2020-09-28 09:06:40,833 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:89]

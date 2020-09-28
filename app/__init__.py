@@ -88,7 +88,7 @@ def create_app(config_class=Config):
         app.logger.setLevel(logging.INFO)
         app.logger.info("HomeShop startup")
 
-    return app
+    return app.run()
 
 from app import models
 
