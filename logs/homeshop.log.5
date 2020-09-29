@@ -1,4 +1,4 @@
-2020-09-25 10:19:53,466 ERROR: Exception on /search [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-28 15:57:41,448 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
     conn = connection.create_connection(
@@ -37,7 +37,36 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 171, in _new_conn
     raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x04D00A48>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x04EE0A18>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1183, in delete_model
+    self.session.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1042, in commit
+    self.transaction.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 511, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\models.py", line 44, in after_commit
+    remove_from_index(obj.__tablename__, obj)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\search.py", line 16, in remove_from_index
+    current_app.elasticsearch.delete(index=index, id=model.id)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 582, in delete
+    return self.transport.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 390, in perform_request
+    raise e
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 258, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x04EE0A18>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x04EE0A18>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
 
 During handling of the above exception, another exception occurred:
 
@@ -54,60 +83,20 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 264, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\models.py", line 17, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\search.py", line 22, in query_index
-    search = current_app.elasticsearch.search(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
-    return func(*args, params=params, headers=headers, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 1612, in search
-    return self.transport.perform_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 390, in perform_request
-    raise e
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
-    status, headers_response, data = connection.perform_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 258, in perform_request
-    raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x04D00A48>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x04D00A48>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
-2020-09-25 10:27:23,172 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 10:27:42,082 ERROR: Exception on /search [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 264, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\models.py", line 17, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\search.py", line 22, in query_index
-    search = current_app.elasticsearch.search(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
-    return func(*args, params=params, headers=headers, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 1612, in search
-    return self.transport.perform_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 392, in perform_request
-    raise e
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
-    status, headers_response, data = connection.perform_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 269, in perform_request
-    self._raise_error(response.status, raw_data)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\base.py", line 300, in _raise_error
-    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
-2020-09-25 13:21:16,915 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 14:29:39,166 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 69, in inner
+    return self._run_view(f, *args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 368, in _run_view
+    return fn(self, *args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\model\base.py", line 2224, in delete_view
+    if self.delete_model(model):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1189, in delete_model
+    self.session.rollback()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1006, in rollback
+    self.transaction.rollback()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 520, in rollback
+    self._assert_active(prepared_ok=True, rollback_ok=True)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This session is in 'committed' state; no further SQL can be emitted within this transaction.

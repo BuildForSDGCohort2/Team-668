@@ -10,6 +10,7 @@ import sqlite3
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
+    file = FileField('File')
     submit = SubmitField('Submit')
 
     def __init__(self, original_username, *args, **kwargs):
@@ -88,3 +89,7 @@ class SearchForm(FlaskForm):
         if 'csrf_enabled' not in kwargs:
             kwargs['csrf_enabled'] = False
         super(SearchForm, self).__init__(*args, **kwargs)
+
+class UploadImages(FlaskForm):
+    file = FileField('File')
+    submit = SubmitField('Submit')

@@ -1,4 +1,4 @@
-2020-09-25 15:57:47,269 ERROR: Exception on /index [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-29 11:14:27,363 ERROR: Exception on /auth/login [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,8 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 24, in index
-    return render_template('index.html', title='Home', store=store, form=form)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\routes.py", line 27, in login
+    return render_template('auth/login.html', title='Sign In', form=form)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
     return _render(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -24,38 +24,14 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\templates\base2.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\templates\base2.html", line 8, in block "body"
-    {% block navbar %}
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\templates\base2.html", line 9, in block "navbar"
-    {% include 'navbar2.html' %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\templates\navbar2.html", line 247, in template
-    placeholder=g.search_form.q.label.text, style="border: transparent";) }}
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got ';'
-2020-09-25 15:58:55,617 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:00:47,302 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:01:37,215 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:03:37,531 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:09:57,080 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:11:03,448 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:12:03,116 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:12:23,113 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:13:09,510 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:15:04,902 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:17:29,131 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 16:19:22,777 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-27 13:04:20,286 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:89]
-2020-09-28 09:06:40,833 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:89]
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\templates\auth\login.html", line 14, in top-level template code
+    {% include '_message.html' %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: _message.html
+2020-09-29 11:15:08,824 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 11:15:50,328 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 11:16:30,034 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 11:19:01,023 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]

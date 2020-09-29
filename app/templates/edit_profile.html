@@ -21,24 +21,41 @@
             <div class="col-md-4" style="
         width: 100%;
     ">
-          
+    <div class="container" style="
+    width: 100%;
+    float: left;">
+    <div class="form-group ">
+        <h4>Profile Image</h4>
+        <img src="/static/images/profileImages/{{ user.image }}" style="width: 160px">
+        <!-- <img src="/static/images/profileImages/{{user.id}}" alt="" style="width: 150px;"> -->
+        
+        <!-- <img src="{{ user.avatar(256) }}" alt="" > -->
+                          
+       
+        <p>Uploade Profile Image</p>
+        <form method="POST" action="{{ url_for('main.upload_images') }}" enctype="multipart/form-data">
+          <p><input id="file" type="file" name="file"></p>
+          <p><input type="submit" value="Submit"></p>
+        </form>
+    </div>  </div>    
     <form action="" method="post" class="form" role="form">
     {{ form.hidden_tag() }}    
     <div class="container" style="
-        width: 50%;
-        float: left;
-    "><div class="form-group  required"><label class="control-label" for="username">Username</label>
-            
-              <input class="form-control" id="username" name="username" required="" type="text" value="{{form.username.data}}">
+        width: 100%;
+        float: left;">
+        
+        
+        <div class="form-group  required">
+            <label class="control-label" for="username">Username</label>
+            <input class="form-control" id="username" name="username" required="" type="text" value="{{form.username.data}}">
             
       </div>
-    
-    
-    <div class="form-group "><label class="control-label" for="about_me">About me</label>
+        <div class="form-group ">
+            <label class="control-label" for="about_me">About me</label>
+            <textarea class="form-control" id="about_me" name="about_me">{{form.about_me.data}}</textarea>
             
-              <textarea class="form-control" id="about_me" name="about_me">{{form.about_me.data}}</textarea>
-            
-      </div></div>
+      </div>
+     </div>
     
     <div class="container" style="
         width: 50%;

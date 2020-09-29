@@ -78,10 +78,12 @@
                                     <p class="w3l-ad" style="width: 100%; text-align: center;">We've pulled together all our special offers and products into one place, so you won't miss out on a great deal.</p>
                                 </div>
                                 <div class="agile_top_brands_grids">
+                                    {% for ais in aisles %}
                                     <div class="col-md-4 top_brand_left">
                                         <div class="hover14 column">
+                                            
                                             <div class="agile_top_brand_left_grid">
-                                                {% for ais in aisles %}
+                                                
                                                 <div class="agile_top_brand_left_grid1">
                                                     <figure>
                                                         <div class="snipcart-item block">
@@ -116,11 +118,12 @@
                                                         </div>
                                                     </figure>
                                                 </div>
-                                                {% endfor %}
+                                                
                                             </div>
+                                           
                                         </div>
                                     </div>
-                                    
+                                    {% endfor %}
                                     
                                     <div class="clearfix"> </div>
                                 </div>

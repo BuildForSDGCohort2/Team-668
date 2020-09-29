@@ -13,7 +13,6 @@ from flask_admin import Admin
 from elasticsearch import Elasticsearch
 from flask_babel import Babel
 
-
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()

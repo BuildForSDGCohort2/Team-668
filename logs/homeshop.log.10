@@ -1,4 +1,4 @@
-2020-09-21 17:24:17,440 ERROR: Exception on /community [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-09-28 15:53:23,071 ERROR: Exception on /admin/product/new/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
     conn = connection.create_connection(
@@ -37,7 +37,36 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 171, in _new_conn
     raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x058179E8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x052A1790>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1132, in create_model
+    self.session.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1042, in commit
+    self.transaction.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 511, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\models.py", line 38, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\search.py", line 10, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 391, in index
+    return self.transport.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 390, in perform_request
+    raise e
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 258, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x052A1790>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x052A1790>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
 
 During handling of the above exception, another exception occurred:
 
@@ -54,63 +83,20 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\main\routes.py", line 33, in community
-    db.session.commit()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 69, in inner
+    return self._run_view(f, *args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 368, in _run_view
+    return fn(self, *args, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\model\base.py", line 2089, in create_view
+    model = self.create_model(form)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1138, in create_model
+    self.session.rollback()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
     return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1042, in commit
-    self.transaction.commit()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 511, in commit
-    self.session.dispatch.after_commit(self.session)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
-    fn(*args, **kw)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\models.py", line 37, in after_commit
-    add_to_index(obj.__tablename__, obj)
-  File "C:\Users\Sergio\Desktop\SDG Project 2\app\search.py", line 10, in add_to_index
-    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
-    return func(*args, params=params, headers=headers, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 391, in index
-    return self.transport.perform_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 390, in perform_request
-    raise e
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
-    status, headers_response, data = connection.perform_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 258, in perform_request
-    raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x058179E8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x058179E8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
-2020-09-21 17:34:40,632 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:05:37,730 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:30:43,918 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:32:22,344 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:36:17,136 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:40:57,273 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:43:36,961 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:45:08,773 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:46:54,856 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:47:34,391 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:49:27,266 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:49:42,008 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:49:54,534 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:50:36,063 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:51:55,004 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:56:09,627 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:57:07,595 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:58:48,930 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:59:24,233 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 09:59:54,557 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:00:31,232 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:03:25,324 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:13:36,007 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:15:05,607 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:18:31,369 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:23:21,581 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:25:43,780 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:33:20,393 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:43:40,107 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:44:27,737 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:45:47,789 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:46:26,401 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
-2020-09-22 10:49:53,937 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 2\app\__init__.py:88]
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1006, in rollback
+    self.transaction.rollback()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 520, in rollback
+    self._assert_active(prepared_ok=True, rollback_ok=True)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This session is in 'committed' state; no further SQL can be emitted within this transaction.

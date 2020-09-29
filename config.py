@@ -14,10 +14,13 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['your-email@example.com']
-    POSTS_PER_PAGE = 3
-    SHOPAISLES_PER_PAGE = 30
+    POSTS_PER_PAGE = 15
+    SHOPAISLES_PER_PAGE = 15
     PRODUCTS_PER_PAGE = 3
     UPLOAD_FOLDER = '/app/static/uploads'
     ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
     UPLOADED_PHOTOS_DEST = os.path.join(basedir, 'app/static/images/profileImages')
+    MAX_CONTENT_LENGTH = 1024 * 1024
+    UPLOAD_EXTENSIONS = ['.jpg', '.png', '.gif', '.png']
+    UPLOAD_PATH = 'app/static/images/profileImages'

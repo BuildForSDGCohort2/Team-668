@@ -65,6 +65,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     about_me = db.Column(db.String(140))
+    image = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     followed = db.relationship(
         'User', secondary=followers,
@@ -178,7 +179,8 @@ class Product(SearchableMixin ,db.Model):
     availabilty = db.Column(db.Boolean)
     picture = db.Column(db.String(150))
     store_id = db.Column(db.Integer, db.ForeignKey('retail_stores.id')) 
-    orderitem = db.relationship('OrderItem', backref='item', lazy=True)  
+    orderitem = db.relationship('OrderItem', backref='item', lazy=True) 
+    discount = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Product {}>'.format(self.pname) 
@@ -226,11 +228,17 @@ class Category(db.Model):
         self.name = name
         self.store_id = store_id
 
+    def __repr__(self):
+        return '{}'.format(self.name) 
+
 class Aisles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
     store_id = db.Column(db.Integer, db.ForeignKey('retail_stores.id'))
-    cate = db.relationship('Category', backref='catedetails', lazy=True)        
+    cate = db.relationship('Category', backref='catedetails', lazy=True)
+
+    def __repr__(self):
+        return '{}'.format(self.name)         
 
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True, index=True)

@@ -1,13 +1,7 @@
-2020-09-25 14:44:43,313 ERROR: Exception on /static/js/SmoothScroll.min.js [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: database is locked
-
-The above exception was the direct cause of the following exception:
-
+2020-09-28 16:57:48,365 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-28 16:58:10,685 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+2020-09-29 10:13:42,964 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 10:14:33,178 ERROR: Exception on /auth/reset_password_request [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -17,72 +11,118 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1948, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2242, in preprocess_request
-    rv = func()
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 15, in before_request
-    db.session.commit()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1042, in commit
-    self.transaction.commit()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 504, in commit
-    self._prepare_impl()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 483, in _prepare_impl
-    self.session.flush()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2523, in flush
-    self._flush(objects)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2664, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.raise_(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
-    raise exception
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2624, in _flush
-    flush_context.execute()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 586, in execute
-    persistence.save_obj(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 230, in save_obj
-    _emit_update_statements(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 994, in _emit_update_statements
-    c = cached_connections[connection].execute(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
-    return meth(self, multiparams, params)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
-    ret = self._execute_context(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
-    self._handle_dbapi_exception(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
-    util.raise_(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
-    raise exception
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked
-[SQL: UPDATE user SET last_seen=? WHERE user.id = ?]
-[parameters: ('2020-09-25 12:44:37.995909', 1)]
-(Background on this error at: http://sqlalche.me/e/13/e3q8)
-2020-09-25 14:49:01,402 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 14:51:43,004 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 14:52:53,292 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 14:55:11,595 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:00:15,734 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:01:33,133 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:07:43,193 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:10:40,127 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:11:22,488 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:20:42,810 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:23:00,669 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:23:55,957 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:26:48,138 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:28:09,200 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:37:36,532 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:40:49,693 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
-2020-09-25 15:57:42,137 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:89]
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\routes.py", line 56, in reset_password_request
+    send_password_reset_email(user)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\email.py", line 7, in send_password_reset_email
+    sender=app.config['ADMINS'][0],
+NameError: name 'app' is not defined
+2020-09-29 10:23:13,826 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 10:23:20,232 ERROR: Exception on /auth/reset_password_request [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\routes.py", line 56, in reset_password_request
+    send_password_reset_email(user)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\email.py", line 7, in send_password_reset_email
+    sender=app.config['ADMINS'][0],
+NameError: name 'app' is not defined
+2020-09-29 10:26:44,388 ERROR: Exception on /auth/reset_password_request [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\routes.py", line 56, in reset_password_request
+    send_password_reset_email(user)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\email.py", line 7, in send_password_reset_email
+    sender=app.config['ADMINS'][0],
+NameError: name 'app' is not defined
+2020-09-29 10:34:33,170 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 10:35:06,966 ERROR: Exception on /auth/reset_password_request [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\routes.py", line 56, in reset_password_request
+    send_password_reset_email(user)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\email.py", line 7, in send_password_reset_email
+    sender=app.config['ADMINS'][0],
+NameError: name 'app' is not defined
+2020-09-29 10:36:12,224 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 10:36:21,051 ERROR: Exception on /auth/reset_password_request [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\routes.py", line 56, in reset_password_request
+    send_password_reset_email(user)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\auth\email.py", line 11, in send_password_reset_email
+    html_body=render_template('email/reset_password.html',
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\templates\email\reset_password.html", line 9, in top-level template code
+    <p>{{ url_for('reset_password', token=token, _external=True) }}</p>
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'reset_password' with values ['token']. Did you mean 'auth.reset_password' instead?
+2020-09-29 10:39:57,927 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 11:08:29,901 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 11:11:05,035 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 11:13:04,388 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]
+2020-09-29 11:14:25,384 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:88]

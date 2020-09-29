@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request, g, current_app, session
+from flask import abort, render_template, flash, redirect, url_for, request, g, current_app, session, send_from_directory
 from flask_login import current_user, login_required
 from functools import wraps
 from app import db
@@ -7,6 +7,9 @@ from app.main.forms import EditProfileForm, EmptyForm, PostForm, OrdersForm, Pro
 from app.models import User, Post, Product, RetailStores, Category, CustomerOrderDetails, Aisles
 from app.main import bp
 from flask_babel import get_locale, _
+from werkzeug.utils import secure_filename
+import os
+import imghdr
 
 @bp.before_app_request
 def before_request():
@@ -75,7 +78,32 @@ def edit_profile():
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', title='Edit Profile',
-                           form=form)
+                           form=form, user=current_user)
+            
+def validate_image(stream):
+    header = stream.read(512)  # 512 bytes should be enough for a header check
+    stream.seek(0)  # reset stream pointer
+    format = imghdr.what(None, header)
+    if not format:
+        return None
+    return '.' + (format if format != 'jpeg' else 'jpg')
+
+@bp.route('/edit_profile/upload_images', methods=['POST'])
+def upload_images():
+    uploaded_file = request.files['file']
+    filename = secure_filename(uploaded_file.filename)
+    if filename != '':
+        file_ext = os.path.splitext(filename)[1]
+        if file_ext not in current_app.config['UPLOAD_EXTENSIONS'] or file_ext != validate_image(uploaded_file.stream):
+            abort(400)
+        uploaded_file.save(os.path.join(current_app.config['UPLOAD_PATH'], filename))
+        current_user.image = filename
+        db.session.commit()
+    return redirect(url_for('main.edit_profile'))
+
+# @bp.route('/edit_profile/upload_images/<filename>')
+# def upload(filename):
+#     return send_from_directory(current_app.config['UPLOAD_PATH'], filename)
 
 
 @bp.route('/follow/<username>', methods=['POST'])

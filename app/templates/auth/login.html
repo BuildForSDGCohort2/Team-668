@@ -11,6 +11,7 @@
     
     </head>
     <body>
+      
       <div class="container" style="text-align: center;background: transparent;height: 80px;"><a href="{{url_for('main.index')}}" style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;"><li style="
             line-height: 70px;
             font-size: 1em;
@@ -51,6 +52,9 @@
         white-space: nowrap;
         border: 0;">Username</label><br>
         <input id="username" name="username" required="" size="32" type="text" value="" class="form-control" placeholder="Username">
+        {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
         <label for="password" style="
         position: absolute;
         width: 1px;
@@ -63,7 +67,9 @@
         border: 0;">Password</label><br>
                  
       <input id="password" name="password" required="" size="32" type="password" value="" class="form-control" placeholder="Password">
-        
+      {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}  
       <div class="checkbox mb-3" style="font-weight: 400;
         margin-bottom: 1rem!important;">
         
