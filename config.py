@@ -25,3 +25,4 @@ class Config(object):
     MAX_CONTENT_LENGTH = 1024 * 1024
     UPLOAD_EXTENSIONS = ['.jpg', '.png', '.gif', '.png']
     UPLOAD_PATH = 'app/static/images/profileImages'
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
