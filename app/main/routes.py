@@ -233,8 +233,8 @@ def payment():
 
 paypalrestsdk.configure({
   "mode": "sandbox", # sandbox or live
-  "client_id": "#",
-  "client_secret": "#" })
+  "client_id": "AUze3YRwyerbtTFKS00m3PTjynPSCF151q_WM4ChfcHFUea8pVc4ZcwWk8ZEvXeiSm2bWZjUho2e1VNg",
+  "client_secret": "EKEg66-eoKzHjv_4xWRObUhO7k9fjNOjTbvHaOfe8Gw-KQL18zARyQ7NEoxoLeRz-7iX9TCnCeI-Q6Cq" })
 
 @bp.route('/create-order', methods=['GET', 'POST'])
 @login_required
