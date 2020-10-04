@@ -53,13 +53,36 @@ class SearchableMixin(object):
 db.event.listen(db.session, 'before_commit', SearchableMixin.before_commit)
 db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
 
+class PaginatedAPIMixin(object):
+    @staticmethod
+    def to_collection_dict(query, page, per_page, endpoint, **kwargs):
+        resources = query.paginate(page, per_page, False)
+        data = {
+            'items': [item.to_dict() for item in resources.items],
+            '_meta': {
+                'page': page,
+                'per_page': per_page,
+                'total_pages': resources.pages,
+                'total_items': resources.total
+            },
+            '_links': {
+                'self': url_for(endpoint, page=page, per_page=per_page,
+                                **kwargs),
+                'next': url_for(endpoint, page=page + 1, per_page=per_page,
+                                **kwargs) if resources.has_next else None,
+                'prev': url_for(endpoint, page=page - 1, per_page=per_page,
+                                **kwargs) if resources.has_prev else None
+            }
+        }
+        return data
+
 followers = db.Table(
     'followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
 )
 
-class User(UserMixin, db.Model):
+class User(PaginatedAPIMixin ,UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
@@ -74,10 +97,12 @@ class User(UserMixin, db.Model):
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     order = db.relationship('Order', backref='user', lazy=True)
-    order_items = db.relationship('OrderItem', backref='user1', lazy='dynamic')
+    order_items = db.relationship('OrderItem', backref='Client_id', lazy='dynamic')
+    token = db.Column(db.String(32), index=True, unique=True)
+    token_expiration = db.Column(db.DateTime)
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return 'User ID:  {}'.format(self.id)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -122,6 +147,45 @@ class User(UserMixin, db.Model):
         except:
             return
         return User.query.get(id)
+    
+    def to_dict(self, include_email=False):
+        data = {
+            'id': self.id,
+            'username': self.username,
+            'last_seen': self.last_seen.isoformat() + 'Z',
+            'about_me': self.about_me,
+            'post_count': self.posts.count(),
+            'follower_count': self.followers.count(),
+            'followed_count': self.followed.count(),
+            '_links': {
+                'self': url_for('api.get_user', id=self.id),
+                'followers': url_for('api.get_followers', id=self.id),
+                'followed': url_for('api.get_followed', id=self.id),
+                'avatar': self.avatar(128)
+            }
+        }
+        if include_email:
+            data['email'] = self.email
+        return data
+
+    def get_token(self, expires_in=3600):
+        now = datetime.utcnow()
+        if self.token and self.token_expiration > now + timedelta(seconds=60):
+            return self.token
+        self.token = base64.b64encode(os.urandom(24)).decode('utf-8')
+        self.token_expiration = now + timedelta(seconds=expires_in)
+        db.session.add(self)
+        return self.token
+
+    def revoke_token(self):
+        self.token_expiration = datetime.utcnow() - timedelta(seconds=1)
+
+    @staticmethod
+    def check_token(token):
+        user = User.query.filter_by(token=token).first()
+        if user is None or user.token_expiration < datetime.utcnow():
+            return None
+        return user
 
 
 @login.user_loader
@@ -150,9 +214,10 @@ class CustomerOrderDetails(db.Model):
     ship_add = db.Column(db.Boolean)
     odate = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     order_item = db.relationship('OrderItem', backref='client', lazy='dynamic')
+    order = db.relationship('Order', backref='billing_add', lazy='dynamic')
     
     def __repr__(self):
-        return '<Customer order details: {}>'.format(self.first_name)
+        return 'Customer order details: First Name: {}, Last Name: {}, Email: {}, Address: {}, Mobile: {}, City: {}'.format(self.first_name, self.last_name, self.email, self.address, self.mobile, self.city)
 
 products_con = db.Table('products', db.Column('order_item_id', db.Integer, db.ForeignKey('order_item.id')), db.Column('order_id', db.Integer, db.ForeignKey('order.id')))
 
@@ -167,12 +232,15 @@ class OrderItem(db.Model):
     product_item = db.relationship('Order', secondary=products_con, backref=db.backref('orderitem', lazy='dynamic'))
     ordered = db.Column(db.Boolean, default=False)
 
+    def __repr__(self):
+        return 'Order Item ID: {}'.format(self.id) 
+
 
 class Product(SearchableMixin ,db.Model):
-    __searchable__ = ["category", "pname", "description"]
+    __searchable__ = ["category_id", "pname", "description"]
 
     id = db.Column(db.Integer, primary_key=True)
-    category = db.Column(db.Integer, db.ForeignKey('category.id'))
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
     pname = db.Column(db.String(64), index=True)
     description = db.Column(db.String(140))
     prize = db.Column(db.Float)
@@ -183,10 +251,10 @@ class Product(SearchableMixin ,db.Model):
     discount = db.Column(db.Integer)
 
     def __repr__(self):
-        return '<Product {}>'.format(self.pname) 
+        return '{}'.format(self.pname) 
 
-    def __init__(self, category, pname, description, prize, availabilty, picture, store_id):
-        self.category = category
+    def __init__(self, category_id, pname, description, prize, availabilty, picture, store_id):
+        self.category_id = category_id
         self.pname = pname
         self.description = description
         self.prize = prize
@@ -205,14 +273,18 @@ class Order(db.Model):
     product = db.relationship('OrderItem', secondary=products_con, backref=db.backref('order', lazy='dynamic'))
     order_item = db.Column(db.Integer, db.ForeignKey('order_item.id'))
     start_date = db.Column(db.DateTime, default=datetime.utcnow)
-    order_date = db.Column(db.DateTime)
+    order_date = db.Column(db.DateTime, default=datetime.utcnow)
     ordered = db.Column(db.Boolean, default=False)
+    billing_address = db.Column(db.Integer, db.ForeignKey('customer_order_details.id'))
+
+    def __repr__(self):
+        return 'Order ID: {}'.format(self.id)
 
 class RetailStores(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     store_name = db.Column(db.String(64), nullable=False)
-    categoryrel = db.relationship('Category', backref='rstore', lazy=True)
-    productsrel = db.relationship('Product', backref='store', lazy=True)
+    category = db.relationship('Category', backref='rstore', lazy='dynamic')
+    product = db.relationship('Product', backref='store', lazy='dynamic')
 
     def __repr__(self):
         return '{}'.format(self.store_name) 
@@ -222,7 +294,7 @@ class Category(db.Model):
     name = db.Column(db.String(64), index=True)
     store_id = db.Column(db.Integer, db.ForeignKey('retail_stores.id'))
     aisles_id = db.Column(db.Integer, db.ForeignKey('aisles.id'))
-    product_items = db.relationship('Product', backref='catdetails', lazy=True)
+    product = db.relationship('Product', backref='catdetails', lazy='dynamic')
 
     def __init__(self, name, store_id):
         self.name = name
@@ -235,29 +307,18 @@ class Aisles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
     store_id = db.Column(db.Integer, db.ForeignKey('retail_stores.id'))
-    cate = db.relationship('Category', backref='catedetails', lazy=True)
+    category = db.relationship('Category', backref='aisles', lazy=True)
 
     def __repr__(self):
         return '{}'.format(self.name)         
 
-class Admin(db.Model):
-    id = db.Column(db.Integer, primary_key=True, index=True)
-    a_name = db.Column(db.String(64), index=True)
-    a_last_name  = db.Column(db.String(64))
-    password_h = db.Column(db.String(128))
-
-    def set_password(self, password):
-        self.password_h = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password_h, password)
-
 
 admin_control.add_view(ModelView(User, db.session))
-admin_control.add_view(ModelView(Post, db.session))
 admin_control.add_view(ModelView(CustomerOrderDetails, db.session))
 admin_control.add_view(ModelView(OrderItem, db.session))
 admin_control.add_view(ModelView(Order, db.session))
 admin_control.add_view(ModelView(Product, db.session))
 admin_control.add_view(ModelView(RetailStores, db.session))
 admin_control.add_view(ModelView(Category, db.session))
+admin_control.add_view(ModelView(Aisles, db.session))
+#admin_control.add_view(ModelView(Payment, db.session))

@@ -70,8 +70,9 @@
         margin-top: -15px;
         ">Shopping <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+<!-- /shop/Pink%20n%20Pay -->
                                 <li><a href="{{ url_for('main.shop', shopname='Spar')}}">Spar</a></li>
-                                <li><a href="/shop/Pink%20n%20Pay">Pick 'n Pay</a></li>
+                                <li><a href="{{ url_for('main.shop', shopname='Pick_n_Pay')}}">Pick 'n Pay</a></li>
                                 <li><a href="{{ url_for('main.shop', shopname='Checkers')}}">Checkers</a></li>
                             </ul>
                         </li>
@@ -158,9 +159,9 @@
       border-radius: 4px 4px 4px 4px;
       -webkit-box-sizing: border-box;
       width: auto;
-  ">
-    <div id="nav-bar-left"></div>
+  ">  
     {% if g.search_form %}
+    <div id="nav-bar-left"></div>
     <form class="nav-searchbar" method="get"
             action="{{ url_for('main.search') }}" style="
             display: block;
@@ -313,7 +314,7 @@
       font-family: inherit;
   ">Today's Deals</a>
   
-  <a href="#" class="nav-a  " tabindex="48" style="
+  <!-- <a href="#" class="nav-a  " tabindex="48" style="
       padding: 15px 8px 7px 8px;
       margin: 1px 2px 12px 1px;
       color: #ccc;
@@ -333,7 +334,8 @@
       float: left;
       font-family: inherit;
       cursor: pointer;
-  ">Disability Customer Support</a>
+  ">Disability Customer Support</a> -->
+
   <script type="text/javascript">window.navmet.push({key:'CrossShop',end:+new Date(),begin:window.navmet.tmp});</script>
       
       <a href="{{url_for('main.cart')}}" aria-label="0 item in cart" class="nav-a nav-a-2" id="nav-cart" tabindex="26" style="

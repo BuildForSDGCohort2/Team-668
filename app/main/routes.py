@@ -1,15 +1,17 @@
 from datetime import datetime
-from flask import abort, render_template, flash, redirect, url_for, request, g, current_app, session, send_from_directory
+from flask import jsonify ,abort, render_template, flash, redirect, url_for, request, g, current_app, session, send_from_directory
 from flask_login import current_user, login_required
 from functools import wraps
 from app import db
-from app.main.forms import EditProfileForm, EmptyForm, PostForm, OrdersForm, ProductForm, Products, RetailStoreForm, CheckoutForm, Categories, SearchForm
-from app.models import User, Post, Product, RetailStores, Category, CustomerOrderDetails, Aisles
+from app.main.forms import ContactUs ,EditProfileForm, EmptyForm, PostForm, OrdersForm, ProductForm, Products, RetailStoreForm, CheckoutForm, Categories, SearchForm
+from app.models import User, Post, Product, RetailStores, Category, CustomerOrderDetails, Aisles, OrderItem, Order
 from app.main import bp
+from app.auth.email import send_email
 from flask_babel import get_locale, _
 from werkzeug.utils import secure_filename
 import os
 import imghdr
+import paypalrestsdk
 
 @bp.before_app_request
 def before_request():
@@ -147,50 +149,133 @@ def unfollow(username):
 
 @bp.route('/shop/<shopname>', methods=['GET', 'POST'])
 def shop(shopname):
-    form = ProductForm()
+    form = ProductForm()   
+    store = RetailStores.query.filter_by(store_name=shopname).first()
     page = request.args.get('page', 1, type=int)
     aisles = Aisles.query.paginate(
         page, current_app.config['SHOPAISLES_PER_PAGE'], False)
-    category = Category.query.all()
     next_url = url_for('main.shop', shopname=shopname, page=aisles.next_num) \
         if aisles.has_next else None
     prev_url = url_for('main.shop', shopname=shopname, page=aisles.prev_num) \
         if aisles.has_prev else None
-    return render_template('shop2.html', aisles=aisles.items, form=form, next_url=next_url, prev_url=prev_url, category=category, shopname=shopname)
+    category = Category.query.all()
+    return render_template('shop2.html', aisles=aisles.items, form=form, next_url=next_url, prev_url=prev_url, category=category, shopname=shopname, store=store)
 
 @bp.route('/shop/<shopname>/product', methods=['GET', 'POST'])
 def items(shopname):
+    page = request.args.get('page', 1, type=int)
     form = ProductForm()
-    product = Product.query.all()
+    product = Product.query.paginate(page, current_app.config['PRODUCTS_PER_PAGE'] )
     category = Category.query.all()
     return render_template('products2.html', product=product, form=form, category=category, shopname=shopname)
+
+@bp.route('/shop/<shopname>/product/category/<int:id>')
+def category(shopname, id):
+    page = request.args.get('page', 1, type=int)
+    form = ProductForm()
+    cat = Category.query.filter_by(id=id).first_or_404()
+    get_cat_pro = Product.query.filter_by(category_id=cat.id).paginate(page, current_app.config['CATEGORY_PER_PAGE'] )
+    category = Category.query.all()
+    return render_template('category.html', form=form, product=get_cat_pro, category=category, shopname=shopname, cat=cat)
 
 @bp.route('/shop/<shopname>/product/<int:id>', methods=['GET', 'POST'])
 def singleitem(shopname, id):
     product = Product.query.get_or_404(id)
     return render_template('singleitem.html', shopname=shopname, product=product)
 
+@bp.route('/shop/<shopname>/aisles/<int:id>', methods=['GET', 'POST'])
+def aisle(shopname, id):
+    form = ProductForm()
+    aisle = Aisles.query.filter_by(id=id).first()
+    category1 = Category.query.filter_by(aisles_id=aisle.id).all()
+    page = request.args.get('page', 1, type=int)
+    category = Category.query.all()    
+    for cat in category1:
+        product = Product.query.filter_by(category_id=cat.id).paginate(page, current_app.config['PRODUCTS_PER_PAGE'] )
+    return render_template('aisles.html', product=product, form=form, category=category, shopname=shopname, category1=category1, aisle=aisle)
+
+
+
 @bp.route('/checkout', methods=['GET', 'POST'])
 @login_required
-def checkout():
+def checkout():    
     form = CheckoutForm()
     if form.validate_on_submit():
         user = CustomerOrderDetails(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data, address=form.address.data, city=form.city.data, mobile=form.mobile.data, ship_add=form.ship_address.data)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('main.payment'))
+        if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
+            return redirect(url_for('main.index'))
+        for key, pro in session['Shoppingcart'].items():
+            subtotal = float(pro['prize']) * int(pro['quantity'])
+            order_item = OrderItem(order_client=user.id, customer=current_user.id, product=key, prize=subtotal, quantity=pro['quantity'], ordered=True)
+            db.session.add(order_item)
+            db.session.commit()
+        order = Order.query.filter_by(customer=current_user.id, ordered=False).first()
+        if not order:
+            ordering = Order(customer=current_user.id, order_item=order_item.id, ordered=True, billing_address=user.id)
+            db.session.add(ordering)
+            db.session.commit()
+            return redirect(url_for('main.payment'))
     if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
         return redirect(url_for('main.index'))
     subtotal = 0
     total = 0
     for key, pro in session['Shoppingcart'].items():
         subtotal += float(pro['prize']) * int(pro['quantity'])
-        total = subtotal
+        total = subtotal 
     return render_template('checkout2.html', form=form, total=total)
 
-@bp.route('/payment', methods=['POST'])
-def payment():
+@bp.route('/payment', methods=['GET', 'POST'])
+@login_required
+def payment(): 
     return render_template('payment.html')
+
+paypalrestsdk.configure({
+  "mode": "sandbox", # sandbox or live
+  "client_id": "AUze3YRwyerbtTFKS00m3PTjynPSCF151q_WM4ChfcHFUea8pVc4ZcwWk8ZEvXeiSm2bWZjUho2e1VNg",
+  "client_secret": "EKEg66-eoKzHjv_4xWRObUhO7k9fjNOjTbvHaOfe8Gw-KQL18zARyQ7NEoxoLeRz-7iX9TCnCeI-Q6Cq" })
+
+@bp.route('/create-order', methods=['GET', 'POST'])
+@login_required
+def create_order():
+    payment = paypalrestsdk.Payment({
+    "intent": "sale",
+    "payer": {
+        "payment_method": "paypal"},
+    "redirect_urls": {
+        "return_url": "http://localhost:3000/payment/execute",
+        "cancel_url": "http://localhost:3000/"},
+    "transactions": [{
+        "item_list": {
+            "items": [{
+                "name": "testitem",
+                "sku": "12345",
+                "price": "500.00",
+                "currency": "USD",
+                "quantity": 1}]},
+        "amount": {
+            "total": "500.00",
+            "currency": "USD"},
+        "description": "This is the payment transaction description."}]})
+    if payment.create():
+        print("success!!!")
+        print(payment.id)
+    else:
+        print(payment.error)
+
+    return jsonify({"paymentID":payment.id})
+
+@bp.route('/execute', methods=['POST'])
+def execute():
+    success = False
+    payment = paypalrestsdk.Payment.find(request.form['paymentID'])
+    if payment.execute({'payer_id': request.form['payerID']}):
+        print('Execute success!')
+        success=True
+    else:
+        print(payment.error)
+    return jsonify({'success':success})
 
 def MagerDict(dict1, dict2):
     if isinstance(dict1, list) and isinstance(dict2, list):
@@ -273,7 +358,16 @@ def about():
 
 @bp.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    form = ContactUs()
+    if form.validate_on_submit():
+        name = request.form.get('name')
+        subject = request.form.get('subject')
+        email = request.form.get('email')
+        message = request.form.get('message')
+        send_email(subject, sender=current_app.config['ADMINS'][0], recipients=[current_app.config['ADMINS'][0]], text_body=render_template('email/contactform.txt', name=name, message=message, email=email), html_body=render_template('email/contactform.html', name=name, message=message, email=email))
+        flash('Message has been send, will get back to you as soon as possible')
+        return redirect(url_for('main.contact'))
+    return render_template('contact.html', form=form)
 
 @bp.route('/terms')
 def terms():
@@ -297,4 +391,4 @@ def search():
     prev_url = url_for('main.search', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
     return render_template('search.html', title=_('Search'), product=product,
-                           next_url=next_url, prev_url=prev_url)
+                           next_url=next_url, prev_url=prev_url, total=total)

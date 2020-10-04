@@ -30,7 +30,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 {% include 'navbar.html' %}
+<div class="container" style="width: 80%; margin-top: 10px;">
     <h1>{{ _('Search Results') }}</h1>
+    <p style="font-size: medium;">Total search results: {{total}}</p>
     <!-- {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %} -->
@@ -61,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                         </nav>
         </div>
-
+    </div>
     {% include 'footer.html' %}
 
     <script src="/static/js/jquery-2.1.4.min.js"></script>

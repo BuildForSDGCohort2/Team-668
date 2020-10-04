@@ -13,6 +13,7 @@ from flask_admin import Admin
 from elasticsearch import Elasticsearch
 from flask_babel import Babel
 
+
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
@@ -22,6 +23,7 @@ babel = Babel()
 bootstrap = Bootstrap()
 moment = Moment()
 admin_control = Admin()
+
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -51,6 +53,10 @@ def create_app(config_class=Config):
     from app.main import bp as main_bp
 
     app.register_blueprint(main_bp)
+
+    from app.api import bp as api_bp
+    
+    app.register_blueprint(api_bp, url_prefix='/api')
 
     if not app.debug and not app.testing:
         if app.config["MAIL_SERVER"]:

@@ -93,3 +93,10 @@ class SearchForm(FlaskForm):
 class UploadImages(FlaskForm):
     file = FileField('File')
     submit = SubmitField('Submit')
+
+class ContactUs(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    subject = StringField('Subject', validators=[DataRequired()])
+    email = StringField('Email Address', validators=[DataRequired(), Email()])
+    message = TextAreaField('Message')
+    submit = SubmitField('Submit')

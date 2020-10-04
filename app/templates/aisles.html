@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Spar - Homeshop</title>
-	<!--/tags -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="keywords" content="Grocery Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
-	<script>
-		addEventListener("load", function () {
-			setTimeout(hideURLbar, 0);
-		}, false);
-
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
-	</script>
-	<!--//tags -->
-	<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-	<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all">
-	<link href="/static/css/font-awesome.css" rel="stylesheet">
-	<!--pop-up-box-->
-	<link href="/static/css/popuo-box.css" rel="stylesheet" type="text/css" media="all">
-	<!--//pop-up-box-->
-	<!-- price range -->
-	<link rel="stylesheet" type="text/css" href="/static/css/jquery-ui1.css">
-	<!-- fonts -->
-    <style type="text/css">@keyframes pop-in {    0% { opacity: 0; transform: scale(0.1); }    60% { opacity: 1; transform: scale(1.2); }    100% { transform: scale(1); }}@-webkit-keyframes pop-in {    0% { opacity: 0; -webkit-transform: scale(0.1); }    60% { opacity: 1; -webkit-transform: scale(1.2); }    100% { -webkit-transform: scale(1); }}@-moz-keyframes pop-in {    0% { opacity: 0; -moz-transform: scale(0.1); }    60% { opacity: 1; -moz-transform: scale(1.2); }    100% { -moz-transform: scale(1); }}.minicartk-showing #PPminicartk {    display: block;    transform: translateZ(0);    -webkit-transform: translateZ(0);    -moz-transform: translateZ(0);    animation: pop-in 0.25s;    -webkit-animation: pop-in 0.25s;    -moz-animation: pop-in 0.25s;}#PPminicartk {    display: none;    position: fixed;    left: 50%;    top: 75px;}#PPminicartk form {    position: relative;    width: 400px;    max-height: 400px;    margin-left: -200px;    padding: 10px 10px 40px;    background: #fbfbfb;    border: 1px solid #d7d7d7;    border-radius: 4px;    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);    font: 15px/normal arial, helvetica;    color: #333;}#PPminicartk form.minicartk-empty {    padding-bottom: 10px;    font-size: 16px;    font-weight: bold;}#PPminicartk ul {    clear: both;    float: left;    width: 380px;    margin: 5px 0 20px;    padding: 10px;    list-style-type: none;    background: #fff;    border: 1px solid #ccc;    border-radius: 4px;    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);}#PPminicartk .minicartk-empty ul {    display: none;}#PPminicartk .minicartk-closer {    float: right;    margin: -12px -10px 0;    padding: 10px;    background: 0;    border: 0;    font-size: 18px;    cursor: pointer;    font-weight: bold;}#PPminicartk .minicartk-item {    clear: left;    padding: 6px 0;    min-height: 25px;}#PPminicartk .minicartk-item + .minicartk-item {    border-top: 1px solid #f2f2f2;}#PPminicartk .minicartk-item a {    color: #333;    text-decoration: none;}#PPminicartk .minicartk-details-name {    float: left;    width: 62%;}#PPminicartk .minicartk-details-quantity {    float: left;    width: 15%;}#PPminicartk .minicartk-details-remove {    float: left;    width: 7%;}#PPminicartk .minicartk-details-price {    float: left;    width: 16%;    text-align: right;}#PPminicartk .minicartk-attributes {    margin: 0;    padding: 0;    background: transparent;    border: 0;    border-radius: 0;    box-shadow: none;    color: #999;    font-size: 12px;    line-height: 22px;}#PPminicartk .minicartk-attributes li {    display: inline;}#PPminicartk .minicartk-attributes li:after {    content: ",";}#PPminicartk .minicartk-attributes li:last-child:after {    content: "";}#PPminicartk .minicartk-quantity {    width: 30px;    height: 18px;    padding: 2px 4px;    border: 1px solid #ccc;    border-radius: 4px;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);    font-size: 13px;    text-align: right;    transition: border linear 0.2s, box-shadow linear 0.2s;    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;}#PPminicartk .minicartk-quantity:hover {    border-color: #0078C1;}#PPminicartk .minicartk-quantity:focus {    border-color: #0078C1;    outline: 0;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px rgba(0, 120, 193, 0.4);}#PPminicartk .minicartk-remove {    width: 18px;    height: 19px;    margin: 2px 0 0;    padding: 0;    background: #b7b7b7;    border: 1px solid #a3a3a3;    border-radius: 3px;    color: #fff;    font-size: 13px;    opacity: 0.70;    cursor: pointer;}#PPminicartk .minicartk-remove:hover {    opacity: 1;}#PPminicartk .minicartk-footer {    clear: left;}#PPminicartk .minicartk-subtotal {    position: absolute;    bottom: 17px;    padding-left: 6px;    left: 10px;    font-size: 16px;    font-weight: bold;}#PPminicartk .minicartk-submit {    position: absolute;    bottom: 10px;    right: 10px;    min-width: 153px;    height: 33px;    margin-right: 6px;    padding: 0 9px;    border: 1px solid #ffc727;    border-radius: 5px;    color: #000;    text-shadow: 1px 1px 1px #fff6e9;    cursor: pointer;    background: #ffaa00;    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZjZlOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmFhMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);    background: -moz-linear-gradient(top, #fff6e9 0%, #ffaa00 100%);    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff6e9), color-stop(100%,#ffaa00));    background: -webkit-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: -o-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: -ms-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: linear-gradient(to bottom, #fff6e9 0%,#ffaa00 100%);}#PPminicartk .minicartk-submit img {    vertical-align: middle;    padding: 4px 0 0 2px;}</style>
-</head>
+ <head>
+        <title>Spar - Homeshop</title>
+        <!--/tags -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="keywords" content="Grocery Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+        <script>
+            addEventListener("load", function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
+    
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+        </script>
+        <!--//tags -->
+        <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/static/css/font-awesome.css" rel="stylesheet">
+        <!--pop-up-box-->
+        <link href="/static/css/popuo-box.css" rel="stylesheet" type="text/css" media="all">
+        <!--//pop-up-box-->
+        <!-- price range -->
+        <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui1.css">
+        <!-- fonts -->
+        <style type="text/css">@keyframes pop-in {    0% { opacity: 0; transform: scale(0.1); }    60% { opacity: 1; transform: scale(1.2); }    100% { transform: scale(1); }}@-webkit-keyframes pop-in {    0% { opacity: 0; -webkit-transform: scale(0.1); }    60% { opacity: 1; -webkit-transform: scale(1.2); }    100% { -webkit-transform: scale(1); }}@-moz-keyframes pop-in {    0% { opacity: 0; -moz-transform: scale(0.1); }    60% { opacity: 1; -moz-transform: scale(1.2); }    100% { -moz-transform: scale(1); }}.minicartk-showing #PPminicartk {    display: block;    transform: translateZ(0);    -webkit-transform: translateZ(0);    -moz-transform: translateZ(0);    animation: pop-in 0.25s;    -webkit-animation: pop-in 0.25s;    -moz-animation: pop-in 0.25s;}#PPminicartk {    display: none;    position: fixed;    left: 50%;    top: 75px;}#PPminicartk form {    position: relative;    width: 400px;    max-height: 400px;    margin-left: -200px;    padding: 10px 10px 40px;    background: #fbfbfb;    border: 1px solid #d7d7d7;    border-radius: 4px;    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);    font: 15px/normal arial, helvetica;    color: #333;}#PPminicartk form.minicartk-empty {    padding-bottom: 10px;    font-size: 16px;    font-weight: bold;}#PPminicartk ul {    clear: both;    float: left;    width: 380px;    margin: 5px 0 20px;    padding: 10px;    list-style-type: none;    background: #fff;    border: 1px solid #ccc;    border-radius: 4px;    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);}#PPminicartk .minicartk-empty ul {    display: none;}#PPminicartk .minicartk-closer {    float: right;    margin: -12px -10px 0;    padding: 10px;    background: 0;    border: 0;    font-size: 18px;    cursor: pointer;    font-weight: bold;}#PPminicartk .minicartk-item {    clear: left;    padding: 6px 0;    min-height: 25px;}#PPminicartk .minicartk-item + .minicartk-item {    border-top: 1px solid #f2f2f2;}#PPminicartk .minicartk-item a {    color: #333;    text-decoration: none;}#PPminicartk .minicartk-details-name {    float: left;    width: 62%;}#PPminicartk .minicartk-details-quantity {    float: left;    width: 15%;}#PPminicartk .minicartk-details-remove {    float: left;    width: 7%;}#PPminicartk .minicartk-details-price {    float: left;    width: 16%;    text-align: right;}#PPminicartk .minicartk-attributes {    margin: 0;    padding: 0;    background: transparent;    border: 0;    border-radius: 0;    box-shadow: none;    color: #999;    font-size: 12px;    line-height: 22px;}#PPminicartk .minicartk-attributes li {    display: inline;}#PPminicartk .minicartk-attributes li:after {    content: ",";}#PPminicartk .minicartk-attributes li:last-child:after {    content: "";}#PPminicartk .minicartk-quantity {    width: 30px;    height: 18px;    padding: 2px 4px;    border: 1px solid #ccc;    border-radius: 4px;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);    font-size: 13px;    text-align: right;    transition: border linear 0.2s, box-shadow linear 0.2s;    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;}#PPminicartk .minicartk-quantity:hover {    border-color: #0078C1;}#PPminicartk .minicartk-quantity:focus {    border-color: #0078C1;    outline: 0;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px rgba(0, 120, 193, 0.4);}#PPminicartk .minicartk-remove {    width: 18px;    height: 19px;    margin: 2px 0 0;    padding: 0;    background: #b7b7b7;    border: 1px solid #a3a3a3;    border-radius: 3px;    color: #fff;    font-size: 13px;    opacity: 0.70;    cursor: pointer;}#PPminicartk .minicartk-remove:hover {    opacity: 1;}#PPminicartk .minicartk-footer {    clear: left;}#PPminicartk .minicartk-subtotal {    position: absolute;    bottom: 17px;    padding-left: 6px;    left: 10px;    font-size: 16px;    font-weight: bold;}#PPminicartk .minicartk-submit {    position: absolute;    bottom: 10px;    right: 10px;    min-width: 153px;    height: 33px;    margin-right: 6px;    padding: 0 9px;    border: 1px solid #ffc727;    border-radius: 5px;    color: #000;    text-shadow: 1px 1px 1px #fff6e9;    cursor: pointer;    background: #ffaa00;    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZjZlOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmFhMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);    background: -moz-linear-gradient(top, #fff6e9 0%, #ffaa00 100%);    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff6e9), color-stop(100%,#ffaa00));    background: -webkit-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: -o-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: -ms-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: linear-gradient(to bottom, #fff6e9 0%,#ffaa00 100%);}#PPminicartk .minicartk-submit img {    vertical-align: middle;    padding: 4px 0 0 2px;}</style>
+    </head>
 <body>
 {% include 'navbar.html' %}
 <div class="navigation-agileits" style="min-width: 1000px; background: tan;">
@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="{{url_for('main.category', shopname=shopname, id=4)}}" style="font-size: 20px;">Household</a>
+                                    <a href="{{url_for('main.category', shopname=shopname, id=4)}}" style="font-size: 20px;" >Household</a>
                                     
                                 </li>
                                 <li class="dropdown">
@@ -79,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="{{url_for('main.category', shopname=shopname, id=5)}}" style="font-size: 20px;">Beverages</a>
                                     
                                 </li>
-                                <li><a style="font-size: 20px;" href="contact.html">Contact</a></li>
+                                <li><a style="font-size: 20px;" href="{{url_for('main.contact')}}">Contact</a></li>
                             </ul>
                         </div>
                         </nav>
@@ -259,129 +259,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="agileinfo-ads-display col-md-9">
             <div class="wrapper">
                 <!-- first section (nuts) -->
+                {% for cat in category1 %}
                 <div class="product-sec1">
-                    <h3 class="heading-tittle">Nuts</h3>
-                    <div class="col-md-4 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="/static/images/m1.jpg" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Quick View</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">New</span>
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Almonds, 100g</a>
-                                </h4>
-                                <div class="info-product-price">
-                                    <span class="item_price">$149.00</span>
-                                    <del>$280.00</del>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="business" value=" ">
-                                            <input type="hidden" name="item_name" value="Almonds, 100g">
-                                            <input type="hidden" name="amount" value="149.00">
-                                            <input type="hidden" name="discount_amount" value="1.00">
-                                            <input type="hidden" name="currency_code" value="USD">
-                                            <input type="hidden" name="return" value=" ">
-                                            <input type="hidden" name="cancel_return" value=" ">
-                                            <input type="submit" name="submit" value="Add to cart" class="button">
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
+                    <h3 class="heading-tittle">{{cat.name}}</h3>
+                    <div class="row">
+                        {%  for p in product.items %}         
+                            {% include '_product.html' %}
+                        
+                            {% endfor %}
                     </div>
-                    <div class="col-md-4 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="/static/images/m2.jpg" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Quick View</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">New</span>
-
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Cashew Nuts, 100g</a>
-                                </h4>
-                                <div class="info-product-price">
-                                    <span class="item_price">$200.00</span>
-                                    <del>$420.00</del>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="business" value=" ">
-                                            <input type="hidden" name="item_name" value="Cashew Nuts, 100g">
-                                            <input type="hidden" name="amount" value="200.00">
-                                            <input type="hidden" name="discount_amount" value="1.00">
-                                            <input type="hidden" name="currency_code" value="USD">
-                                            <input type="hidden" name="return" value=" ">
-                                            <input type="hidden" name="cancel_return" value=" ">
-                                            <input type="submit" name="submit" value="Add to cart" class="button">
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
+                    
+                    <div class="row">
+                        <div class="col text-center">
+                        {% if product.has_prev %}
+                        <a href="{{url_for('main.aisle', shopname=shopname, id=aisle.id, page=product.prev_num)}}" class="btn btn-outline-info btn-sm mt-3">Prev</a>
+                        {% endif %}
+                        {% if product.total > 3 %}
+                        {% for page_num in product.iter_pages(left_edge=1, right_edge=2, left_current=1, right_current=2) %}
+                        {% if page_num %}
+                        {% if product.page == page_num %}
+                            <a href="{{url_for('main.aisle', shopname=shopname, id=aisle.id, page=page_num)}}" class="btn btn-info btn-sm mt-3">{{page_num}}</a>
+                        {% else %}
+                            <a href="{{url_for('main.aisle', shopname=shopname, id=aisle.id, page=page_num)}}" class="btn btn-outline-info btn-sm mt-3">{{page_num}}</a>
+                        {% endif %}
+                        {% else %}
+                        ... 
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                        {% if product.has_next %}
+                        <a href="{{url_for('main.aisle', shopname=shopname, id=aisle.id, page=product.next_num)}}" class="btn btn-outline-info btn-sm mt-3">Next</a>
+                        {% endif %}
                     </div>
-                    <div class="col-md-4 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="/static/images/m3.jpg" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Quick View</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">New</span>
-
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Pista., 250g</a>
-                                </h4>
-                                <div class="info-product-price">
-                                    <span class="item_price">$520.99</span>
-                                    <del>$600.99</del>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="business" value=" ">
-                                            <input type="hidden" name="item_name" value="Pista, 250g">
-                                            <input type="hidden" name="amount" value="520.99">
-                                            <input type="hidden" name="discount_amount" value="1.00">
-                                            <input type="hidden" name="currency_code" value="USD">
-                                            <input type="hidden" name="return" value=" ">
-                                            <input type="hidden" name="cancel_return" value=" ">
-                                            <input type="submit" name="submit" value="Add to cart" class="button">
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                </div>
                     <div class="clearfix"></div>
                 </div>
+                {% endfor %}
                 <!-- //first section (nuts) -->
                 <!-- second section (nuts special) -->
                 <div class="product-sec1 product-sec2">
@@ -396,8 +309,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <!-- //second section (nuts special) -->
-                <!-- third section (oils) -->
+
                 <div class="product-sec1">
                     <h3 class="heading-tittle">Oils</h3>
                     <div class="col-md-4 product-men">
@@ -523,38 +435,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <!-- //third section (oils) -->
                 <!-- fourth section (Products) -->
-                <div class="product-sec1">
-                    <h3 class="heading-tittle">All Products</h3>
-                    <div class="row">
-                        {%  for p in product.items %}
-                            {% include '_product.html'  %}
-                        {% endfor %}
-                    </div>
-                    <div class="row">
-                        <div class="col text-center">
-                        {% if product.has_prev %}
-                        <a href="{{url_for('main.items', shopname=shopname, page=product.prev_num)}}" class="btn btn-outline-info btn-sm mt-3">Prev</a>
-                        {% endif %}
-                        {% if product.total > 3 %}
-                        {% for page_num in product.iter_pages(left_edge=1, right_edge=2, left_current=1, right_current=2) %}
-                        {% if page_num %}
-                        {% if product.page == page_num %}
-                            <a href="{{url_for('main.items', shopname=shopname, page=page_num)}}" class="btn btn-info btn-sm mt-3">{{page_num}}</a>
-                        {% else %}
-                            <a href="{{url_for('main.items', shopname=shopname, page=page_num)}}" class="btn btn-outline-info btn-sm mt-3">{{page_num}}</a>
-                        {% endif %}
-                        {% else %}
-                        ... 
-                        {% endif %}
-                        {% endfor %}
-                        {% endif %}
-                        {% if product.has_next %}
-                        <a href="{{url_for('main.items', shopname=shopname, page=product.next_num)}}" class="btn btn-outline-info btn-sm mt-3">Next</a>
-                        {% endif %}
-                    </div>
-                </div>
-                    <div class="clearfix"></div>
-                </div>
+                
                 <!-- //fourth section (noodles) -->
             </div>
         </div>

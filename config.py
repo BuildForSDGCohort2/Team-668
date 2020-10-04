@@ -17,6 +17,7 @@ class Config(object):
     POSTS_PER_PAGE = 15
     SHOPAISLES_PER_PAGE = 15
     PRODUCTS_PER_PAGE = 3
+    CATEGORY_PER_PAGE = 15
     UPLOAD_FOLDER = '/app/static/uploads'
     ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')

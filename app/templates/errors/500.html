@@ -1,7 +1,9 @@
 {% extends "base2.html" %}
 
 {% block app_content %}
+<div class="container" style="width: 80%;">
     <h1>An unexpected error has occurred</h1>
     <p>The administrator has been notified. Sorry for the inconvenience!</p>
-    <p><a href="{{ url_for('main.community') }}">Back</a></p>
+    <p><a href="{{ url_for('main.index') }}">Back</a></p>
+</div>
 {% endblock %}

@@ -1,0 +1,8 @@
+Dear HomeShop Support
+
+{{ email }} 
+
+{{ message }}
+
+Sincerely,
+{{ name }}

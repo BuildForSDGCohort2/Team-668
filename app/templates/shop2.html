@@ -67,7 +67,14 @@
         <!-- top-brands -->
         <div class="top-brands" style="padding: 2em 0;">
             <div class="container" style="width: 90%; margin-right: 50px; margin-left: 50px; min-width: 1000px;">
-            <h2>Shopping Aisles</h2>
+                <h1 style="text-align: center;
+                color: #212121;
+                padding-bottom: .5em;
+                position: relative;
+                font-size: 2.6em;
+                text-transform: uppercase;
+            ">Welcome to {{store.store_name}}</h1>
+                <h2>Shopping Aisles</h2>
                 <div class="grid_3 grid_5" style="margin-top: 2em;">
                     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                         
@@ -89,30 +96,29 @@
                                                         <div class="snipcart-item block">
                                                             <div class="snipcart-thumb">
                                                                 <a href="#"><img title=" " alt=" " src="/static/shop/images/1.png"></a>		
-                                                                <p>{{ais.name}}</p>
-                                                                <div class="container" style="width: 75%;">
+                                                                <h5 style="text-align: center;">{{ais.name}}{{ais.id}}</h5>
+                                                                <div class="container" style="width: 90%; height: 150px;">
                                                                 <div class="container" style="width: 45%; float: left;">
                                                                     
                                                                     <ul>
-                                                                        <li>Baking</li>
-                                                                        <li>Cleaning</li>
-                                                                        <li>Sorting</li>
+                                                                        {% for cat in category %}
+                                                                        {% if ais.id == cat.aisles_id %}
+                                                                        
+                                                                        <li>{{cat}}</li>
+                                                                        {% endif %}
+                                                                        {% endfor %}
                                                                     </ul>
-
                                                                 </div>
                                                                 <div class="container" style="width: 45%; float: right;;">
                                                                     
                                                                         <ul>
-                                                                        <li>Baking</li>
-                                                                        <li>Cleaning</li>
-                                                                        <li>Sorting</li>
                                                                     </ul>
 
                                                                 </div>
                                                             </div>
                                                             </div>
                                                             <div class="snipcart-details top_brand_home_details">
-                                                                <a href="{{url_for('main.items', shopname=shopname)}}"><button class="btn btn-sm btn-info" style="width: 100%;">Enter
+                                                                <a href="{{url_for('main.aisle', shopname=shopname, id=ais.id)}}"><button class="btn btn-sm btn-info" style="width: 100%;">Enter
                                                                     </button></a>
                                                                 </div>
                                                         </div>

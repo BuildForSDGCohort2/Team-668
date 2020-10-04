@@ -87,10 +87,8 @@
       <h2 class="featurette-heading">Spar<br> <span class="text-muted">It'll blow your mind.</span></h2>
       <p class="lead">To just be able to shop all your Groceries at your favourite shop Spar, from the comfort of you Home</p>
       <br><br>
-      <form action="{{ url_for('main.shop', shopname='Spar') }}">
-        {{ form.hidden_tag() }}
-        {{ form.submin(class_='btn btn-default') }} 
-      </form></div>
+      <a href="{{ url_for('main.shop', shopname='Spar') }}"><button class="btn btn-sm btn-info" style="width: 70%; height: 40px;"><span style="font-size: 20px;">Enter</span>
+    </button></a></div>
       <div class="col-md-5" style="width: 60%;">
         <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="../static/images/banner1.jpg" data-holder-rendered="true">
       </div>        

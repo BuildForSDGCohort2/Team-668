@@ -72,14 +72,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" style="font-size: 20px;">Packaged Foods</a>
+                                    <a href="#" style="font-size: 20px;" class="dropdown-toggle" data-toggle="dropdown">Packaged Foods</a>
                                     
                                 </li>
                                 <li class="dropdown">
-                                    <a href="{{url_for('main.category', shopname=shopname, id=5)}}" style="font-size: 20px;">Beverages</a>
+                                    <a href="{{url_for('main.category', shopname=shopname, id=5)}}" style="font-size: 20px;" class="dropdown-toggle" data-toggle="dropdown">Beverages</a>
                                     
                                 </li>
-                                <li><a style="font-size: 20px;" href="contact.html">Contact</a></li>
+                                <li><a style="font-size: 20px;" href="{{url_for('main.contact')}}">Contact</a></li>
                             </ul>
                         </div>
                         </nav>
@@ -260,126 +260,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="wrapper">
                 <!-- first section (nuts) -->
                 <div class="product-sec1">
-                    <h3 class="heading-tittle">Nuts</h3>
-                    <div class="col-md-4 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="/static/images/m1.jpg" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Quick View</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">New</span>
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Almonds, 100g</a>
-                                </h4>
-                                <div class="info-product-price">
-                                    <span class="item_price">$149.00</span>
-                                    <del>$280.00</del>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="business" value=" ">
-                                            <input type="hidden" name="item_name" value="Almonds, 100g">
-                                            <input type="hidden" name="amount" value="149.00">
-                                            <input type="hidden" name="discount_amount" value="1.00">
-                                            <input type="hidden" name="currency_code" value="USD">
-                                            <input type="hidden" name="return" value=" ">
-                                            <input type="hidden" name="cancel_return" value=" ">
-                                            <input type="submit" name="submit" value="Add to cart" class="button">
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
+                    <h3 class="heading-tittle">{{cat.name}}</h3>
+                    <div class="row">
+                        {%  for p in product.items %}
+                            {% include '_product.html'  %}
+                        {% endfor %}
                     </div>
-                    <div class="col-md-4 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="/static/images/m2.jpg" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Quick View</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">New</span>
-
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Cashew Nuts, 100g</a>
-                                </h4>
-                                <div class="info-product-price">
-                                    <span class="item_price">$200.00</span>
-                                    <del>$420.00</del>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="business" value=" ">
-                                            <input type="hidden" name="item_name" value="Cashew Nuts, 100g">
-                                            <input type="hidden" name="amount" value="200.00">
-                                            <input type="hidden" name="discount_amount" value="1.00">
-                                            <input type="hidden" name="currency_code" value="USD">
-                                            <input type="hidden" name="return" value=" ">
-                                            <input type="hidden" name="cancel_return" value=" ">
-                                            <input type="submit" name="submit" value="Add to cart" class="button">
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
+                    <div class="row">
+                        <div class="col text-center">
+                        {% if product.has_prev %}
+                        <a href="{{url_for('main.category', shopname=shopname, id=cat.id, page=product.prev_num)}}" class="btn btn-outline-info btn-sm mt-3">Prev</a>
+                        {% endif %}
+                        {% if product.total > 3 %}
+                        {% for page_num in product.iter_pages(left_edge=1, right_edge=2, left_current=1, right_current=2) %}
+                        {% if page_num %}
+                        {% if product.page == page_num %}
+                            <a href="{{url_for('main.category', shopname=shopname, id=cat.id, page=page_num)}}" class="btn btn-info btn-sm mt-3">{{page_num}}</a>
+                        {% else %}
+                            <a href="{{url_for('main.category', shopname=shopname, id=cat.id, page=page_num)}}" class="btn btn-outline-info btn-sm mt-3">{{page_num}}</a>
+                        {% endif %}
+                        {% else %}
+                        ... 
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                        {% if product.has_next %}
+                        <a href="{{url_for('main.category', shopname=shopname, id=cat.id, page=product.next_num)}}" class="btn btn-outline-info btn-sm mt-3">Next</a>
+                        {% endif %}
                     </div>
-                    <div class="col-md-4 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="/static/images/m3.jpg" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Quick View</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">New</span>
-
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Pista., 250g</a>
-                                </h4>
-                                <div class="info-product-price">
-                                    <span class="item_price">$520.99</span>
-                                    <del>$600.99</del>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="business" value=" ">
-                                            <input type="hidden" name="item_name" value="Pista, 250g">
-                                            <input type="hidden" name="amount" value="520.99">
-                                            <input type="hidden" name="discount_amount" value="1.00">
-                                            <input type="hidden" name="currency_code" value="USD">
-                                            <input type="hidden" name="return" value=" ">
-                                            <input type="hidden" name="cancel_return" value=" ">
-                                            <input type="submit" name="submit" value="Add to cart" class="button">
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                </div>
                     <div class="clearfix"></div>
                 </div>
                 <!-- //first section (nuts) -->
@@ -396,166 +305,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <!-- //second section (nuts special) -->
-                <!-- third section (oils) -->
-                <div class="product-sec1">
-                    <h3 class="heading-tittle">Oils</h3>
-                    <div class="col-md-4 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="/static/images/mk4.jpg" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Quick View</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">New</span>
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Freedom Oil, 1L</a>
-                                </h4>
-                                <div class="info-product-price">
-                                    <span class="item_price">$78.00</span>
-                                    <del>$110.00</del>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="business" value=" ">
-                                            <input type="hidden" name="item_name" value="Freedom Sunflower Oil, 1L">
-                                            <input type="hidden" name="amount" value="78.00">
-                                            <input type="hidden" name="discount_amount" value="1.00">
-                                            <input type="hidden" name="currency_code" value="USD">
-                                            <input type="hidden" name="return" value=" ">
-                                            <input type="hidden" name="cancel_return" value=" ">
-                                            <input type="submit" name="submit" value="Add to cart" class="button">
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="/static/images/mk5.jpg" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Quick View</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">New</span>
-
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Saffola Gold, 1L</a>
-                                </h4>
-                                <div class="info-product-price">
-                                    <span class="item_price">$130.00</span>
-                                    <del>$150.00</del>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="business" value=" ">
-                                            <input type="hidden" name="item_name" value="Saffola Gold, 1L">
-                                            <input type="hidden" name="amount" value="130.00">
-                                            <input type="hidden" name="discount_amount" value="1.00">
-                                            <input type="hidden" name="currency_code" value="USD">
-                                            <input type="hidden" name="return" value=" ">
-                                            <input type="hidden" name="cancel_return" value=" ">
-                                            <input type="submit" name="submit" value="Add to cart" class="button">
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="/static/images/mk6.jpg" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Quick View</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">New</span>
-
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Fortune Oil, 5L</a>
-                                </h4>
-                                <div class="info-product-price">
-                                    <span class="item_price">$399.99</span>
-                                    <del>$500.00</del>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="business" value=" ">
-                                            <input type="hidden" name="item_name" value="Fortune Oil, 5L">
-                                            <input type="hidden" name="amount" value="399.99">
-                                            <input type="hidden" name="discount_amount" value="1.00">
-                                            <input type="hidden" name="currency_code" value="USD">
-                                            <input type="hidden" name="return" value=" ">
-                                            <input type="hidden" name="cancel_return" value=" ">
-                                            <input type="submit" name="submit" value="Add to cart" class="button">
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <!-- //third section (oils) -->
-                <!-- fourth section (Products) -->
-                <div class="product-sec1">
-                    <h3 class="heading-tittle">All Products</h3>
-                    <div class="row">
-                        {%  for p in product.items %}
-                            {% include '_product.html'  %}
-                        {% endfor %}
-                    </div>
-                    <div class="row">
-                        <div class="col text-center">
-                        {% if product.has_prev %}
-                        <a href="{{url_for('main.items', shopname=shopname, page=product.prev_num)}}" class="btn btn-outline-info btn-sm mt-3">Prev</a>
-                        {% endif %}
-                        {% if product.total > 3 %}
-                        {% for page_num in product.iter_pages(left_edge=1, right_edge=2, left_current=1, right_current=2) %}
-                        {% if page_num %}
-                        {% if product.page == page_num %}
-                            <a href="{{url_for('main.items', shopname=shopname, page=page_num)}}" class="btn btn-info btn-sm mt-3">{{page_num}}</a>
-                        {% else %}
-                            <a href="{{url_for('main.items', shopname=shopname, page=page_num)}}" class="btn btn-outline-info btn-sm mt-3">{{page_num}}</a>
-                        {% endif %}
-                        {% else %}
-                        ... 
-                        {% endif %}
-                        {% endfor %}
-                        {% endif %}
-                        {% if product.has_next %}
-                        <a href="{{url_for('main.items', shopname=shopname, page=product.next_num)}}" class="btn btn-outline-info btn-sm mt-3">Next</a>
-                        {% endif %}
-                    </div>
-                </div>
-                    <div class="clearfix"></div>
-                </div>
-                <!-- //fourth section (noodles) -->
+                
             </div>
         </div>
         <!-- //product right -->
