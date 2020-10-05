@@ -26,7 +26,8 @@ def before_request():
 def index():
     form = RetailStoreForm()
     store = RetailStores.query.all()
-    return render_template('index.html', title='Home', store=store, form=form)
+    cat1 = Category.query.all()
+    return render_template('index.html', title='Home', store=store, form=form, cat1=cat1)
 
 @bp.route('/community', methods=['GET', 'POST'])
 @login_required
@@ -45,9 +46,10 @@ def community():
         if posts.has_next else None
     prev_url = url_for('main.community', page=posts.prev_num) \
         if posts.has_prev else None
+    cat1 = Category.query.all()
     return render_template('community.html', title='Community', form=form,
                            posts=posts.items, next_url=next_url,
-                           prev_url=prev_url)
+                           prev_url=prev_url, cat1=cat1)
 
 
 @bp.route('/user/<username>')
@@ -62,8 +64,9 @@ def user(username):
     prev_url = url_for('main.user', username=user.username, page=posts.prev_num) \
         if posts.has_prev else None
     form = EmptyForm()
+    cat1 = Category.query.all()
     return render_template('user.html', user=user, posts=posts.items,
-                           next_url=next_url, prev_url=prev_url, form=form)
+                           next_url=next_url, prev_url=prev_url, form=form, cat1=cat1)
 
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])
@@ -79,8 +82,9 @@ def edit_profile():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
+    cat1 = Category.query.all()
     return render_template('edit_profile.html', title='Edit Profile',
-                           form=form, user=current_user)
+                           form=form, user=current_user, cat1=cat1)
             
 def validate_image(stream):
     header = stream.read(512)  # 512 bytes should be enough for a header check
@@ -159,7 +163,7 @@ def shop(shopname):
     prev_url = url_for('main.shop', shopname=shopname, page=aisles.prev_num) \
         if aisles.has_prev else None
     category = Category.query.all()
-    return render_template('shop2.html', aisles=aisles.items, form=form, next_url=next_url, prev_url=prev_url, category=category, shopname=shopname, store=store)
+    return render_template('shop2.html', aisles=aisles.items, form=form, next_url=next_url, prev_url=prev_url, category=category, shopname=shopname, store=store, cat1=category)
 
 @bp.route('/shop/<shopname>/product', methods=['GET', 'POST'])
 def items(shopname):
@@ -176,12 +180,13 @@ def category(shopname, id):
     cat = Category.query.filter_by(id=id).first_or_404()
     get_cat_pro = Product.query.filter_by(category_id=cat.id).paginate(page, current_app.config['CATEGORY_PER_PAGE'] )
     category = Category.query.all()
-    return render_template('category.html', form=form, product=get_cat_pro, category=category, shopname=shopname, cat=cat)
+    return render_template('category.html', form=form, product=get_cat_pro, category=category, shopname=shopname, cat=cat, cat1=category)
 
 @bp.route('/shop/<shopname>/product/<int:id>', methods=['GET', 'POST'])
 def singleitem(shopname, id):
     product = Product.query.get_or_404(id)
-    return render_template('singleitem.html', shopname=shopname, product=product)
+    category = Category.query.all()
+    return render_template('singleitem.html', shopname=shopname, product=product, cat1=category)
 
 @bp.route('/shop/<shopname>/aisles/<int:id>', methods=['GET', 'POST'])
 def aisle(shopname, id):
@@ -192,7 +197,7 @@ def aisle(shopname, id):
     category = Category.query.all()    
     for cat in category1:
         product = Product.query.filter_by(category_id=cat.id).paginate(page, current_app.config['PRODUCTS_PER_PAGE'] )
-    return render_template('aisles.html', product=product, form=form, category=category, shopname=shopname, category1=category1, aisle=aisle)
+    return render_template('aisles.html', product=product, form=form, category=category, shopname=shopname, category1=category1, aisle=aisle, cat1=category)
 
 
 
@@ -234,7 +239,7 @@ def payment():
 paypalrestsdk.configure({
   "mode": "sandbox", # sandbox or live
   "client_id": "",
-  "client_secret": " })
+  "client_secret": " "})
 
 @bp.route('/create-order', methods=['GET', 'POST'])
 @login_required
@@ -354,11 +359,13 @@ def removeitem(id):
 
 @bp.route('/about', methods=['GET'])
 def about():
-    return render_template('about.html')
+    cat1 = Category.query.all()
+    return render_template('about.html', cat1=cat1)
 
 @bp.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactUs()
+    cat1 = Category.query.all()
     if form.validate_on_submit():
         name = request.form.get('name')
         subject = request.form.get('subject')
@@ -367,19 +374,22 @@ def contact():
         send_email(subject, sender=current_app.config['ADMINS'][0], recipients=[current_app.config['ADMINS'][0]], text_body=render_template('email/contactform.txt', name=name, message=message, email=email), html_body=render_template('email/contactform.html', name=name, message=message, email=email))
         flash('Message has been send, will get back to you as soon as possible')
         return redirect(url_for('main.contact'))
-    return render_template('contact.html', form=form)
+    return render_template('contact.html', form=form, cat1=cat1)
 
 @bp.route('/terms')
 def terms():
-    return render_template('terms.html')
+    cat1 = Category.query.all()
+    return render_template('terms.html', cat1=cat1)
 
 @bp.route('/policy')
 def policy():
-    return render_template('policy.html')
+    cat1 = Category.query.all()
+    return render_template('policy.html', cat1=cat1)
 
 @bp.route('/search')
 @login_required
 def search():
+    cat1 = Category.query.all()
     if not g.search_form.validate():
         return redirect(url_for('main.index'))
     page = request.args.get('page', 1, type=int)
@@ -391,4 +401,4 @@ def search():
     prev_url = url_for('main.search', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
     return render_template('search.html', title=_('Search'), product=product,
-                           next_url=next_url, prev_url=prev_url, total=total)
+                           next_url=next_url, prev_url=prev_url, total=total, cat1=cat1)

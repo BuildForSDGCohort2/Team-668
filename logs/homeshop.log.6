@@ -1,16 +1,4 @@
-2020-10-01 13:59:12,984 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:12:55,987 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:17:18,091 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:23:04,528 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:27:22,689 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:30:24,228 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:34:23,245 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:35:43,924 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:38:19,675 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:42:05,024 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:43:01,678 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:43:09,996 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:43:12,908 ERROR: Exception on /shop/Spar/aisles/6 [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-05 13:43:03,085 ERROR: Exception on / [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -24,8 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 194, in aisle
-    return render_template('aisles.html', product=product, form=form, category=category, shopname=shopname, category1=category1)
+  File "C:\Users\Sergio\Desktop\Team-668\app\main\routes.py", line 30, in index
+    return render_template('index.html', title='Home', store=store, form=form, cat=cat)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
     return _render(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -36,11 +24,25 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\templates\aisles.html", line 266, in top-level template code
-    {%  for p in product %}
-TypeError: 'Pagination' object is not iterable
-2020-10-01 16:43:46,339 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 16:43:48,857 ERROR: Exception on /shop/Spar/aisles/6 [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\Sergio\Desktop\Team-668\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\Sergio\Desktop\Team-668\app\templates\base2.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "C:\Users\Sergio\Desktop\Team-668\app\templates\base2.html", line 22, in block "body"
+    {% include 'footer.html' %}
+  File "C:\Users\Sergio\Desktop\Team-668\app\templates\footer.html", line 127, in top-level template code
+    ">{{c[:6]}}</a>
+TypeError: 'Category' object is not subscriptable
+2020-10-05 13:45:45,648 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:46:01,918 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:46:27,543 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:46:29,278 ERROR: Exception on / [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -54,8 +56,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 194, in aisle
-    return render_template('aisles.html', product=product, form=form, category=category, shopname=shopname, category1=category1)
+  File "C:\Users\Sergio\Desktop\Team-668\app\main\routes.py", line 30, in index
+    return render_template('index.html', title='Home', store=store, form=form, cat=cat)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
     return _render(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -66,20 +68,31 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\templates\aisles.html", line 280, in top-level template code
-    <a href="{{url_for('main.aisle', shopname=shopname, id=product.id, page=page_num)}}" class="btn btn-info btn-sm mt-3">{{page_num}}</a>
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2177, in build
-    rv = self._partial_build(endpoint, values, method, append_unknown)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2054, in _partial_build
-    rv = self._partial_build(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 2067, in _partial_build
-    rv = rule.build(values, append_unknown)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 1038, in build
-    return self._build_unknown(**values)
-  File "<werkzeug routing>", line 1, in <builder:'/shop/<shopname>/aisles/<int:id>'>
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\werkzeug\routing.py", line 1257, in to_url
-    value = self.num_convert(value)
-jinja2.exceptions.UndefinedError: 'flask_sqlalchemy.Pagination object' has no attribute 'id'
-2020-10-01 16:44:21,800 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
+  File "C:\Users\Sergio\Desktop\Team-668\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\Sergio\Desktop\Team-668\app\templates\base2.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "C:\Users\Sergio\Desktop\Team-668\app\templates\base2.html", line 22, in block "body"
+    {% include 'footer.html' %}
+  File "C:\Users\Sergio\Desktop\Team-668\app\templates\footer.html", line 127, in top-level template code
+    ">{{c[:6]}}</a>
+TypeError: 'Category' object is not subscriptable
+2020-10-05 13:47:33,199 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:47:53,553 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:48:25,961 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:50:28,598 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:51:06,339 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:51:43,224 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:52:05,859 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:52:24,788 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:54:39,512 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:56:05,993 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:56:36,172 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:56:54,509 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+2020-10-05 13:59:04,421 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]

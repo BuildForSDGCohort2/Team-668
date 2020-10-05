@@ -18,7 +18,8 @@
                     that will be able to do their gorcery shopping from the comfort of their couch.</p>
       <!-- //footer first section -->
       <!-- footer second section -->
-      <div class="w3l-grids-footer" style="
+
+      <!-- <div class="w3l-grids-footer" style="
     border-top: 1px solid rgba(0, 0, 0, 0.16);
     padding: 18px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.16);
@@ -91,9 +92,10 @@
               <div class="clearfix"></div>
           </div>
           <div class="clearfix"></div>
-      </div>
+      </div> -->
       <!-- //footer second section -->
       <!-- footer third section -->
+
       <div class="footer-info w3-agileits-info" style="
     padding: 50px 0;
 ">
@@ -109,6 +111,7 @@
     letter-spacing: 1px;
     margin-bottom: 25px;
 ">Categories</h3>
+{% for c in cat1[:6] %}
                   <ul style="
     margin: 0;
     padding: 0;
@@ -121,9 +124,9 @@
 ">
                           <a href="#" style="
     color: #656565;
-">Grocery</a>
+">{{c}}</a>
                       </li>
-                      <li style="
+                      <!-- <li style="
     display: block;
     font-size: 14px;
     margin: 15px 0 0;
@@ -162,13 +165,13 @@
     color: #000000;
 ">
                           <a href="#">Baby Products</a>
-                      </li>
-                  </ul>
+                      </li> -->
+                  </ul>{% endfor %}
               </div>
               <div class="col-xs-6 footer-grids agile-secomk" style="
     margin-top: 35px;
     padding-left: 0;
-">
+">{% for c in cat1[6:] %}
                   <ul style="
     margin: 0;
     padding: 0;
@@ -181,8 +184,8 @@
 ">
                           <a href="#" style="
     color: #656565;
-">Snacks &amp; Beverages</a>
-                      </li>
+">{{c}}</a>
+                      <!-- </li>
                       <li style="
     display: block;
     font-size: 14px;
@@ -222,8 +225,8 @@
     color: #000000;
 ">
                           <a href="#">Dried Fruits &amp; Nuts</a>
-                      </li>
-                  </ul>
+                      </li> -->
+                  </ul>{% endfor %}
               </div>
               <div class="clearfix"></div>
           </div>
