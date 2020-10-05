@@ -4,121 +4,126 @@
 {% block app_content %}
 
 <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all">
-<div id="myCarousel" class="carousel slide" data-ride="carousel" style="min-width: 1000px;">
-  <!-- Indicators-->
-  <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-      <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-      <li data-target="#myCarousel" data-slide-to="3" class=""></li>
-  </ol>
-  <div class="carousel-inner" role="listbox">
-      <div class="item active left">
-          <div class="container">
-              <div class="carousel-caption">
-                  <h3>Big
-                      <span>Save</span>
-                  </h3>
-                  <p>Get flat
-                      <span>10%</span> Cashback</p>
-                  <a class="button2" href="#">Shop Now </a>
-              </div>
-          </div>
-      </div>
-      <div class="item item2 next left">
-          <div class="container">
-              <div class="carousel-caption">
-                  <h3>Healthy
-                      <span>Saving</span>
-                  </h3>
-                  <p>Get Upto
-                      <span>30%</span> Off</p>
-                  <a class="button2" href="#">Shop Now </a>
-              </div>
-          </div>
-      </div>
-      <div class="item item3">
-          <div class="container">
-              <div class="carousel-caption">
-                  <h3>Big
-                      <span>Deal</span>
-                  </h3>
-                  <p>Get Best Offer Upto
-                      <span>20%</span>
-                  </p>
-                  <a class="button2" href="#">Shop Now </a>
-              </div>
-          </div>
-      </div>
-      <div class="item item4">
-          <div class="container">
-              <div class="carousel-caption">
-                  <h3>Today
-                      <span>Discount</span>
-                  </h3>
-                  <p>Get Now
-                      <span>40%</span> Discount</p>
-                  <a class="button2" href="#">Shop Now </a>
-              </div>
-          </div>
-      </div>
-  </div>
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-  </a>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="min-width: 1150px;">
+    <!-- Indicators-->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active left">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Big
+                        <span>Save</span>
+                    </h3>
+                    <p>Get flat
+                        <span>10%</span> Cashback</p>
+                    <a class="button2" href="#">Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="item item2 next left">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Healthy
+                        <span>Saving</span>
+                    </h3>
+                    <p>Get Upto
+                        <span>30%</span> Off</p>
+                    <a class="button2" href="#">Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="item item3">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Big
+                        <span>Deal</span>
+                    </h3>
+                    <p>Get Best Offer Upto
+                        <span>20%</span>
+                    </p>
+                    <a class="button2" href="#">Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="item item4">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Today
+                        <span>Discount</span>
+                    </h3>
+                    <p>Get Now
+                        <span>40%</span> Discount</p>
+                    <a class="button2" href="#">Shop Now </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
 <br>
 
 
-<div class="container marketing" style="width: 95%; margin-bottom: 40px; min-width: 1000px;">
-  <!-- Three columns of text below the carousel -->
-  
-  <!-- START THE FEATURETTES -->
+<div class="container marketing" style="width: 95%; margin-bottom: 40px; min-width: 1150px;">
+    <!-- Three columns of text below the carousel -->
 
-  <hr class="featurette-divider">
-  {% for str in store %}
-  <div class="row featurette">
-    <div class="col-md-7" style="width: 40%">
-      <h2 class="featurette-heading">Spar<br> <span class="text-muted">It'll blow your mind.</span></h2>
-      <p class="lead">To just be able to shop all your Groceries at your favourite shop Spar, from the comfort of you Home</p>
-      <br><br>
-      <a href="{{ url_for('main.shop', shopname='Spar') }}"><button class="btn btn-sm btn-info" style="width: 70%; height: 40px;"><span style="font-size: 20px;">Enter</span>
-    </button></a></div>
-      <div class="col-md-5" style="width: 60%;">
-        <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="../static/images/banner1.jpg" data-holder-rendered="true">
-      </div>        
-  </div>
-  {% endfor %}
+    <!-- START THE FEATURETTES -->
 
-  
-  <hr class="featurette-divider">
+    <hr class="featurette-divider">
+    {% for str in store %}
+    <div class="row featurette">
+        <div class="col-md-7" style="width: 40%">
+            <h2 class="featurette-heading">Spar<br> <span class="text-muted">It'll blow your mind.</span></h2>
+            <p class="lead">To just be able to shop all your Groceries at your favourite shop Spar, from the comfort of
+                you Home</p>
+            <br><br>
+            <a href="{{ url_for('main.shop', shopname='Spar') }}"><button class="btn btn-sm btn-info"
+                    style="width: 70%; height: 40px;"><span style="font-size: 20px;">Enter</span>
+                </button></a>
+        </div>
+        <div class="col-md-5" style="width: 60%;">
+            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500"
+                src="../static/images/banner1.jpg" data-holder-rendered="true">
+        </div>
+    </div>
+    {% endfor %}
 
- 
+
+    <hr class="featurette-divider">
+
+
 
 </div><!-- /END THE FEATURETTES -->
 
-<div class="footer-top" style="min-width: 1000px;">
-  <div class="container-fluid">
-      <div class="col-xs-8 agile-leftmk">
-          <h2>Get your Groceries delivered from local stores</h2>
-          <p>Free Delivery on your first order!</p>
-          <form action="#" method="post">
-            {% if current_user.is_anonymous %}<a href="{{ url_for('auth.register') }}"><input type="submit" value="Sign Up"></a>{% else %}<input type="hidden" value="Sign">{% endif %}
-          </form>
-          <div class="newsform-w3l">
-              <span class="fa fa-envelope-o" aria-hidden="true"></span>
-          </div>
-      </div>
-      <div class="col-xs-4 w3l-rightmk">
-          <img src="/static/images/tab3.png" alt=" ">
-      </div>
-      <div class="clearfix"></div>
-  </div>
+<div class="footer-top" style="min-width: 1150px;">
+    <div class="container-fluid">
+        <div class="col-xs-8 agile-leftmk">
+            <h2>Get your Groceries delivered from local stores</h2>
+            <p>Free Delivery on your first order!</p>
+            <form action="#" method="post">
+                {% if current_user.is_anonymous %}<a href="{{ url_for('auth.register') }}"><input type="submit"
+                        value="Sign Up"></a>{% else %}<input type="hidden" value="Sign">{% endif %}
+            </form>
+            <div class="newsform-w3l">
+                <span class="fa fa-envelope-o" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="col-xs-4 w3l-rightmk">
+            <img src="/static/images/tab3.png" alt=" ">
+        </div>
+        <div class="clearfix"></div>
+    </div>
 </div>
 
 {% endblock %}
