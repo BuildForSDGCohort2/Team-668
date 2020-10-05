@@ -1,186 +1,628 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Spar - Homeshop</title>
-	<!--/tags -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="keywords" content="Grocery Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+    <!--/tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Grocery Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
-	<script>
-		addEventListener("load", function () {
-			setTimeout(hideURLbar, 0);
-		}, false);
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
-	</script>
-	<!--//tags -->
-	<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-	<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all">
-	<link href="/static/css/font-awesome.css" rel="stylesheet">
-	<!--pop-up-box-->
-	<link href="/static/css/popuo-box.css" rel="stylesheet" type="text/css" media="all">
-	<!--//pop-up-box-->
-	<!-- price range -->
-	<link rel="stylesheet" type="text/css" href="/static/css/jquery-ui1.css">
-	<!-- fonts -->
-    <style type="text/css">@keyframes pop-in {    0% { opacity: 0; transform: scale(0.1); }    60% { opacity: 1; transform: scale(1.2); }    100% { transform: scale(1); }}@-webkit-keyframes pop-in {    0% { opacity: 0; -webkit-transform: scale(0.1); }    60% { opacity: 1; -webkit-transform: scale(1.2); }    100% { -webkit-transform: scale(1); }}@-moz-keyframes pop-in {    0% { opacity: 0; -moz-transform: scale(0.1); }    60% { opacity: 1; -moz-transform: scale(1.2); }    100% { -moz-transform: scale(1); }}.minicartk-showing #PPminicartk {    display: block;    transform: translateZ(0);    -webkit-transform: translateZ(0);    -moz-transform: translateZ(0);    animation: pop-in 0.25s;    -webkit-animation: pop-in 0.25s;    -moz-animation: pop-in 0.25s;}#PPminicartk {    display: none;    position: fixed;    left: 50%;    top: 75px;}#PPminicartk form {    position: relative;    width: 400px;    max-height: 400px;    margin-left: -200px;    padding: 10px 10px 40px;    background: #fbfbfb;    border: 1px solid #d7d7d7;    border-radius: 4px;    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);    font: 15px/normal arial, helvetica;    color: #333;}#PPminicartk form.minicartk-empty {    padding-bottom: 10px;    font-size: 16px;    font-weight: bold;}#PPminicartk ul {    clear: both;    float: left;    width: 380px;    margin: 5px 0 20px;    padding: 10px;    list-style-type: none;    background: #fff;    border: 1px solid #ccc;    border-radius: 4px;    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);}#PPminicartk .minicartk-empty ul {    display: none;}#PPminicartk .minicartk-closer {    float: right;    margin: -12px -10px 0;    padding: 10px;    background: 0;    border: 0;    font-size: 18px;    cursor: pointer;    font-weight: bold;}#PPminicartk .minicartk-item {    clear: left;    padding: 6px 0;    min-height: 25px;}#PPminicartk .minicartk-item + .minicartk-item {    border-top: 1px solid #f2f2f2;}#PPminicartk .minicartk-item a {    color: #333;    text-decoration: none;}#PPminicartk .minicartk-details-name {    float: left;    width: 62%;}#PPminicartk .minicartk-details-quantity {    float: left;    width: 15%;}#PPminicartk .minicartk-details-remove {    float: left;    width: 7%;}#PPminicartk .minicartk-details-price {    float: left;    width: 16%;    text-align: right;}#PPminicartk .minicartk-attributes {    margin: 0;    padding: 0;    background: transparent;    border: 0;    border-radius: 0;    box-shadow: none;    color: #999;    font-size: 12px;    line-height: 22px;}#PPminicartk .minicartk-attributes li {    display: inline;}#PPminicartk .minicartk-attributes li:after {    content: ",";}#PPminicartk .minicartk-attributes li:last-child:after {    content: "";}#PPminicartk .minicartk-quantity {    width: 30px;    height: 18px;    padding: 2px 4px;    border: 1px solid #ccc;    border-radius: 4px;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);    font-size: 13px;    text-align: right;    transition: border linear 0.2s, box-shadow linear 0.2s;    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;}#PPminicartk .minicartk-quantity:hover {    border-color: #0078C1;}#PPminicartk .minicartk-quantity:focus {    border-color: #0078C1;    outline: 0;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px rgba(0, 120, 193, 0.4);}#PPminicartk .minicartk-remove {    width: 18px;    height: 19px;    margin: 2px 0 0;    padding: 0;    background: #b7b7b7;    border: 1px solid #a3a3a3;    border-radius: 3px;    color: #fff;    font-size: 13px;    opacity: 0.70;    cursor: pointer;}#PPminicartk .minicartk-remove:hover {    opacity: 1;}#PPminicartk .minicartk-footer {    clear: left;}#PPminicartk .minicartk-subtotal {    position: absolute;    bottom: 17px;    padding-left: 6px;    left: 10px;    font-size: 16px;    font-weight: bold;}#PPminicartk .minicartk-submit {    position: absolute;    bottom: 10px;    right: 10px;    min-width: 153px;    height: 33px;    margin-right: 6px;    padding: 0 9px;    border: 1px solid #ffc727;    border-radius: 5px;    color: #000;    text-shadow: 1px 1px 1px #fff6e9;    cursor: pointer;    background: #ffaa00;    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZjZlOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmFhMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);    background: -moz-linear-gradient(top, #fff6e9 0%, #ffaa00 100%);    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff6e9), color-stop(100%,#ffaa00));    background: -webkit-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: -o-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: -ms-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: linear-gradient(to bottom, #fff6e9 0%,#ffaa00 100%);}#PPminicartk .minicartk-submit img {    vertical-align: middle;    padding: 4px 0 0 2px;}</style>
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--//tags -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/css/font-awesome.css" rel="stylesheet">
+    <!--pop-up-box-->
+    <link href="/static/css/popuo-box.css" rel="stylesheet" type="text/css" media="all">
+    <!--//pop-up-box-->
+    <!-- price range -->
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui1.css">
+    <!-- fonts -->
+    <style type="text/css">
+        @keyframes pop-in {
+            0% {
+                opacity: 0;
+                transform: scale(0.1);
+            }
+
+            60% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @-webkit-keyframes pop-in {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale(0.1);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: scale(1.2);
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+            }
+        }
+
+        @-moz-keyframes pop-in {
+            0% {
+                opacity: 0;
+                -moz-transform: scale(0.1);
+            }
+
+            60% {
+                opacity: 1;
+                -moz-transform: scale(1.2);
+            }
+
+            100% {
+                -moz-transform: scale(1);
+            }
+        }
+
+        .minicartk-showing #PPminicartk {
+            display: block;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            animation: pop-in 0.25s;
+            -webkit-animation: pop-in 0.25s;
+            -moz-animation: pop-in 0.25s;
+        }
+
+        #PPminicartk {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 75px;
+        }
+
+        #PPminicartk form {
+            position: relative;
+            width: 400px;
+            max-height: 400px;
+            margin-left: -200px;
+            padding: 10px 10px 40px;
+            background: #fbfbfb;
+            border: 1px solid #d7d7d7;
+            border-radius: 4px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            font: 15px/normal arial, helvetica;
+            color: #333;
+        }
+
+        #PPminicartk form.minicartk-empty {
+            padding-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #PPminicartk ul {
+            clear: both;
+            float: left;
+            width: 380px;
+            margin: 5px 0 20px;
+            padding: 10px;
+            list-style-type: none;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        #PPminicartk .minicartk-empty ul {
+            display: none;
+        }
+
+        #PPminicartk .minicartk-closer {
+            float: right;
+            margin: -12px -10px 0;
+            padding: 10px;
+            background: 0;
+            border: 0;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #PPminicartk .minicartk-item {
+            clear: left;
+            padding: 6px 0;
+            min-height: 25px;
+        }
+
+        #PPminicartk .minicartk-item+.minicartk-item {
+            border-top: 1px solid #f2f2f2;
+        }
+
+        #PPminicartk .minicartk-item a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        #PPminicartk .minicartk-details-name {
+            float: left;
+            width: 62%;
+        }
+
+        #PPminicartk .minicartk-details-quantity {
+            float: left;
+            width: 15%;
+        }
+
+        #PPminicartk .minicartk-details-remove {
+            float: left;
+            width: 7%;
+        }
+
+        #PPminicartk .minicartk-details-price {
+            float: left;
+            width: 16%;
+            text-align: right;
+        }
+
+        #PPminicartk .minicartk-attributes {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            color: #999;
+            font-size: 12px;
+            line-height: 22px;
+        }
+
+        #PPminicartk .minicartk-attributes li {
+            display: inline;
+        }
+
+        #PPminicartk .minicartk-attributes li:after {
+            content: ",";
+        }
+
+        #PPminicartk .minicartk-attributes li:last-child:after {
+            content: "";
+        }
+
+        #PPminicartk .minicartk-quantity {
+            width: 30px;
+            height: 18px;
+            padding: 2px 4px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            font-size: 13px;
+            text-align: right;
+            transition: border linear 0.2s, box-shadow linear 0.2s;
+            -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+            -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+        }
+
+        #PPminicartk .minicartk-quantity:hover {
+            border-color: #0078C1;
+        }
+
+        #PPminicartk .minicartk-quantity:focus {
+            border-color: #0078C1;
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px rgba(0, 120, 193, 0.4);
+        }
+
+        #PPminicartk .minicartk-remove {
+            width: 18px;
+            height: 19px;
+            margin: 2px 0 0;
+            padding: 0;
+            background: #b7b7b7;
+            border: 1px solid #a3a3a3;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 13px;
+            opacity: 0.70;
+            cursor: pointer;
+        }
+
+        #PPminicartk .minicartk-remove:hover {
+            opacity: 1;
+        }
+
+        #PPminicartk .minicartk-footer {
+            clear: left;
+        }
+
+        #PPminicartk .minicartk-subtotal {
+            position: absolute;
+            bottom: 17px;
+            padding-left: 6px;
+            left: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #PPminicartk .minicartk-submit {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            min-width: 153px;
+            height: 33px;
+            margin-right: 6px;
+            padding: 0 9px;
+            border: 1px solid #ffc727;
+            border-radius: 5px;
+            color: #000;
+            text-shadow: 1px 1px 1px #fff6e9;
+            cursor: pointer;
+            background: #ffaa00;
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZjZlOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmFhMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+            background: -moz-linear-gradient(top, #fff6e9 0%, #ffaa00 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff6e9), color-stop(100%, #ffaa00));
+            background: -webkit-linear-gradient(top, #fff6e9 0%, #ffaa00 100%);
+            background: -o-linear-gradient(top, #fff6e9 0%, #ffaa00 100%);
+            background: -ms-linear-gradient(top, #fff6e9 0%, #ffaa00 100%);
+            background: linear-gradient(to bottom, #fff6e9 0%, #ffaa00 100%);
+        }
+
+        #PPminicartk .minicartk-submit img {
+            vertical-align: middle;
+            padding: 4px 0 0 2px;
+        }
+    </style>
 </head>
+
 <body>
-{% include 'navbar.html' %}
-<section class="terms-of-use">
-    <!-- terms -->
-    <div class="terms">
-        <div class="container">
-            <!-- tittle heading -->
-            <h3 class="tittle-w3l">Terms of Use
-                <span class="heading-style">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </span>
-            </h3>
-            <!-- //tittle heading -->
-            <h5>PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY .</h5>
-            <h6>Personal Information</h6>
-            <ol start="1">
-                <li></li>
-                <li></li>
-            </ol>
+    {% include 'navbar.html' %}
+    <section class="terms-of-use">
+        <!-- terms -->
+        <div class="terms">
+            <div class="container">
+                <!-- tittle heading -->
+                <h3 class="tittle-w3l">Terms of Use
+                    <span class="heading-style">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
+                </h3>
+                <!-- //tittle heading -->
+                <h5>PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY .</h5>
+                <h6>Introduction</h6>
+                <ol start="1">
+                    <li>This website can be accessed at www.homeshop.com, related mobi-sites and software applications
+                        (the “Website”) and is owned and operated by HomeShop LTD.</li>
+                    <li>These Website Terms and Conditions (“Terms and Conditions”) govern the ordering, sales and
+                        delivery of Goods, and the use of the Website.</li>
+                    <li>These Terms and Conditions are binding and enforceable against every person that accesses or
+                        uses this Website (“you”, “your” or “user”), including without limitation each user who
+                        registers as contemplated below (“registered user”). By using the Website and by clicking on the
+                        “Register Now” button on the Website, as may be applicable, you acknowledge that you have read
+                        and agree to be bound by these Terms and Conditions.</li>
+                    <li>The Website enables you to shop online for an extensive range of goods including victuals,
+                        personal care products, pet supplies, toddler products(“Goods”).</li>
+                    <li>HomeShop allows third party sellers to list and sell their Goods on the Website (each a “Third
+                        Party Seller”). HomeShop will indicate on relevant product pages and checkout pages when Goods
+                        are for sale by a Third Party Seller. Certain terms in these Terms and Conditions only apply to
+                        purchases from Third Party Sellers, and others only apply to purchases from Takealot. This will
+                        be made clear in the relevant *</li>
+                </ol>
 
-            <h6>License &amp; Site access</h6>
-            <p></p>
+                <h6>Important Notice</h6>
+                <ol>
+                    <li><b>Your attention is drawn to these Terms and Conditions because they are important and should
+                            be carefully noted.</b></li>
+                    <li>If there is any provision in these Terms and Conditions that you do not understand, it is your
+                        responsibility to ask HomeShop to explain it to you before you accept the Terms and Conditions
+                        or continue using the Website</li>
+                    <li>Nothing in these Terms and Conditions is intended or must be understood to unlawfully restrict,
+                        limit or avoid any right or obligation, as the case may be, created for either you or HomeShop.
+                    </li>
+                    <li>HomeShop permits the use of this Website subject to the Terms and Conditions. By using this
+                        Website in any way, you shall be deemed to have accepted all the Terms and Conditions
+                        unconditionally. You must not use this Website if you do not agree to the Terms and Conditions
+                    </li>
 
-            <h6>Eligibility :</h6>
-            <p></p>
+                </ol>
 
-            <h6>Account &amp; Registration</h6>
-            <p></p>
-            <h6>Cancellation by Site / Customer</h6>
-            <p> <p>
-            <h6>You Agree and Confirm</h6>
-            <p></p>
-            <h6>Copyright &amp; Trademark</h6>
-            <p></p>
+                <h6>Returns </h6>
+                <p>Please refer to our Returns Policy for more information about returning products. The Returns Policy
+                    is incorporated by reference (which means that it forms part of these Terms and Conditions).</p>
+
+                <h6>Registration and use of the website</h6>
+                <ol>
+                    <li>Only registered users may order Goods on the Website.</li>
+                    <li>To register as a user, you must provide a unique username and password and provide certain
+                        information and personal details to HomeShop. You will need to use your unique username and
+                        password to access the Website in order to purchase Goods.</li>
+                    <li>You agree and warrant that your username and password shall:<br>
+                        <ol>
+                            <li>be used for personal use only; and</li>
+                            <li>not be disclosed by you to any third party</li>
+                        </ol>
+                    </li>
+                    <li>For security purposes you agree to enter the correct username and password whenever ordering
+                        Goods, failing which you will be denied access.</li>
+                    <li><b>You agree that, once the correct username and password relating to your account have been
+                            entered, irrespective of whether the use of the username and password is unauthorised or
+                            fraudulent, you will be liable for payment of such order, save where the order is cancelled
+                            by you in accordance with these Terms and Conditions.</b></li>
+                    <li>You agree to notify HomeShop immediately upon becoming aware of or reasonably suspecting any
+                        unauthorised access to or use of your username and password and to take steps to mitigate any
+                        resultant loss or harm.</li>
+                    <li><b>By using the Website you warrant that you are 18 (eighteen) years of age or older and of full
+                            legal capacity. If you are under the age of 18 (eighteen) or if you are not legally
+                            permitted to enter into a binding agreement, then you may use the Website only with the
+                            involvement and supervision of your parent or legal guardian. If your parent or legal
+                            guardian supervises you and gives his/her consent, then such person agrees to be bound to
+                            these Terms and Conditions and to be liable and responsible for you and all your obligations
+                            under these Terms and Conditions.</b></li>
+                    <li>You agree that you will not in any way use any device, software or other instrument to interfere
+                        or attempt to interfere with the proper working of the Website. In addition, you agree that you
+                        will not in any way use any robot, spider, other automatic device, or manual process to monitor,
+                        copy, distribute or modify the Website or the information contained herein, without the prior
+                        written consent from an authorised HomeShop representative (such consent is deemed given for
+                        standard search engine technology employed by Internet search websites to direct Internet users
+                        to this Website).</li>
+                    <li>You may not use the Website to distribute material which is defamatory, offensive, contains or
+                        amounts to hate speech or is otherwise unlawful.</li>
+                    <li>You may not in any way display, publish, copy, print, post or otherwise use the Website and/or
+                        the information contained therein without the express prior written consent of an authorised
+                        HomeShop representative.</li>
+                </ol>
+                <h6>Conclusion of sales and availability of stock</h6>
+                <ol>
+                    <li>Registered users may place orders for Goods, which HomeShop may accept or reject. Whether or not
+                        HomeShop accepts an order depends on the availability of Goods, correctness of the information
+                        relating to the Goods (including without limitation the price) and receipt of payment or payment
+                        authorisation by HomeShop for the Goods</li>
+                    <li><b>NOTE: HomeShop will indicate the acceptance of your order by delivering the Goods to you.
+                            Only at that point will an agreement of sale between you and HomeShop come into effect (the
+                            “Sale”). This is regardless of any communication from HomeShop stating that your order or
+                            payment has been confirmed. HomeShop will indicate the rejection of your order (by
+                            HomeShope) by cancelling it and, as soon as possible thereafter, refunding you for any
+                            amount already paid.</b></li>
+                    <li>Prior to delivery of the Goods, you may cancel an order at any time provided you do so before
+                        receiving a dispatch or delivery notice. After delivery or your collection of the Goods, you may
+                        return the Goods only in accordance with the Returns Policy.</li>
+                    <li>Placing Goods in a wishlist or shopping basket without completing the purchase cycle does not
+                        constitute an order for such Goods, and as such, Goods may be removed from the shopping basket
+                        if stock is no longer available or the price thereof might change without notice to you. You
+                        cannot hold HomeShop seller liable if such Goods are not available or are not available at the
+                        particular price when you complete or attempt to complete the purchase cycle at a later stage.
+                    </li>
+                    <li><b>You acknowledge that stock of all Goods on offer is limited and that pricing may change at
+                            any time without notice to you. In the case of Goods for sale by HomeShop, HomeShop will
+                            take all reasonable efforts to monitor stock levels and ensure that when stock is no longer
+                            available, that offers thereof are discontinued on the Website. However, we cannot guarantee
+                            the availability of stock. When Goods are no longer available after you have placed an
+                            order, Takealot will notify you and you will be entitled to a refund of any amount already
+                            paid by you for such Goods. </b></li>
+                    <li>Certain Goods may not be purchased for re-sale. Should we suspect that any such Goods are being
+                        purchased for sale, we are entitled to cancel your order immediately on notice to you.</li>
+
+                </ol>
+                <h6>Payment</h6>
+                <ol>
+                    <li>We are committed to providing secure online payment facilities. All transactions are encrypted
+                        using appropriate encryption technology.</li>
+                    <li>The Goods are for sale by HomeShop payment can be made for Goods via:<br>
+                    <li>Debit card;</li>
+                    <li>Credit card: where payment is made by credit card, we may require additional information in
+                        order to authorise and/or verify the validity of payment. In such cases we are entitled to
+                        withhold delivery until such time as the additional information is received by us and
+                        authorisation is obtained by us for the amounts. If we do not receive authorisation your order
+                        for the Goods will be cancelled. You warrant that you are fully authorised to use the credit
+                        card supplied for purposes of paying the Goods. You also warrant that your credit card has
+                        sufficient available funds to cover all the costs incurred as a result of the services used on
+                        the Website;</li>
+                    <li>Cash on delivery (except where any of our exclusions apply, as listed in our FAQ); by selecting
+                        this option, you undertake to ensure that you have the exact cash on hand at the time of
+                        delivery</li>
+                    <li>PayPal</li>
+                    </li>
+                </ol>
+                <h6>Delivery of goods</h6>
+                <ol>
+                    <li>HomeShop offers 1(one) method of delivery of Goods to you.<br>
+                        <ol>
+                            <li>courier(transportation delivery)</li>
+                        </ol>
+                    </li>
+                    <li>Where it accepts your order, HomeShop will deliver the Goods to you as soon as reasonably
+                        possible, but no later than 5 (five) hours of receipt of your payment (“Delivery Period”). We
+                        will notify you if we are unable to deliver the Goods during the Delivery Period. You may then,
+                        within 24(twenty-four) hours of receiving such notification elect whether or not to cancel your
+                        order for the Goods. If you elect to cancel your order, we will reimburse you for the purchase
+                        price.</li>
+                    <li><b>HomeShop’s obligation to deliver a product to you is fulfilled when we deliver the product to
+                            the physical address nominated by you for delivery of the order. </b>HomeShop is not
+                        responsible for any loss or unauthorised use of a product, after it has delivered the product to
+                        the physical address nominated by you.</li>
+                </ol>
+
+                <h6>Privacy policy</h6>
+                <ol>
+                    <li>We respect your privacy and will take reasonable measures to protect it, as more fully detailed
+                        below.</li>
+                    <li>Should you decide to register as a user on the Website, we may require you to provide us with
+                        personal information which includes but is not limited to -<br>
+                        <ol>
+                            <li>your name and surname;</li>
+                            <li>your email address;</li>
+                            <li>your physical address;</li>
+                            <li>your gender;</li>
+                            <li>your mobile number; and</li>
+                            <li>your date of birth.</li>
+                        </ol>
+                    </li>
+                    <li>Should your personal information change, please inform us and provide us with updates to your
+                        personal information as soon as reasonably possible to enable us to update your personal
+                        information.</li>
+                    <li>You may choose to provide additional personal information to us, in which event you agree to
+                        provide accurate and current information, and not to impersonate or misrepresent any person or
+                        entity or falsely state or otherwise misrepresent your affiliation with anyone or anything.</li>
+                    <li>We will not, without your express consent:<br>
+                        <ol>
+                            <li>use your personal information for any purpose other than as set out below: <br>
+                                <ol type="a">
+                                    <li>in relation to the ordering, sale and delivery of Goods;</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+
+                </ol>
+                <h6>Ownership and copyright</h6>
+                <ol>
+                    <li>The contents of the Website, including any material, information, data, software, icons, text,
+                        graphics, lay-outs, images, sound clips, advertisements, video clips, trade names, logos,
+                        trade-marks, designs and service marks which are displayed on or incorporated in this Website
+                        (“Website Content”) are protected by law, including but not limited to copyright and trade mark
+                        law. The Website Content is the property of HomeShop.</li>
+                    <li>You will not acquire any right, title or interest in or to the Website or the Website Content.
+                    </li>
+                    <li>Any use, distribution or reproduction of the Website Content is prohibited unless expressly
+                        authorised in terms of these Terms and Conditions or otherwise provided for in law. To obtain
+                        permissions for the commercial use of any Website Content contact us via our Help page</li>
+                    <li>Where any of the Website Content has been licensed to Takealot or belongs to any third party,
+                        your rights of use will also be subject to any terms and conditions which that license or third
+                        party imposes from time to time and you agree to comply with such third party terms and
+                        conditions</li>
+
+                </ol>
+            </div>
         </div>
-    </div>
-    <!-- /terms -->
-</section>
-{% include 'footer.html' %}
+        <!-- /terms -->
+    </section>
+    {% include 'footer.html' %}
 
-<script src="/static/js/jquery-2.1.4.min.js"></script>
-<script src="/static/js/jquery.magnific-popup.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.popup-with-zoom-anim').magnificPopup({
-            type: 'inline',
-            fixedContentPos: false,
-            fixedBgPos: true,
-            overflowY: 'auto',
-            closeBtnInside: true,
-            preloader: false,
-            midClick: true,
-            removalDelay: 300,
-            mainClass: 'my-mfp-zoom-in'
+    <script src="/static/js/jquery-2.1.4.min.js"></script>
+    <script src="/static/js/jquery.magnific-popup.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
         });
+    </script>
 
-    });
-</script>
-
-<script src="/static/js/jquery-ui.js"></script>
-<script>
-    //<![CDATA[ 
-    $(window).load(function () {
-        $("#slider-range").slider({
-            range: true,
-            min: 0,
-            max: 9000,
-            values: [50, 6000],
-            slide: function (event, ui) {
-                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-            }
-        });
-        $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
-
-    }); //]]>
-</script>
-<script src="/static/js/jquery.flexisel.js"></script>
-<script>
-    $(window).load(function () {
-        $("#flexiselDemo1").flexisel({
-            visibleItems: 3,
-            animationSpeed: 1000,
-            autoPlay: true,
-            autoPlaySpeed: 3000,
-            pauseOnHover: true,
-            enableResponsiveBreakpoints: true,
-            responsiveBreakpoints: {
-                portrait: {
-                    changePoint: 480,
-                    visibleItems: 1
-                },
-                landscape: {
-                    changePoint: 640,
-                    visibleItems: 2
-                },
-                tablet: {
-                    changePoint: 768,
-                    visibleItems: 2
+    <script src="/static/js/jquery-ui.js"></script>
+    <script>
+        //<![CDATA[ 
+        $(window).load(function () {
+            $("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: 9000,
+                values: [50, 6000],
+                slide: function (event, ui) {
+                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
                 }
-            }
+            });
+            $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+        }); //]]>
+    </script>
+    <script src="/static/js/jquery.flexisel.js"></script>
+    <script>
+        $(window).load(function () {
+            $("#flexiselDemo1").flexisel({
+                visibleItems: 3,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint: 480,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint: 640,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint: 768,
+                        visibleItems: 2
+                    }
+                }
+            });
+
         });
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById("password1").onchange = validatePassword;
+            document.getElementById("password2").onchange = validatePassword;
+        }
 
-    });
-</script>
-<script>
-    window.onload = function () {
-        document.getElementById("password1").onchange = validatePassword;
-        document.getElementById("password2").onchange = validatePassword;
-    }
+        function validatePassword() {
+            var pass2 = document.getElementById("password2").value;
+            var pass1 = document.getElementById("password1").value;
+            if (pass1 != pass2)
+                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("password2").setCustomValidity('');
+            //empty string means no validation error
+        }
+    </script>
+    <script src="/static/js/SmoothScroll.min.js"></script>
+    <script src="/static/js/move-top.js"></script>
+    <script src="/static/js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
 
-    function validatePassword() {
-        var pass2 = document.getElementById("password2").value;
-        var pass1 = document.getElementById("password1").value;
-        if (pass1 != pass2)
-            document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-        else
-            document.getElementById("password2").setCustomValidity('');
-        //empty string means no validation error
-    }
-</script>
-<script src="/static/js/SmoothScroll.min.js"></script>
-<script src="/static/js/move-top.js"></script>
-<script src="/static/js/easing.js"></script>
-<script>
-    jQuery(document).ready(function ($) {
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-
-            $('html,body').animate({
-                scrollTop: $(this.hash).offset().top
-            }, 1000);
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
         });
-    });
-</script>
-<script>
-    $(document).ready(function () {
-        /*
-        var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear' 
-        };
-        */
-        $().UItoTop({
-            easingType: 'easeOutQuart'
-        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            /*
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear' 
+            };
+            */
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
 
-    });
-</script>
-<script src="/static/js/bootstrap.js"></script>
-<a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 0;"></span>To Top</a>
+        });
+    </script>
+    <script src="/static/js/bootstrap.js"></script>
+    <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 0;"></span>To Top</a>
 </body>
+
 </html>
