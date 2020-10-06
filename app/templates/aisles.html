@@ -536,10 +536,10 @@
                     <div class="product-sec1">
                         <h3 class="heading-tittle">{{cat.name}}</h3>
                         <div class="row">
-                            {%  for p in product.items %}
+                            {% for p in cat.product %}
                             {% include '_product.html' %}
-
                             {% endfor %}
+
                         </div>
 
                         <div class="row">
