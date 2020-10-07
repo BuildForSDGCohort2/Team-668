@@ -489,6 +489,7 @@ def addtocart():
 
 @bp.route("/cart", methods=["GET", "POST"])
 def cart():
+    cat1 = Category.query.all()
     if "Shoppingcart" not in session or len(session["Shoppingcart"]) <= 0:
         return redirect(url_for("main.index"))
     subtotal = 0
@@ -497,7 +498,7 @@ def cart():
         subtotal += float(pro["prize"]) * int(pro["quantity"])
         total = subtotal
 
-    return render_template("cart.html", total=total)
+    return render_template("cart.html", total=total, cat1=cat1)
 
 
 @bp.route("/updatecart/<int:code>", methods=["GET", "POST"])

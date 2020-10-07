@@ -1,4 +1,4 @@
-2020-10-01 13:38:12,926 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-01 13:41:46,774 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1183, in delete_model
     self.session.commit()
@@ -26,7 +26,7 @@ Traceback (most recent call last):
     self._raise_error(response.status, raw_data)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\base.py", line 300, in _raise_error
     raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, '{"_index":"product","_type":"_doc","_id":"14","_version":1,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":11,"_primary_term":4}')
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, '{"_index":"product","_type":"_doc","_id":"14","_version":1,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":12,"_primary_term":4}')
 
 During handling of the above exception, another exception occurred:
 
@@ -60,9 +60,9 @@ Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
     raise sa_exc.InvalidRequestError(
 sqlalchemy.exc.InvalidRequestError: This session is in 'committed' state; no further SQL can be emitted within this transaction.
-2020-10-01 13:38:49,574 ERROR: Exception on /admin/product/new/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-01 13:44:11,418 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1132, in create_model
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1183, in delete_model
     self.session.commit()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
     return getattr(self.registry(), name)(*args, **kwargs)
@@ -72,11 +72,23 @@ Traceback (most recent call last):
     self.session.dispatch.after_commit(self.session)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
     fn(*args, **kw)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\models.py", line 38, in after_commit
-    add_to_index(obj.__tablename__, obj)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\search.py", line 9, in add_to_index
-    payload[field] = getattr(model, field)
-AttributeError: 'Product' object has no attribute 'category'
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\models.py", line 44, in after_commit
+    remove_from_index(obj.__tablename__, obj)
+  File "C:\Users\Sergio\Desktop\SDG Project 3\app\search.py", line 16, in remove_from_index
+    current_app.elasticsearch.delete(index=index, id=model.id)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 582, in delete
+    return self.transport.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 392, in perform_request
+    raise e
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 269, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\base.py", line 300, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, '{"_index":"product","_type":"_doc","_id":"13","_version":1,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":14,"_primary_term":4}')
 
 During handling of the above exception, another exception occurred:
 
@@ -97,9 +109,9 @@ Traceback (most recent call last):
     return self._run_view(f, *args, **kwargs)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 368, in _run_view
     return fn(self, *args, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\model\base.py", line 2089, in create_view
-    model = self.create_model(form)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1138, in create_model
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\model\base.py", line 2224, in delete_view
+    if self.delete_model(model):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1189, in delete_model
     self.session.rollback()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
     return getattr(self.registry(), name)(*args, **kwargs)
@@ -110,6 +122,3 @@ Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
     raise sa_exc.InvalidRequestError(
 sqlalchemy.exc.InvalidRequestError: This session is in 'committed' state; no further SQL can be emitted within this transaction.
-2020-10-01 13:39:11,432 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 13:40:48,837 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-01 13:41:38,409 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]

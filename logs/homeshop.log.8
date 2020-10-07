@@ -1,4 +1,4 @@
-2020-10-01 13:44:29,136 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-01 13:44:50,036 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1183, in delete_model
     self.session.commit()
@@ -26,7 +26,7 @@ Traceback (most recent call last):
     self._raise_error(response.status, raw_data)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\base.py", line 300, in _raise_error
     raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, '{"_index":"product","_type":"_doc","_id":"10","_version":1,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":15,"_primary_term":4}')
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, '{"_index":"product","_type":"_doc","_id":"8","_version":1,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":17,"_primary_term":4}')
 
 During handling of the above exception, another exception occurred:
 
@@ -60,7 +60,7 @@ Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
     raise sa_exc.InvalidRequestError(
 sqlalchemy.exc.InvalidRequestError: This session is in 'committed' state; no further SQL can be emitted within this transaction.
-2020-10-01 13:44:38,116 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-01 13:44:56,632 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1183, in delete_model
     self.session.commit()
@@ -88,7 +88,7 @@ Traceback (most recent call last):
     self._raise_error(response.status, raw_data)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\base.py", line 300, in _raise_error
     raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, '{"_index":"product","_type":"_doc","_id":"12","_version":1,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":16,"_primary_term":4}')
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, '{"_index":"product","_type":"_doc","_id":"9","_version":1,"result":"not_found","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":18,"_primary_term":4}')
 
 During handling of the above exception, another exception occurred:
 
@@ -122,3 +122,6 @@ Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
     raise sa_exc.InvalidRequestError(
 sqlalchemy.exc.InvalidRequestError: This session is in 'committed' state; no further SQL can be emitted within this transaction.
+2020-10-01 13:50:38,643 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
+2020-10-01 13:53:19,023 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
+2020-10-01 13:53:53,825 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]

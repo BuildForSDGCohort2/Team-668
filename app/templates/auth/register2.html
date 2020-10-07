@@ -1,112 +1,186 @@
 <html>
+
 <head>
     <title>HomeShop Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Emporium registration Form Bootstrap Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates">
+    <meta name="keywords"
+        content="Emporium registration Form Bootstrap Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates">
     <link href="/static/register/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
     <link href="/static/register/css/style.css" rel="stylesheet" type="text/css">
     <!--webfonts-->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
     <!--//webfonts-->
-    
-    </head>
-    <body>
-        <div class="container" style="
+
+</head>
+
+<body>
+
+    <script>
+        function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+            console.log('statusChangeCallback');
+            console.log(response);                   // The current login status of the person.
+            if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+                testAPI();
+            } else {                                 // Not logged into your webpage or we are unable to tell.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this webpage.';
+            }
+        }
+
+        function checkLoginState() {               // Called when a person is finished with the Login Button.
+            FB.getLoginStatus(function (response) {   // See the onlogin handler
+                statusChangeCallback(response);
+            });
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '#',
+                cookie: true,
+                xfbml: true,
+                version: '#'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        FB.getLoginStatus(function (response) {   // Called after the JS SDK has been initialized.
+            statusChangeCallback(response);        // Returns the login status.
+        });
+  };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="container" style="
         background: transparent;
         height: 79px;
         text-align: center;
     ">
-     <a href="#" style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;">
-     <li style="line-height: 105px;
+        <a href="#"
+            style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;">
+            <li style="line-height: 105px;
      font-size: 1em;
      width: 39px;
      height: 75px;
      border-radius: 50%;
      padding: 0;
      display: inline-block;
-     margin-right: 66px;">HS</li></a></div>
-     <div class="w3l_frm">
-     <div class="container">
-     <h2 style="color: tan;">HomeShop Register Form</h2>
-                <div class="header-social wthree">
-                    
-                    <ul>
-                        <li><a href="#" class="f"><span class="fa fa-facebook" aria-hidden="true"></span>Login with Facebook</a></li>
-                     </ul>
-                    <div class="line-mid">
-                        <h4>or</h4>
+     margin-right: 66px;">HS</li>
+        </a></div>
+    <div class="w3l_frm">
+        <div class="container">
+            <h2 style="color: tan;">HomeShop Register Form</h2>
+            <div class="header-social wthree">
+
+                <ul style="text-align: center;">
+                    <div id="status">
+                    </div>
+                    <li>
+                        <div class="fb-login-button" data-size="large" data-button-type="continue_with"
+                            data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"
+                            data-width="">
+                        </div>
+                        <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+
+                        </fb:login-button> -->
+                    </li>
+
+
+                </ul>
+                <div class="line-mid">
+                    <h4>or</h4>
+                </div>
+            </div>
+            <div class="header-social wthree">
+                <ul>
+                    <li>
+                        <a href="#popup1" class="m"> <span class="fa fa-envelope-o" aria-hidden="true"></span>Register
+                            With Email</a>
+                    </li>
+                </ul>
+
+                <div id="popup1" class="overlay">
+                    <div class="popup">
+                        <form action="" method="post" class="form" role="form">
+                            {{ form.hidden_tag() }}
+
+                            <div class="form-group  required"><label class="control-label"
+                                    for="username">Username</label>
+
+                                <input class="form-control" id="username" name="username" required="" type="text"
+                                    value="">
+
+                            </div>
+
+
+                            <div class="form-group  required"><label class="control-label" for="email">Email</label>
+
+                                <input class="form-control" id="email" name="email" required="" type="text" value="">
+
+                            </div>
+
+                            <div class="form-group  required"><label class="control-label"
+                                    for="password">Password</label>
+
+                                <input class="form-control" id="password" name="password" required="" type="password"
+                                    value="">
+
+                            </div>
+
+                            <div class="form-group  required"><label class="control-label" for="password2">Repeat
+                                    Password</label>
+
+                                <input class="form-control" id="password2" name="password2" required="" type="password"
+                                    value="">
+
+                            </div>
+
+                            <input class="btn btn-default" id="submit" name="submit" type="submit" value="Register">
+
+                        </form>
+                        <a class="close" href="#">×</a>
+
                     </div>
                 </div>
-                <div class="header-social wthree">
+
+            </div>
+            <h3>By Signing I agree to the <a href="{{url_for('main.terms')}}">Terms and Conditions</a></h3>
+
+            <div class="w3_acc">
                 <ul>
-    <li>
-        <a href="#popup1" class="m"> <span class="fa fa-envelope-o" aria-hidden="true"></span>Register With Email</a>
-    </li>
-    </ul>
-    
-    <div id="popup1" class="overlay">
-        <div class="popup">
-            <form action="" method="post" class="form" role="form">
-                {{ form.hidden_tag() }}
-            
-              <div class="form-group  required"><label class="control-label" for="username">Username</label>
-                      
-                        <input class="form-control" id="username" name="username" required="" type="text" value="">
-                      
-                </div>
-              
-              
-              <div class="form-group  required"><label class="control-label" for="email">Email</label>
-                      
-                        <input class="form-control" id="email" name="email" required="" type="text" value="">
-                      
-                </div>
-              
-              <div class="form-group  required"><label class="control-label" for="password">Password</label>
-                      
-                        <input class="form-control" id="password" name="password" required="" type="password" value="">
-                      
-                </div>
-              
-              <div class="form-group  required"><label class="control-label" for="password2">Repeat Password</label>
-                      
-                        <input class="form-control" id="password2" name="password2" required="" type="password" value="">
-                      
-                </div>
-              
-                  <input class="btn btn-default" id="submit" name="submit" type="submit" value="Register">
-                
-              </form>
-            <a class="close" href="#">×</a>
-            
+                    <li>
+                        <h4>Already had an Account?</h4>
+                    </li>
+                    <li>
+                        <div class="w3ls_su">
+                            <a href="{{url_for('auth.login')}}">Sign In</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+
         </div>
     </div>
-    
-                </div>
-                <h3>By Signing I agree to the <a href="{{url_for('main.terms')}}">Terms and Conditions</a></h3>
-                
-                <div class="w3_acc">
-                <ul>
-                        <li><h4>Already had an Account?</h4></li>
-                        <li>
-                        <div class="w3ls_su">
-        <a href="{{url_for('auth.login')}}">Sign In</a>
-        </div>
-    </li>
-                    </ul>
-                   
-                </div>
-            
-    
-     </div>
-     </div>
-            
-            <div class="copyright">
-            
-            
-        </div>
-        
-         
-    
-    
-    </body></html>
+
+    <div class="copyright">
+
+
+    </div>
+
+
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="#" nonce="DWiUZTVH"></script>
+</body>
+
+</html>
