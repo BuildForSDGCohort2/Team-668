@@ -2,7 +2,7 @@ from datetime import datetime
 from hashlib import md5
 from time import time
 from flask import current_app, redirect, url_for
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from app import db, login, admin_control
@@ -357,13 +357,21 @@ class Aisles(db.Model):
         return "{}".format(self.name)
 
 
-admin_control.add_view(ModelView(User, db.session))
-admin_control.add_view(ModelView(CustomerOrderDetails, db.session))
-admin_control.add_view(ModelView(OrderItem, db.session))
-admin_control.add_view(ModelView(Order, db.session))
-admin_control.add_view(ModelView(Product, db.session))
-admin_control.add_view(ModelView(RetailStores, db.session))
-admin_control.add_view(ModelView(Category, db.session))
-admin_control.add_view(ModelView(Aisles, db.session))
+class Controller(ModelView):
+    def is_accessible(self):
+        return current_user.is_authenticated
+
+    def no_auth(self):
+        return "Not Allowed to access withour permissions"
+
+
+admin_control.add_view(Controller(User, db.session))
+admin_control.add_view(Controller(CustomerOrderDetails, db.session))
+admin_control.add_view(Controller(OrderItem, db.session))
+admin_control.add_view(Controller(Order, db.session))
+admin_control.add_view(Controller(Product, db.session))
+admin_control.add_view(Controller(RetailStores, db.session))
+admin_control.add_view(Controller(Category, db.session))
+admin_control.add_view(Controller(Aisles, db.session))
 # admin_control.add_view(ModelView(Payment, db.session))
 

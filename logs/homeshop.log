@@ -44,3 +44,4 @@ Traceback (most recent call last):
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'main' is undefined
 2020-10-07 16:34:25,561 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 16:56:10,857 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
