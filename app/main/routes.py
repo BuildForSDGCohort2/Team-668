@@ -58,7 +58,7 @@ def before_request():
 
 
 @bp.route("/", methods=["GET", "POST"])
-@bp.route("/index", methods=["GET", "POST"])
+@bp.route("/home", methods=["GET", "POST"])
 def index():
     form = RetailStoreForm()
     store = RetailStores.query.all()
@@ -375,8 +375,14 @@ def checkout():
     subtotal = 0
     total = 0
     for key, pro in session["Shoppingcart"].items():
-        subtotal += float(pro["prize"]) * int(pro["quantity"])
-        total = subtotal
+        if pro["discount"]:
+            discount = (float(pro["discount"]) / 100) * float(pro["prize"])
+            discount_prize = float(pro["prize"]) - discount
+            subtotal += discount_prize * int(pro["quantity"])
+            total = subtotal
+        else:
+            subtotal += float(pro["prize"]) * int(pro["quantity"])
+            total = subtotal
     return render_template("checkout2.html", form=form, total=total, cat1=cat1)
 
 
@@ -384,7 +390,18 @@ def checkout():
 @login_required
 def payment():
     cat1 = Category.query.all()
-    return render_template("payment.html", cat1=cat1)
+    subtotal = 0
+    total = 0
+    for key, pro in session["Shoppingcart"].items():
+        if pro["discount"]:
+            discount = (float(pro["discount"]) / 100) * float(pro["prize"])
+            discount_prize = float(pro["prize"]) - discount
+            subtotal += discount_prize * int(pro["quantity"])
+            total = subtotal
+        else:
+            subtotal += float(pro["prize"]) * int(pro["quantity"])
+            total = subtotal
+    return render_template("payment.html", cat1=cat1, total=total)
 
 
 paypalrestsdk.configure(

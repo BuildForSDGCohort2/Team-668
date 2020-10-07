@@ -3,14 +3,16 @@
 {% block app_content %}
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Ensures optimal rendering on mobile devices. -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
 </head>
 
 <body>
-  <div class="container" style="width: 80%; margin-top: 15px;" >
+  <div class="container" style="width: 80%; margin-top: 15px;">
     <div class="contianer" style="width: 60%; float: left;">
-      <script src="https://www.paypal.com/sdk/js?client-id=AUze3YRwyerbtTFKS00m3PTjynPSCF151q_WM4ChfcHFUea8pVc4ZcwWk8ZEvXeiSm2bWZjUho2e1VNg"></script>
+      <script
+        src="https://www.paypal.com/sdk/js?client-id=AUze3YRwyerbtTFKS00m3PTjynPSCF151q_WM4ChfcHFUea8pVc4ZcwWk8ZEvXeiSm2bWZjUho2e1VNg"></script>
       <form id="my-sample-form">
         <label for="card-number">Card Number</label>
         <input class="form-control" id="card-number" name="card-number" required="" type="text" value="">
@@ -66,7 +68,7 @@
     vertical-align: baseline;
 ">{{session['Shoppingcart']|length}}</span>
       </h4>
-      
+
 
       <ul class="list-group mb-3" style="
     margin-bottom: 1rem!important;
@@ -77,29 +79,32 @@
     margin-top: 4px;
 ">{% for key,pro in session['Shoppingcart'].items() %}
         <li class="list-group-item d-flex justify-content-between lh-condensed">
-          
+
           <div>
             <h6 class="my-0" style="
               margin-top: 0px;
               margin-bottom: 0px;
               font-size: 20px;">{{pro.name}}</h6>
-             <small class="text-muted" style="
+            <small class="text-muted" style="
               font-size: 16px;">{{pro.description}}</small>
           </div>
+          {% set discount = "%0.2f" |format((pro.discount|float/100) * pro.prize|float) %}
+          {% set products_discount = "%0.2f" |format(discount|float * pro.quantity|int) %}
           {% set subtotal = pro.quantity|int * pro.prize|float %}
-          <span class="text-muted">{{pro.quantity}}x N${{subtotal}}</span>
-           </li>
-           
-      {% endfor %}
+          <span class="text-muted">{{pro.quantity}}x
+            N${{"%0.2f"|format(subtotal|float - products_discount|float)}}</span>
+        </li>
+
+        {% endfor %}
         <li class="list-group-item d-flex justify-content-between" style="
     font-size: 20px;
 ">
           <span>Total (NAM)</span>
           <strong>${{total}}</strong>
         </li>
-       
+
       </ul>
-      
+
     </div>
   </div>
   <script>
@@ -107,16 +112,16 @@
       createOrder: function (data, actions) {
         return fetch('http://127.0.0.1:5000/create-order', {
           method: 'POST'
-        }).then(function(res) {
+        }).then(function (res) {
           return res.json();
-        }).then(function(data) {
+        }).then(function (data) {
           return data.paymentID;
         });
       },
       onApprove: function (data, actions) {
         return fetch('http://127.0.0.1:5000/execute' + data.orderID, {
           method: 'POST'
-        }).then(function(res) {
+        }).then(function (res) {
           if (!res.ok) {
             alert('Something went wrong');
           }
