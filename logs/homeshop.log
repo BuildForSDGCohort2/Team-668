@@ -1,4 +1,5 @@
-2020-10-05 14:22:35,545 ERROR: Exception on /community [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-07 12:10:13,970 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 12:10:18,336 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,10 +13,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Sergio\Desktop\Team-668\app\main\routes.py", line 49, in community
-    return render_template('community.html', title='Community', form=form,
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 512, in cart
+    return render_template("cart.html", total=total, cat1=cat1)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
     return _render(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -26,9 +25,9 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\Team-668\app\templates\community.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\Sergio\Desktop\Team-668\app\templates\base2.html", line 1, in top-level template code
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 1, in top-level template code
+    {% extends "base2.html" %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
     {% block doc -%}
@@ -36,15 +35,10 @@ Traceback (most recent call last):
     {%- block html %}
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
     {% block body -%}
-  File "C:\Users\Sergio\Desktop\Team-668\app\templates\base2.html", line 23, in block "body"
-    {% include 'footer.html' %}
-  File "C:\Users\Sergio\Desktop\Team-668\app\templates\footer.html", line 114, in top-level template code
-    {% for c in cat1[:6] %}
-jinja2.exceptions.UndefinedError: 'cat1' is undefined
-2020-10-05 14:26:54,719 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
-2020-10-05 14:31:07,202 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
-2020-10-05 14:32:16,072 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
-2020-10-05 14:51:30,437 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
-2020-10-05 15:22:18,675 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
-2020-10-05 15:53:09,227 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
-2020-10-05 15:57:18,675 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\Team-668\app\__init__.py:99]
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 12, in block "body"
+    {% block content %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 13, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 82, in block "app_content"
+    {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float) %}
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'

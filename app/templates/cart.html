@@ -5,16 +5,19 @@
   <div class="py-5 text-center" style="
     padding-bottom: 3rem!important;
     padding-top: 3rem!important;">
-      <a href="#" style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;"><li style="line-height: 70px;
+    <a href="#"
+      style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;">
+      <li style="line-height: 70px;
         font-size: 1em;
         width: 39px;
         height: 75px;
         border-radius: 50%;
         padding: 0;
         display: inline-block;
-        margin-right: 70px;">HS</li></a>
-  <h2>Shopping Cart</h2>
-    
+        margin-right: 70px;">HS</li>
+    </a>
+    <h2>Shopping Cart</h2>
+
   </div>
 
   <div class="row" style="
@@ -76,22 +79,31 @@
             </thead>
             <tbody>
               {% for key,pro in session['Shoppingcart'].items() %}
+              {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float) %}
               <tr>
                 <td>{{pro.name}}</td>
-                <td><img src="{{url_for('static', filename='images/spar-products/' + pro.picture)}}" alt="" width="50" height="45"></td>
+                <td><img src="{{url_for('static', filename='images/spar-products/' + pro.picture)}}" alt="" width="50"
+                    height="45"></td>
                 <td>{{pro.description}}</td>
-              <form action="{{url_for('main.updatecart', code=key)}}" method="POST">
-                <td><input type="number" name="quantity" min="1" max="30" value="{{pro.quantity}}"></td>
-                <td>N${{pro.prize}}</td>
-                {% set subtotal = pro.quantity|int * pro.prize|float %}
-                <td>N${{subtotal}}</td>
-                <td><button type="submit" class="btn btn-sm btn-info">Update</button></td>
+                <form action="{{url_for('main.updatecart', code=key)}}" method="POST">
+                  <td><input type="number" name="quantity" min="1" max="30" value="{{pro.quantity}}"></td>
+                  <td>N${{pro.prize}}</td>
+                  {% if pro.discount %}
+                  <td>{{pro.discount}}</td>
+                  {% else %}
+                  <td></td>
+                  {% endif %}
+                  {% set subtotal = pro.quantity|int * pro.prize|float %}
+                  <td>N${{"%0.2f"|format((subtotal|float) - discount|float)}}</td>
 
-              </form>
-                <td><a href="{{url_for('main.removeitem', id=key)}}" class="btn bnt-sm btn-danger">Remove</a></td>    
-            </tr>{% endfor %} </tbody> 
+                  <td><button type="submit" class="btn btn-sm btn-info">Update</button></td>
+
+                </form>
+                <td><a href="{{url_for('main.removeitem', id=key)}}" class="btn bnt-sm btn-danger">Remove</a></td>
+              </tr>{% endfor %}
+            </tbody>
           </table>
-        </li>      
+        </li>
         <li class="list-group-item d-flex justify-content-between" style="font-size: 20px;">
           <span>Total (NAM)</span>
           <strong>N${{total}}</strong>
@@ -100,16 +112,16 @@
     font-size: 20px;">
           <span><a href="{{url_for('main.items', shopname=shopname)}}" class="btn btn-default" style="width: 145px;
                   background-color: #f4d078;">Continue Shopping</a></span>
-            <span><a href="{{url_for('main.checkout')}}" class="btn btn-primary">Checkout</a></span>
-          
+          <span><a href="{{url_for('main.checkout')}}" class="btn btn-primary">Checkout</a></span>
+
         </li>
 
 
       </ul>
 
-      
+
     </div>
-    
+
   </div>
 
   <footer class="my-5 pt-5 text-muted text-center text-small">
