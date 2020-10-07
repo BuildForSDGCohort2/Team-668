@@ -15,10 +15,10 @@
             <div class="info-product-price">
                 {% if p.discount %}
                 {% set discount = "%0.2f" |format((p.discount/100)* p.prize|float) %}
-                <span class="item_price">${{"%0.2f" |format((p.prize|float) - discount|float)}}</span>
-                <del>%{{p.prize}}</del>
+                <span class="item_price">N${{"%0.2f" |format((p.prize|float) - discount|float)}}</span>
+                <del>N${{p.prize}}</del>
                 {% else %}
-                <span class="item_price">${{p.prize}}</span>
+                <span class="item_price">N${{p.prize}}</span>
                 {% endif %}
             </div>
             <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">

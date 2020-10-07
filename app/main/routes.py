@@ -451,18 +451,19 @@ def MagerDict(dict1, dict2):
     return False
 
 
-@bp.route("/add_to_cart", methods=["GET", "POST"])
+@bp.route("/add_to_cart", methods=["POST"])
 def addtocart():
     try:
         product_id = request.form.get("product_id")
-        quantity = request.form.get("quantity")
+        quantity = int(request.form.get("quantity"))
         product = Product.query.filter_by(id=product_id).first()
-        if product_id and quantity and request.method == "POST":
+        if request.method == "POST":
             DictItem = {
                 product_id: {
                     "name": product.pname,
                     "description": product.description,
                     "prize": product.prize,
+                    "discount": product.discount,
                     "picture": product.picture,
                     "quantity": quantity,
                 }
@@ -471,7 +472,10 @@ def addtocart():
             if "Shoppingcart" in session:
                 print(session["Shoppingcart"])
                 if product_id in session["Shoppingcart"]:
-                    print("Item allready in cart")
+                    for key, item in session["Shoppingcart"].items():
+                        if int(key) == int(product_id):
+                            session.modified = True
+                            item["quantity"] += 1
                 else:
                     session["Shoppingcart"] = MagerDict(
                         session["Shoppingcart"], DictItem
@@ -495,8 +499,16 @@ def cart():
     subtotal = 0
     total = 0
     for key, pro in session["Shoppingcart"].items():
-        subtotal += float(pro["prize"]) * int(pro["quantity"])
-        total = subtotal
+        if pro["discount"]:
+            discount = (float(pro["discount"]) / 100) * float(pro["prize"])
+            discount_prize = float(pro["prize"]) - discount
+            subtotal += discount_prize * int(pro["quantity"])
+            total = subtotal
+        else:
+            subtotal += float(pro["prize"]) * int(pro["quantity"])
+            total = subtotal
+        # subtotal += float(pro["prize"]) * int(pro["quantity"])
+        # total = subtotal
 
     return render_template("cart.html", total=total, cat1=cat1)
 
@@ -532,6 +544,15 @@ def removeitem(id):
     except Exception as e:
         print(e)
         return redirect(url_for("main.cart"))
+
+
+@bp.route("/clearcart")
+def clearcart():
+    try:
+        session.pop("Shoppingcart", None)
+        return redirect(url_for("main.index"))
+    except Exception as e:
+        print(e)
 
 
 @bp.route("/about", methods=["GET"])
