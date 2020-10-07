@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from app import db, login, admin_control
 from app.search import add_to_index, remove_from_index, query_index
-from flask_admin import BaseView, expose
+from flask_admin import BaseView, expose, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 
 
@@ -361,8 +361,8 @@ class Controller(ModelView):
     def is_accessible(self):
         return current_user.is_authenticated
 
-    def no_auth(self):
-        return "Not Allowed to access withour permissions"
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(url_for("main.index"))
 
 
 admin_control.add_view(Controller(User, db.session))
