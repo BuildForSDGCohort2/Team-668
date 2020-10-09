@@ -6,7 +6,7 @@ load_dotenv(os.path.join(basedir, ".env"))
 
 
 class Config(object):
-    SECRET_KEY = os.environ.get("SECRET_KEY") or "secret"
+    SECRET_KEY = os.environ.get("SECRET_KEY")
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "app.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER = os.environ.get("MAIL_SERVER")
@@ -14,7 +14,7 @@ class Config(object):
     MAIL_USE_TLS = os.environ.get("MAIL_USE_TLS") is not None
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    ADMINS = ["your-email@example.com"]
+    ADMINS = os.environ.get("ADMINS")
     POSTS_PER_PAGE = 15
     SHOPAISLES_PER_PAGE = 15
     PRODUCTS_PER_PAGE = 3

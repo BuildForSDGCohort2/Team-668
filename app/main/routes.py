@@ -390,6 +390,7 @@ def checkout():
 @login_required
 def payment():
     cat1 = Category.query.all()
+    client_id = os.environ.get("CLIENT_ID")
     subtotal = 0
     total = 0
     for key, pro in session["Shoppingcart"].items():
@@ -401,7 +402,7 @@ def payment():
         else:
             subtotal += float(pro["prize"]) * int(pro["quantity"])
             total = subtotal
-    return render_template("payment.html", cat1=cat1, total=total)
+    return render_template("payment.html", cat1=cat1, total=total, client_id=client_id)
 
 
 paypalrestsdk.configure(

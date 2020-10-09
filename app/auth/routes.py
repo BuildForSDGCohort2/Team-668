@@ -49,8 +49,9 @@ def logout():
 
 @bp.route("/register", methods=["GET", "POST"])
 def register():
+    appId = os.environ.get("APP_ID")
     if current_user.is_authenticated:
-        return redirect(url_for("main.community"))
+        return redirect(url_for("main.index"))
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
@@ -59,7 +60,9 @@ def register():
         db.session.commit()
         flash("Congratulations, you are now a registered user!")
         return redirect(url_for("auth.login"))
-    return render_template("auth/register2.html", title="Register", form=form)
+    return render_template(
+        "auth/register2.html", title="Register", form=form, appId=appId
+    )
 
 
 @bp.route("/reset_password_request", methods=["GET", "POST"])
