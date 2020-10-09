@@ -46,6 +46,7 @@ from werkzeug.utils import secure_filename
 import os
 import imghdr
 import paypalrestsdk
+from app import app
 
 
 @bp.before_app_request
@@ -390,7 +391,7 @@ def checkout():
 @login_required
 def payment():
     cat1 = Category.query.all()
-    client_id = current_app.config["CLIENT_ID"]
+    client_id = app.config["CLIENT_ID"]
     subtotal = 0
     total = 0
     for key, pro in session["Shoppingcart"].items():
