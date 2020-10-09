@@ -46,7 +46,6 @@ from werkzeug.utils import secure_filename
 import os
 import imghdr
 import paypalrestsdk
-from app import app
 
 
 @bp.before_app_request
