@@ -27,4 +27,6 @@ class Config(object):
     UPLOAD_EXTENSIONS = [".jpg", ".png", ".gif", ".png"]
     UPLOAD_PATH = "app/static/images/profileImages"
     LOG_TO_STDOUT = os.environ.get("LOG_TO_STDOUT")
+    CLIENT_ID = os.environ.get("CLIENT_ID")
+    APP_ID = os.environ.get("APP_ID")
 

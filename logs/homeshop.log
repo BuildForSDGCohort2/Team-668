@@ -112,3 +112,4 @@ WHERE user.username = ?
 2020-10-09 10:26:46,448 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
 2020-10-09 10:37:37,047 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
 2020-10-09 10:38:18,000 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 11:42:19,625 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
