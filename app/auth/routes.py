@@ -49,7 +49,7 @@ def logout():
 
 @bp.route("/register", methods=["GET", "POST"])
 def register():
-    appId = app.config["APP_ID"]
+    appId = current_app.config["APP_ID"]
     if current_user.is_authenticated:
         return redirect(url_for("main.index"))
     form = RegistrationForm()
