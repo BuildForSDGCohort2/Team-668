@@ -1,4 +1,4 @@
-2020-10-07 12:00:22,225 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-07 16:33:55,013 ERROR: Exception on / [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,97 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 502, in cart
-    - float(float(pro["prize"]) * (pro["discount"] / 100))
-TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
-2020-10-07 12:04:24,345 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 12:04:28,876 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 501, in cart
-    float(pro["prize"]) * (pro["discount"] / 100)
-TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
-2020-10-07 12:05:29,071 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 12:05:33,707 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 501, in cart
-    float(pro["prize"]) * (int(pro["discount"]) / 100)
-TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
-2020-10-07 12:06:18,713 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 12:06:21,224 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 501, in cart
-    float(pro["prize"]) * float(pro["discount"] / 100)
-TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
-2020-10-07 12:06:25,621 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 501, in cart
-    float(pro["prize"]) * float(pro["discount"] / 100)
-TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
-2020-10-07 12:08:06,813 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 12:08:09,198 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 512, in cart
-    return render_template("cart.html", total=total, cat1=cat1)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 66, in index
+    return render_template(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
     return _render(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -113,8 +24,8 @@ Traceback (most recent call last):
     reraise(*rewrite_traceback_stack(source=source))
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 1, in top-level template code
-    {% extends "base2.html" %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
   File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
@@ -123,10 +34,84 @@ Traceback (most recent call last):
     {%- block html %}
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
     {% block body -%}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 12, in block "body"
-    {% block content %}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 13, in block "content"
-    {% block app_content %}{% endblock %}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 82, in block "app_content"
-    {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float)%}
-TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 8, in block "body"
+    {% block navbar %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 9, in block "navbar"
+    {% include 'navbar.html' %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\navbar.html", line 54, in top-level template code
+    <a class="navbar-brand" href="{{url_for(main.community)}}" style="
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'main' is undefined
+2020-10-07 16:34:25,561 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 16:56:10,857 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 17:19:41,725 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-07 17:23:16,238 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-08 14:52:07,559 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-08 14:53:26,510 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-08 14:54:10,323 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 10:21:01,401 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 10:21:06,340 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 10:21:44,782 ERROR: Exception on /auth/login [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.is_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\auth\routes.py", line 32, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3402, in first
+    ret = list(self[0:1])
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3176, in __getitem__
+    return list(res)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3508, in __iter__
+    return self._execute_and_instances(context)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3533, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.is_admin
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.image AS user_image, user.last_seen AS user_last_seen, user.token AS user_token, user.token_expiration AS user_token_expiration, user.is_admin AS user_is_admin 
+FROM user 
+WHERE user.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('susan', 1, 0)]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-10-09 10:22:21,944 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 10:26:46,448 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 10:37:37,047 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 10:38:18,000 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 11:42:19,625 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 11:52:37,250 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 13:10:07,762 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]

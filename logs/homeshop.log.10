@@ -1,4 +1,4 @@
-2020-10-02 12:09:26,216 ERROR: Exception on /checkout [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-07 12:00:22,225 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,25 +12,11 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 214, in checkout
-    order_item = OrderItem(order_client=user.id, customer=current_user.id, product=key, prize=pro['prize'], quantity=pro['quantity'], ordered=True)
-UnboundLocalError: local variable 'user' referenced before assignment
-2020-10-02 12:11:01,010 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 12:11:03,000 ERROR: Exception on /checkout [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1968, in finalize_request
-    response = self.make_response(rv)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2097, in make_response
-    raise TypeError(
-TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
-2020-10-02 12:12:00,295 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 12:12:02,645 ERROR: Exception on /checkout [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 502, in cart
+    - float(float(pro["prize"]) * (pro["discount"] / 100))
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-10-07 12:04:24,345 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 12:04:28,876 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -44,18 +30,11 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 223, in checkout
-    return render_template('checkout2.html', form=form, total=total)
-UnboundLocalError: local variable 'total' referenced before assignment
-2020-10-02 12:17:28,397 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 12:31:43,182 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 12:33:03,463 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 12:35:25,778 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 12:36:37,419 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 12:38:22,129 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 12:38:38,656 ERROR: Exception on /checkout [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 501, in cart
+    float(pro["prize"]) * (pro["discount"] / 100)
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-10-07 12:05:29,071 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 12:05:33,707 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -69,15 +48,11 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 209, in checkout
-    subtotal += float(pro['prize']) * int(pro['quantity'])
-UnboundLocalError: local variable 'subtotal' referenced before assignment
-2020-10-02 12:40:16,875 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 15:44:43,829 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 15:45:52,714 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 15:46:01,110 ERROR: Exception on /payment [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 501, in cart
+    float(pro["prize"]) * (int(pro["discount"]) / 100)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+2020-10-07 12:06:18,713 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 12:06:21,224 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -91,13 +66,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 241, in payment
-    return render_template('payment.html', form=form, total=tatal)
-NameError: name 'tatal' is not defined
-2020-10-02 15:46:28,317 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
-2020-10-02 15:46:30,524 ERROR: Exception on /payment [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 501, in cart
+    float(pro["prize"]) * float(pro["discount"] / 100)
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-10-07 12:06:25,621 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -111,9 +83,50 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Sergio\Desktop\SDG Project 3\app\main\routes.py", line 241, in payment
-    return render_template('payment.html', form=form, total=total)
-UnboundLocalError: local variable 'total' referenced before assignment
-2020-10-02 15:48:21,840 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\SDG Project 3\app\__init__.py:94]
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 501, in cart
+    float(pro["prize"]) * float(pro["discount"] / 100)
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-10-07 12:08:06,813 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 12:08:09,198 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 512, in cart
+    return render_template("cart.html", total=total, cat1=cat1)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 1, in top-level template code
+    {% extends "base2.html" %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 12, in block "body"
+    {% block content %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 13, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 82, in block "app_content"
+    {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float)%}
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'

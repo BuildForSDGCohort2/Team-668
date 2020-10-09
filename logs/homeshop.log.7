@@ -1,4 +1,4 @@
-2020-10-07 11:36:18,138 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-07 13:52:50,024 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,114 +12,111 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 512, in cart
-    return render_template("cart.html", total=total, cat1=cat1)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
-    return _render(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 1, in top-level template code
-    {% extends "base2.html" %}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 12, in block "body"
-    {% block content %}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 13, in block "content"
-    {% block app_content %}{% endblock %}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 82, in block "app_content"
-    <!-- {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float)%} -->
-jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'discount'
-2020-10-07 11:37:01,804 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 11:37:06,673 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 512, in cart
-    return render_template("cart.html", total=total, cat1=cat1)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
-    return _render(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 1, in top-level template code
-    {% extends "base2.html" %}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 12, in block "body"
-    {% block content %}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 13, in block "content"
-    {% block app_content %}{% endblock %}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 82, in block "app_content"
-    <!-- {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float)%} -->
-jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'discount'
-2020-10-07 11:39:46,163 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 11:41:14,522 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 11:41:35,064 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 502, in cart
-    - float(float(pro["prize"]) * float(int(pro["discount"]) / 100))
-TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
-2020-10-07 11:43:18,272 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 11:43:23,054 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 502, in cart
-    - float(float(pro["prize"]) * float(pro["discount"] / 100))
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 503, in cart
+    discount = (pro["discount"] / 100) * float(pro["prize"])
 TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
-2020-10-07 11:44:34,237 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 13:54:35,578 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 13:54:39,143 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 512, in cart
+    return render_template("cart.html", total=total, cat1=cat1)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 1, in top-level template code
+    {% extends "base2.html" %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 12, in block "body"
+    {% block content %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 13, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 83, in block "app_content"
+    {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float) %}
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-10-07 13:55:04,532 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 13:55:09,726 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 512, in cart
+    return render_template("cart.html", total=total, cat1=cat1)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 1, in top-level template code
+    {% extends "base2.html" %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 12, in block "body"
+    {% block content %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 13, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 83, in block "app_content"
+    {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float) %}
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-10-07 13:56:22,338 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 13:57:42,954 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 13:59:20,977 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:00:09,802 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:05:38,175 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:42:23,139 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:43:43,295 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:44:09,040 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:44:29,484 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:52:46,852 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:01:47,389 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:11:16,750 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:38:58,100 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:45:04,760 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:54:13,470 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:57:58,663 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 16:25:52,902 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
