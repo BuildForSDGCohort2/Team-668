@@ -374,10 +374,11 @@ class Aisles(db.Model):
 
 class Controller(ModelView):
     def is_accessible(self):
-        if current_user.is_admin:
-            return current_user.is_authenticated
-        else:
-            return redirect(url_for("main.index"))
+        return redirect(url_for("main.index"))
+        # if current_user.is_admin:
+        #     return current_user.is_authenticated
+        # else:
+        #     return redirect(url_for("main.index"))
 
     def inaccessible_callback(self, name, **kwargs):
         return redirect(url_for("main.index"))
