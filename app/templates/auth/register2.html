@@ -57,7 +57,8 @@
             FB.AppEvents.logPageView();
 
         };
-        document.getElementsByClassName('fb-login-button').addEventListener('click', function () {
+        document.addEventListener('click').getElementsByClassName('fb-login-button', function () {
+
             FB.login(function (response) {
                 // handle the response
                 console.log(response)
@@ -68,6 +69,7 @@
                 scope: 'email',
                 return_scopes: true
             });
+
         });
 
 
