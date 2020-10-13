@@ -29,4 +29,4 @@ class Config(object):
     LOG_TO_STDOUT = os.environ.get("LOG_TO_STDOUT")
     CLIENT_ID = os.environ.get("CLIET_ID")
     APP_ID = os.environ.get("APP_ID")
-
+    ADMIN_MAIL = os.environ.get("ADMIN_MAIL")

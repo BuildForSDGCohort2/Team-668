@@ -1,4 +1,4 @@
-2020-10-09 13:10:53,189 ERROR: Exception on /admin/product/new/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-09 13:12:28,829 ERROR: Exception on /admin/product/new/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
     conn = connection.create_connection(
@@ -37,7 +37,7 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 171, in _new_conn
     raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x067055B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0588B430>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
 
 During handling of the above exception, another exception occurred:
 
@@ -66,7 +66,7 @@ Traceback (most recent call last):
     status, headers_response, data = connection.perform_request(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 258, in perform_request
     raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x067055B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x067055B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x0588B430>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x0588B430>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
 
 During handling of the above exception, another exception occurred:
 

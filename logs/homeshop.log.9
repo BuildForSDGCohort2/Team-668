@@ -1,5 +1,22 @@
-2020-10-07 12:10:13,970 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 12:10:18,336 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-07 13:52:50,024 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 503, in cart
+    discount = (pro["discount"] / 100) * float(pro["prize"])
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-10-07 13:54:35,578 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 13:54:39,143 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -39,22 +56,11 @@ Traceback (most recent call last):
     {% block content %}
   File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 13, in block "content"
     {% block app_content %}{% endblock %}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 82, in block "app_content"
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 83, in block "app_content"
     {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float) %}
 TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
-2020-10-07 12:29:46,163 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 12:31:32,963 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:06:55,408 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:09:41,671 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:22:30,037 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:29:38,320 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:32:49,378 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:35:44,016 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:38:43,188 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:41:26,518 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:41:34,714 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:43:14,033 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
-2020-10-07 13:43:30,521 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-07 13:55:04,532 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 13:55:09,726 ERROR: Exception on /cart [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -68,7 +74,7 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 515, in cart
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\main\routes.py", line 512, in cart
     return render_template("cart.html", total=total, cat1=cat1)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
     return _render(
@@ -94,9 +100,23 @@ Traceback (most recent call last):
     {% block content %}
   File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\base2.html", line 13, in block "content"
     {% block app_content %}{% endblock %}
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 99, in block "app_content"
-    <td>{{"0.2f"|format(subtotal|float - products_discount|float)}}</td>
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\filters.py", line 823, in do_format
-    return soft_unicode(value) % (kwargs or args)
-TypeError: not all arguments converted during string formatting
-2020-10-07 13:44:47,087 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\cart.html", line 83, in block "app_content"
+    {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float) %}
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-10-07 13:56:22,338 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 13:57:42,954 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 13:59:20,977 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:00:09,802 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:05:38,175 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:42:23,139 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:43:43,295 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:44:09,040 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:44:29,484 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 14:52:46,852 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:01:47,389 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:11:16,750 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:38:58,100 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:45:04,760 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:54:13,470 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 15:57:58,663 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]
+2020-10-07 16:25:52,902 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:99]

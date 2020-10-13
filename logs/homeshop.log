@@ -1,75 +1,4 @@
-2020-10-09 13:13:13,657 ERROR: Exception on /admin/product/delete/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
-    conn = connection.create_connection(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
-    raise err
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 245, in perform_request
-    response = self.pool.urlopen(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connectionpool.py", line 726, in urlopen
-    retries = retries.increment(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\util\retry.py", line 379, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\packages\six.py", line 735, in reraise
-    raise value
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connectionpool.py", line 670, in urlopen
-    httplib_response = self._make_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1230, in request
-    self._send_request(method, url, body, headers, encode_chunked)
-  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1276, in _send_request
-    self.endheaders(body, encode_chunked=encode_chunked)
-  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1225, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 1004, in _send_output
-    self.send(msg)
-  File "C:\Users\Sergio\AppData\Local\Programs\Python\Python38-32\lib\http\client.py", line 944, in send
-    self.connect()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 187, in connect
-    conn = self._new_conn()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 171, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x06D55B68>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1183, in delete_model
-    self.session.commit()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1042, in commit
-    self.transaction.commit()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 511, in commit
-    self.session.dispatch.after_commit(self.session)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
-    fn(*args, **kw)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\models.py", line 46, in after_commit
-    remove_from_index(obj.__tablename__, obj)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\search.py", line 16, in remove_from_index
-    current_app.elasticsearch.delete(index=index, id=model.id)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
-    return func(*args, params=params, headers=headers, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 582, in delete
-    return self.transport.perform_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 390, in perform_request
-    raise e
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
-    status, headers_response, data = connection.perform_request(
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 258, in perform_request
-    raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x06D55B68>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x06D55B68>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
-
-During handling of the above exception, another exception occurred:
-
+2020-10-09 15:33:40,765 ERROR: Exception on /admin/ [GET] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -87,17 +16,38 @@ Traceback (most recent call last):
     return self._run_view(f, *args, **kwargs)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 368, in _run_view
     return fn(self, *args, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\model\base.py", line 2224, in delete_view
-    if self.delete_model(model):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1189, in delete_model
-    self.session.rollback()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1006, in rollback
-    self.transaction.rollback()
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 520, in rollback
-    self._assert_active(prepared_ok=True, rollback_ok=True)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
-    raise sa_exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: This session is in 'committed' state; no further SQL can be emitted within this transaction.
-2020-10-09 13:14:51,796 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 452, in index
+    return self.render(self._template)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 308, in render
+    return render_template(template, **kwargs)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\templates\admin\index.html", line 1, in top-level template code
+    {% extends 'admin/master.html' %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\templates\bootstrap2\admin\master.html", line 1, in top-level template code
+    {% extends admin_base_template %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\templates\bootstrap2\admin\base.html", line 35, in top-level template code
+    {% block page_body %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\templates\bootstrap2\admin\base.html", line 42, in block "page_body"
+    {% block main_menu %}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\templates\bootstrap2\admin\base.html", line 44, in block "main_menu"
+    {{ layout.menu() }}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\jinja2\runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\templates\bootstrap2\admin\layout.html", line 55, in template
+    {%- if item.is_accessible() and item.is_visible() -%}
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\menu.py", line 126, in is_accessible
+    return self._view.is_accessible()
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\models.py", line 378, in is_accessible
+    admin = User.query.filter(email == current_app.config["ADMIN_MAIL"])
+NameError: name 'email' is not defined
+2020-10-09 15:34:57,312 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
+2020-10-09 15:41:29,073 INFO: HomeShop startup [in C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\__init__.py:110]
