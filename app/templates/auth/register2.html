@@ -27,6 +27,17 @@
                 });
             } else {                                 // Not logged into your webpage or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' + 'into this webpage.';
+                FB.login(function (response) {
+                    // handle the response
+                    console.log(response)
+                    FB.api('/me', function (response) {
+                        window.location.href = "https://homeshopltd.herokuapp.com/"
+                        console.log('Good to see you, ' + response.name + '.');
+                    });
+                }, {
+                    scope: 'email',
+                    return_scopes: true
+                });
 
             }
         }
@@ -44,18 +55,6 @@
                 statusChangeCallback(response);
             });
 
-            FB.login(function (response) {
-                // handle the response
-                console.log(response)
-                FB.api('/me', function (response) {
-                    console.log('Good to see you, ' + response.name + '.');
-                });
-            }, {
-                scope: 'email',
-                return_scopes: true
-            });
-
-
             FB.AppEvents.logPageView();
 
         };
@@ -65,6 +64,7 @@
                 // handle the response
                 console.log(response)
                 FB.api('/me', function (response) {
+                    window.location.href = "https://homeshopltd.herokuapp.com/"
                     console.log('Good to see you, ' + response.name + '.');
                 });
             }, {
