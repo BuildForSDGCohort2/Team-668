@@ -57,7 +57,18 @@
             FB.AppEvents.logPageView();
 
         };
-
+        document.getElementsByClassName('fb-login-button').addEventListener('click', function () {
+            FB.login(function (response) {
+                // handle the response
+                console.log(response)
+                FB.api('/me', function (response) {
+                    console.log('Good to see you, ' + response.name + '.');
+                });
+            }, {
+                scope: 'email',
+                return_scopes: true
+            });
+        });
 
 
 
