@@ -57,7 +57,7 @@
 
         };
 
-        document.getElementById('fb-root').addEventListener('click', function () {
+        document.getElementsByClassName('fb-login-button').addEventListener('click', function () {
             FB.login(function (response) {
                 // handle the response
                 console.log(response);
@@ -114,9 +114,7 @@
                     <div id="status">
                     </div>
                     <li>
-                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 
-                        </fb:login-button>
                         <div class="fb-login-button" data-size="large" data-button-type="continue_with"
                             data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"
                             data-width="">
