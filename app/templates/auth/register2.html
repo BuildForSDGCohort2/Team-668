@@ -27,20 +27,7 @@
                 });
             } else {                                 // Not logged into your webpage or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' + 'into this webpage.';
-                document.getElementsByClassName('fb-login-button', function () {
 
-                    FB.login(function (response) {
-                        // handle the response
-                        console.log(response)
-                        FB.api('/me', function (response) {
-                            console.log('Good to see you, ' + response.name + '.');
-                        });
-                    }, {
-                        scope: 'email',
-                        return_scopes: true
-                    });
-
-                });
             }
         }
 
@@ -55,6 +42,17 @@
 
             FB.getLoginStatus(function (response) {
                 statusChangeCallback(response);
+            });
+
+            FB.login(function (response) {
+                // handle the response
+                console.log(response)
+                FB.api('/me', function (response) {
+                    console.log('Good to see you, ' + response.name + '.');
+                });
+            }, {
+                scope: 'email',
+                return_scopes: true
             });
 
 
