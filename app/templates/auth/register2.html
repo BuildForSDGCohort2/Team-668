@@ -27,18 +27,19 @@
                 });
             } else {                                 // Not logged into your webpage or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' + 'into this webpage.';
-                FB.login(function (response) {
-                    // handle the response
-                    console.log(response)
-                    FB.api('/me', function (response) {
-                        FB.Event.subscribe('auth.login', function () {
-                            window.location.href = 'index.html';
+                document.getElementsByClassName('fb-login-button', function () {
+
+                    FB.login(function (response) {
+                        // handle the response
+                        console.log(response)
+                        FB.api('/me', function (response) {
+                            console.log('Good to see you, ' + response.name + '.');
                         });
-                        console.log('Good to see you, ' + response.name + '.');
+                    }, {
+                        scope: 'email',
+                        return_scopes: true
                     });
-                }, {
-                    scope: 'email',
-                    return_scopes: true
+
                 });
             }
         }
@@ -66,9 +67,6 @@
                 // handle the response
                 console.log(response)
                 FB.api('/me', function (response) {
-                    FB.Event.subscribe('auth.login', function () {
-                        window.location.href = 'index.html';
-                    });
                     console.log('Good to see you, ' + response.name + '.');
                 });
             }, {
