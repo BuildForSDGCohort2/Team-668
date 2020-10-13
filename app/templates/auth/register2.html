@@ -31,6 +31,9 @@
                     // handle the response
                     console.log(response)
                     FB.api('/me', function (response) {
+                        FB.Event.subscribe('auth.login', function () {
+                            window.location.href = 'index.html';
+                        });
                         console.log('Good to see you, ' + response.name + '.');
                     });
                 }, {
@@ -63,6 +66,9 @@
                 // handle the response
                 console.log(response)
                 FB.api('/me', function (response) {
+                    FB.Event.subscribe('auth.login', function () {
+                        window.location.href = 'index.html';
+                    });
                     console.log('Good to see you, ' + response.name + '.');
                 });
             }, {
@@ -78,7 +84,7 @@
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) { return; }
             js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId={{appId}}&autoLogAppEvents=1";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
@@ -115,10 +121,10 @@
                     </div>
                     <li>
 
-                        <div class="fb-login-button" data-size="large" data-button-type="continue_with"
+                        <!-- <div class="fb-login-button" data-size="large" data-button-type="continue_with"
                             data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"
                             data-width="">
-                        </div>
+                        </div> -->
 
                     </li>
 
