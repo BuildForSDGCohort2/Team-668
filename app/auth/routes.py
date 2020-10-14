@@ -26,7 +26,7 @@ from app.auth.email import send_password_reset_email
 @bp.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for("main.community"))
+        return redirect(url_for("main.index"))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -60,6 +60,15 @@ def register():
         db.session.commit()
         flash("Congratulations, you are now a registered user!")
         return redirect(url_for("auth.login"))
+    userID = request.json["userID"]
+    accessToken = request.json["accessToken"]
+    FB_Exist = User.query.filter_by(id=userID).first()
+    if FB_Exist == None:
+        newAccount = User(UserName=userID, Password=accessToken)
+        db.session.add(newAccount)
+        user = User()
+        login_user(user, remember=True)
+        return redirect(url_for("main.index"))
     return render_template(
         "auth/register2.html", title="Register", form=form, appId=appId
     )
