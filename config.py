@@ -30,3 +30,4 @@ class Config(object):
     CLIENT_ID = os.environ.get("CLIET_ID")
     APP_ID = os.environ.get("APP_ID")
     ADMIN_MAIL = os.environ.get("ADMIN_MAIL")
+    APP_VERIFY_CODE = os.environ.get("APP_VERIFY_CODE")
