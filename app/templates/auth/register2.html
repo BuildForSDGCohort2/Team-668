@@ -27,55 +27,9 @@
                 });
             } else {                                 // Not logged into your webpage or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' + 'into this webpage.';
-                FBlogin();
+
 
             }
-        }
-
-        function FBlogin() {
-            FB.login(function (response) {
-                var obj = {
-                    userID: response.authResponse.userID,
-                    accessToken: response.authResponse.accessToken
-                };
-                var data_json = JSON.stringify(obj);
-                $.ajax({
-                    url: "/register",
-                    type: "POST",
-                    data: data_json,
-                    dataType: "json",
-                    async: false,
-                    contentType: "application/json",
-                    success: function (data, textStatus, jqXHR) {
-                        if (data == "11") {
-                            location.replace("/");
-                        }
-                    }
-                });
-            }, {
-                scope: 'email',
-                return_scopes: true
-            });
-        }
-
-        function fetchUserDetail() {
-            FB.api('/me', function (response) {
-                console.log('Successful login for: ' + response.name);
-            });
-        }
-
-        function checkFBlogin() {
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
-                    fetchUserDetail();
-                } else if (response.status === 'not_authorized') {
-                    FBlogin();
-                    console.log("Please log into this app.")
-                } else {
-                    FBlogin();
-                    console.log("Please log into this Facebook.")
-                }
-            });
         }
 
         window.fbAsyncInit = function () {
@@ -86,16 +40,25 @@
                 version: 'v8.0'
             });
 
-            FB.AppEvents.logPageView();
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
 
+            FB.AppEvents.logPageView();
         };
 
         document.getElementsByClassName('fb-login-button', function () {
-            checkFBlogin();
+            FB.login(function (response) {
+                // handle the response
+                console.log(response)
+                FB.api('/me', function (response) {
+                    console.log('Good to see you, ' + response.name + '.');
+                });
+            }, {
+                scope: 'email',
+                return_scopes: true
+            });
         });
-
-
-
 
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
