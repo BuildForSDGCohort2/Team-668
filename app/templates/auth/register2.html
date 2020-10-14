@@ -53,6 +53,7 @@
                 // handle the response
                 console.log(response);
                 statusChangeCallback(response);
+                window.top.location = 'https://homeshopltd.herokuapp.com/';
                 FB.api('/me', function (response) {
                     console.log('Good to see you, ' + response.name + '.');
                 });
