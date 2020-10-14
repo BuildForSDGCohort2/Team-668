@@ -60,15 +60,6 @@ def register():
         db.session.commit()
         flash("Congratulations, you are now a registered user!")
         return redirect(url_for("auth.login"))
-    userID = request.json["userID"]
-    accessToken = request.json["accessToken"]
-    FB_Exist = User.query.filter_by(id=userID).first()
-    if FB_Exist == None:
-        newAccount = User(UserName=userID, Password=accessToken)
-        db.session.add(newAccount)
-        user = User()
-        login_user(user, remember=True)
-        return redirect(url_for("main.index"))
     return render_template(
         "auth/register2.html", title="Register", form=form, appId=appId
     )
