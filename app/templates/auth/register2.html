@@ -48,16 +48,18 @@
 
         };
 
-
-        FB.login(function (response) {
-            // handle the response
-            console.log(response)
-            FB.api('/me', function (response) {
-                console.log('Good to see you, ' + response.name + '.');
+        document.getElementsByClassName('fb-login-button', function () {
+            FB.login(function (response) {
+                // handle the response
+                console.log(response);
+                statusChangeCallback(response);
+                FB.api('/me', function (response) {
+                    console.log('Good to see you, ' + response.name + '.');
+                });
+            }, {
+                scope: 'email',
+                return_scopes: true
             });
-        }, {
-            scope: 'email',
-            return_scopes: true
         });
 
 
