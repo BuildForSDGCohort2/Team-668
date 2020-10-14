@@ -27,10 +27,20 @@
                 });
             } else {                                 // Not logged into your webpage or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' + 'into this webpage.';
-
+                FB.login(function (response) {
+                    // handle the response
+                    console.log(response)
+                    FB.api('/me', function (response) {
+                        console.log('Good to see you, ' + response.name + '.');
+                    });
+                }, {
+                    scope: 'email',
+                    return_scopes: true
+                });
 
             }
         }
+
 
         window.fbAsyncInit = function () {
             FB.init({
@@ -45,9 +55,10 @@
             });
 
             FB.AppEvents.logPageView();
-        };
 
+        };
         document.getElementsByClassName('fb-login-button', function () {
+
             FB.login(function (response) {
                 // handle the response
                 console.log(response)
@@ -58,7 +69,10 @@
                 scope: 'email',
                 return_scopes: true
             });
+
         });
+
+
 
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
