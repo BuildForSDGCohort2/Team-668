@@ -15,30 +15,22 @@
 
 <body>
     <script>
+        function statusChangeCallback(response, loggedInCallback) {
+            console.log('running statusChangeCallback...');
+            console.log(response);
 
-        function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-            console.log('statusChangeCallback');
-            console.log(response);                   // The current login status of the person.
+            // The response object is returned with a status field that lets the
+            // app know the current login status of the person.
             if (response.status === 'connected') {
-                document.getElementById('status').innerHTML = 'connected'
-                FB.api('/me', function (response) {
-                    console.log('Successful loggin:' + response.name);
-                    document.getElementById('status').innerHTML = 'Thanks for loggin in:' + response.name + '!'
-                });
-            } else {                                 // Not logged into your webpage or we are unable to tell.
-                document.getElementById('status').innerHTML = 'Please log ' + 'into this webpage.';
-                FB.login(function (response) {
-                    // handle the response
-                    console.log(response)
-                    FB.api('/me', function (response) {
-                        window.location.href = "https://homeshopltd.herokuapp.com/"
-                        console.log('Good to see you, ' + response.name + '.');
-                    });
-                }, {
-                    scope: 'email',
-                    return_scopes: true
-                });
-
+                console.log('connected!');
+                //since we're connected, we can now make API calls for the user
+                if (loggedInCallback) loggedInCallback();
+            }
+            else {
+                console.log('not connected');
+                //The person is not logged into your app or we are unable to tell.
+                //Since the user isn't connected, you could show a Facebook login button or
+                //display a notice to the user on your site.
             }
         }
 
@@ -58,23 +50,18 @@
             FB.AppEvents.logPageView();
 
         };
-        document.getElementsByClassName('fb-login-button', function () {
-
-            FB.login(function (response) {
-                // handle the response
-                console.log(response)
-                FB.api('/me', function (response) {
-                    window.location.href = "https://homeshopltd.herokuapp.com/"
-                    console.log('Good to see you, ' + response.name + '.');
-                });
-            }, {
-                scope: 'email',
-                return_scopes: true
-            });
-
+        FB.login(function (response) {
+            statusChangeCallback(response);
+        }, {
+            scope: 'email',
+            return_scopes: true
         });
 
-
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }; <a name="scopes"></a>
 
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -84,6 +71,23 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+    <fb:login-button size="large" scope="public_profile,email" returnscopes="true" onlogin="checkLoginState();">Login to
+        Facebook</fb:login-button>
+    <div id="spinner"
+        style="background: #4267b2; border-radius: 5px; color: white; height: 40px; text-align: center; width: 250px;">
+        Loading
+        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with"
+            data-use-continue-as="true" data-onlogin="checkLoginState();">&nbsp;</div>
+        <script>
+            var finished_rendering = function () {
+                console.log("finished rendering plugins");
+                var spinner = document.getElementById("spinner");
+                spinner.removeAttribute("style");
+                spinner.removeChild(spinner.childNodes[0]);
+            };
+            FB.Event.subscribe('xfbml.render', finished_rendering);
+        </script>
+    </div>
     <div id="fb-root"></div>
     <div id="status">
     </div>
@@ -113,8 +117,7 @@
             <div class="header-social wthree">
 
                 <ul style="text-align: center;">
-                    <div id="status">
-                    </div>
+
                     <li>
 
                         <div class="fb-login-button" data-size="large" data-button-type="continue_with"
