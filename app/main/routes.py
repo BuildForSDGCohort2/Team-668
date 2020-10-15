@@ -668,7 +668,7 @@ def fb_receive_message():
             user_id = message["sender"]["id"]
             if message.get("message"):
                 print("{sender[id]} says {message[text]}".format(**message))
-                if "text" in message["message"]:'
+                if "text" in message["message"]:
                     text_reply = "Hi, How can I help"
                 client.send_text(user_id, text_reply)
 
