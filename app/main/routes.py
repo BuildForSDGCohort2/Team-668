@@ -47,7 +47,7 @@ import os
 import imghdr
 import paypalrestsdk
 import json
-from main.message import Messager
+from message import Messager
 
 
 @bp.before_app_request
