@@ -49,8 +49,6 @@ import paypalrestsdk
 import json
 from app import client
 
-client = Messager(current_app.config["APP_VERIFY_CODE"])
-
 
 @bp.before_app_request
 def before_request():
