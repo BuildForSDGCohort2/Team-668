@@ -659,12 +659,9 @@ def fb_webhook():
         return request.args.get("hub.challenge")
 
 
-access_token = current_app.config["APP_VERIFY_CODE"]
-
-
 @bp.route("/fb_webhook", methods=["POST"])
 def fb_receive_message():
-    client = Messager(access_token)
+    client = Messager(current_app.config["APP_VERIFY_CODE"])
     message_entries = json.loads(request.data.decode("utf8"))["entry"]
     for entry in message_entries:
         for message in entry["messaging"]:
