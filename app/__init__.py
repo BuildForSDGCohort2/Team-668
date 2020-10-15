@@ -12,7 +12,6 @@ from flask_moment import Moment
 from flask_admin import Admin, AdminIndexView
 from elasticsearch import Elasticsearch
 from flask_babel import Babel
-from message import Messager
 
 
 db = SQLAlchemy()
@@ -24,7 +23,6 @@ babel = Babel()
 bootstrap = Bootstrap()
 moment = Moment()
 admin_control = Admin()
-client = Messager()
 
 
 def create_app(config_class=Config):
@@ -38,7 +36,6 @@ def create_app(config_class=Config):
     bootstrap.init_app(app)
     moment.init_app(app)
     babel.init_app(app)
-    client.init_app(config_class["APP_VERIFY_CODE"])
 
     app.elasticsearch = (
         Elasticsearch([app.config["ELASTICSEARCH_URL"]])

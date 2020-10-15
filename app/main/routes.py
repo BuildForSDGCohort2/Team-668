@@ -47,7 +47,7 @@ import os
 import imghdr
 import paypalrestsdk
 import json
-from app import client
+from app.message import Messager
 
 
 @bp.before_app_request
@@ -659,8 +659,12 @@ def fb_webhook():
         return request.args.get("hub.challenge")
 
 
+access_token = current_app.config["APP_VERIFY_CODE"]
+
+
 @bp.route("/fb_webhook", methods=["POST"])
 def fb_receive_message():
+    client = Messager(access_token)
     message_entries = json.loads(request.data.decode("utf8"))["entry"]
     for entry in message_entries:
         for message in entry["messaging"]:
