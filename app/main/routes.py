@@ -47,7 +47,7 @@ import os
 import imghdr
 import paypalrestsdk
 import json
-from app.message import Messager
+from app import client
 
 client = Messager(current_app.config["APP_VERIFY_CODE"])
 
