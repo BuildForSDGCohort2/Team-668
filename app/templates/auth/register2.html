@@ -27,16 +27,7 @@
                 });
             } else {                                 // Not logged into your webpage or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' + 'into this webpage.';
-                FB.login(function (response) {
-                    // handle the response
-                    console.log(response)
-                    FB.api('/me', function (response) {
-                        console.log('Good to see you, ' + response.name + '.');
-                    });
-                }, {
-                    scope: 'email',
-                    return_scopes: true
-                });
+
             }
         }
 
@@ -104,8 +95,7 @@
                 <ul style="text-align: center;">
 
                     <li>
-                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                        </fb:login-button>
+
                         <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();"
                             data-size="large" data-button-type="continue_with" data-layout="default"
                             data-auto-logout-link="false" data-use-continue-as="false" data-width="">
