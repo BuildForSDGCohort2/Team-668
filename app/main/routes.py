@@ -49,6 +49,8 @@ import paypalrestsdk
 import json
 from app.message import Messager
 
+client = Messager(current_app.config["APP_VERIFY_CODE"])
+
 
 @bp.before_app_request
 def before_request():
@@ -649,9 +651,6 @@ def search():
         total=total,
         cat1=cat1,
     )
-
-
-client = Messager(current_app.config["APP_VERIFY_CODE"])
 
 
 @bp.route("/fb_webhook", methods=["GET"])
