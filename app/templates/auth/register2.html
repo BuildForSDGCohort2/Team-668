@@ -49,6 +49,10 @@
                 version: 'v8.0'
             });
 
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+
             FB.AppEvents.logPageView();
 
         };
@@ -102,9 +106,9 @@
                     <li>
                         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
                         </fb:login-button>
-                        <div class="fb-login-button" data-size="large" data-button-type="continue_with"
-                            data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"
-                            data-width="">
+                        <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();"
+                            data-size="large" data-button-type="continue_with" data-layout="default"
+                            data-auto-logout-link="false" data-use-continue-as="false" data-width="">
 
                         </div>
 
