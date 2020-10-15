@@ -2,33 +2,50 @@
 
 {% block app_content %}
 
+<!DOCTYPE html>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Ensures optimal rendering on mobile devices. -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
 </head>
 
 <body>
-  <div class="container" style="width: 80%; margin-top: 15px;" >
+  <div class="container" style="width: 80%; margin-top: 15px;">
     <div class="contianer" style="width: 60%; float: left;">
-      <script src="https://www.paypal.com/sdk/js?client-id=AUze3YRwyerbtTFKS00m3PTjynPSCF151q_WM4ChfcHFUea8pVc4ZcwWk8ZEvXeiSm2bWZjUho2e1VNg"></script>
-      <form id="my-sample-form">
-        <label for="card-number">Card Number</label>
-        <input class="form-control" id="card-number" name="card-number" required="" type="text" value="">
-        <div id="card-number"></div>
-        <label for="expiration-date">Expiration Date</label>
-        <input class="form-control" id="expiration-date" name="expiration-date" required="" type="text" value="">
-        <div id="expiration-date"></div>
-        <label for="cvv">CVV</label>
-        <input class="form-control" id="cvv" name="cvv" required="" type="text" value="">
-        <div id="cvv"></div>
-        <button value="submit" id="submit" class="btn">Pay with Card</button>
-      </form>
-      <hr>
+      <script src="https://www.paypal.com/sdk/js?client-id={{client_id}}"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+      </script>
+
       <div id="paypal-button-container"></div>
 
+      <script>
+        paypal.Buttons({
+          createOrder: function (data, actions) {
+            // This function sets up the details of the transaction, including the amount and line item details.
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+
+                  value: '0.01'
+                }
+              }]
+            });
+          }, //end of create oreder
+          onApprove: function (data, actions) {
+            // This function captures the funds from the transaction.
+            return actions.order.capture().then(function (details) {
+              // This function shows a transaction success message to your buyer.
+              alert('Transaction completed by ' + details.payer.name.given_name);
+            });
+          } //end op onApporve
+        }).render('#paypal-button-container');
+        // This function displays Smart Payment Buttons on your web page.
+      </script>
 
     </div>
-    <div class="col-md-4 order-md-2 mb-4" style="
+
+  </div>
+  <div class="col-md-4 order-md-2 mb-4" style="
     margin-bottom: 1.5rem!important;
     order: 2;
     flex: 0 0 33.333333%;
@@ -36,7 +53,7 @@
     width: 40%;
     float: right;
 ">
-      <h4 class="d-flex justify-content-between align-items-center mb-3" style="
+    <h4 class="d-flex justify-content-between align-items-center mb-3" style="
     margin-top: 0px;
     margin-bottom: 1rem!important;
     align-items: center!important;
@@ -46,13 +63,13 @@
     font-weight: 500;
     line-height: 1.2;
 ">
-        <span class="text-muted" style="
+      <span class="text-muted" style="
     color: #6c757d!important;
     font-size: 2.5rem;
     font-weight: 500;
     line-height: 1.2;
 ">Your Cart</span>
-        <span class="badge badge-secondary badge-pill" style="
+      <span class="badge badge-secondary badge-pill" style="
     padding-right: .6em;
     padding-left: .6em;
     border-radius: 9rem;
@@ -65,10 +82,10 @@
     white-space: nowrap;
     vertical-align: baseline;
 ">{{session['Shoppingcart']|length}}</span>
-      </h4>
-      
+    </h4>
 
-      <ul class="list-group mb-3" style="
+
+    <ul class="list-group mb-3" style="
     margin-bottom: 1rem!important;
     display: flex;
     flex-direction: column;
@@ -76,54 +93,33 @@
     border-radius: .25rem;
     margin-top: 4px;
 ">{% for key,pro in session['Shoppingcart'].items() %}
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          
-          <div>
-            <h6 class="my-0" style="
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+
+        <div>
+          <h6 class="my-0" style="
               margin-top: 0px;
               margin-bottom: 0px;
               font-size: 20px;">{{pro.name}}</h6>
-             <small class="text-muted" style="
+          <small class="text-muted" style="
               font-size: 16px;">{{pro.description}}</small>
-          </div>
-          {% set subtotal = pro.quantity|int * pro.prize|float %}
-          <span class="text-muted">{{pro.quantity}}x N${{subtotal}}</span>
-           </li>
-           
+        </div>
+        {% set discount = "%0.2f" |format((pro.discount|float/100) * pro.prize|float) %}
+        {% set products_discount = "%0.2f" |format(discount|float * pro.quantity|int) %}
+        {% set subtotal = pro.quantity|int * pro.prize|float %}
+        <span class="text-muted">{{pro.quantity}}x
+          N${{"%0.2f"|format(subtotal|float - products_discount|float)}}</span>
+      </li>
+
       {% endfor %}
-        <li class="list-group-item d-flex justify-content-between" style="
+      <li class="list-group-item d-flex justify-content-between" style="
     font-size: 20px;
 ">
-          <span>Total (NAM)</span>
-          <strong>${{total}}</strong>
-        </li>
-       
-      </ul>
-      
-    </div>
-  </div>
-  <script>
-    paypal.Buttons({
-      createOrder: function (data, actions) {
-        return fetch('http://127.0.0.1:5000/create-order', {
-          method: 'POST'
-        }).then(function(res) {
-          return res.json();
-        }).then(function(data) {
-          return data.paymentID;
-        });
-      },
-      onApprove: function (data, actions) {
-        return fetch('http://127.0.0.1:5000/execute' + data.orderID, {
-          method: 'POST'
-        }).then(function(res) {
-          if (!res.ok) {
-            alert('Something went wrong');
-          }
-        });
-      }
-    }).render('#paypal-button-container');
-  </script>
+        <span>Total (NAM)</span>
+        <strong>${{total}}</strong>
+      </li>
 
+    </ul>
+
+  </div>
 </body>
 {% endblock %}

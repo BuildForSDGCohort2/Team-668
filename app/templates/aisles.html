@@ -303,7 +303,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a style="font-size: 20px;" href="/index" class="act">Home</a></li>
+                        <li class="active"><a style="font-size: 20px;" href="{{url_for('main.index')}}"
+                                class="act">Home</a></li>
                         <!-- Mega Menu -->
                         <li class="dropdown">
                             <a href="#" style="font-size: 20px;" class="dropdown-toggle"
@@ -532,7 +533,18 @@
             <!-- product right -->
             <div class="agileinfo-ads-display col-md-9">
                 <div class="wrapper">
-                    <!-- first section (nuts) -->
+                    <div class="product-sec1 product-sec2">
+                        <div class="col-xs-7 effect-bg">
+                            <h3 class="">Pure Energy</h3>
+                            <h6>Enjoy our all healthy Products</h6>
+                            <p>Get Extra 10% Off</p>
+                        </div>
+                        <h3 class="w3l-nut-middle">Nuts &amp; Dry Fruits</h3>
+                        <div class="col-xs-5 bg-right-nut">
+                            <img src="/static/images/nut1.png" alt="">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
                     {% for cat in category1 %}
                     <div class="product-sec1">
                         <h3 class="heading-tittle">{{cat.name}}</h3>
@@ -573,151 +585,7 @@
                         <div class="clearfix"></div>
                     </div>
                     {% endfor %}
-                    <!-- //first section (nuts) -->
-                    <!-- second section (nuts special) -->
-                    <div class="product-sec1 product-sec2">
-                        <div class="col-xs-7 effect-bg">
-                            <h3 class="">Pure Energy</h3>
-                            <h6>Enjoy our all healthy Products</h6>
-                            <p>Get Extra 10% Off</p>
-                        </div>
-                        <h3 class="w3l-nut-middle">Nuts &amp; Dry Fruits</h3>
-                        <div class="col-xs-5 bg-right-nut">
-                            <img src="/static/images/nut1.png" alt="">
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
 
-                    <div class="product-sec1">
-                        <h3 class="heading-tittle">Oils</h3>
-                        <div class="col-md-4 product-men">
-                            <div class="men-pro-item simpleCart_shelfItem">
-                                <div class="men-thumb-item">
-                                    <img src="/static/images/mk4.jpg" alt="">
-                                    <div class="men-cart-pro">
-                                        <div class="inner-men-cart-pro">
-                                            <a href="#" class="link-product-add-cart">Quick View</a>
-                                        </div>
-                                    </div>
-                                    <span class="product-new-top">New</span>
-                                </div>
-                                <div class="item-info-product ">
-                                    <h4>
-                                        <a href="#">Freedom Oil, 1L</a>
-                                    </h4>
-                                    <div class="info-product-price">
-                                        <span class="item_price">$78.00</span>
-                                        <del>$110.00</del>
-                                    </div>
-                                    <div
-                                        class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="#" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart">
-                                                <input type="hidden" name="add" value="1">
-                                                <input type="hidden" name="business" value=" ">
-                                                <input type="hidden" name="item_name" value="Freedom Sunflower Oil, 1L">
-                                                <input type="hidden" name="amount" value="78.00">
-                                                <input type="hidden" name="discount_amount" value="1.00">
-                                                <input type="hidden" name="currency_code" value="USD">
-                                                <input type="hidden" name="return" value=" ">
-                                                <input type="hidden" name="cancel_return" value=" ">
-                                                <input type="submit" name="submit" value="Add to cart" class="button">
-                                            </fieldset>
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 product-men">
-                            <div class="men-pro-item simpleCart_shelfItem">
-                                <div class="men-thumb-item">
-                                    <img src="/static/images/mk5.jpg" alt="">
-                                    <div class="men-cart-pro">
-                                        <div class="inner-men-cart-pro">
-                                            <a href="#" class="link-product-add-cart">Quick View</a>
-                                        </div>
-                                    </div>
-                                    <span class="product-new-top">New</span>
-
-                                </div>
-                                <div class="item-info-product ">
-                                    <h4>
-                                        <a href="#">Saffola Gold, 1L</a>
-                                    </h4>
-                                    <div class="info-product-price">
-                                        <span class="item_price">$130.00</span>
-                                        <del>$150.00</del>
-                                    </div>
-                                    <div
-                                        class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="#" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart">
-                                                <input type="hidden" name="add" value="1">
-                                                <input type="hidden" name="business" value=" ">
-                                                <input type="hidden" name="item_name" value="Saffola Gold, 1L">
-                                                <input type="hidden" name="amount" value="130.00">
-                                                <input type="hidden" name="discount_amount" value="1.00">
-                                                <input type="hidden" name="currency_code" value="USD">
-                                                <input type="hidden" name="return" value=" ">
-                                                <input type="hidden" name="cancel_return" value=" ">
-                                                <input type="submit" name="submit" value="Add to cart" class="button">
-                                            </fieldset>
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 product-men">
-                            <div class="men-pro-item simpleCart_shelfItem">
-                                <div class="men-thumb-item">
-                                    <img src="/static/images/mk6.jpg" alt="">
-                                    <div class="men-cart-pro">
-                                        <div class="inner-men-cart-pro">
-                                            <a href="#" class="link-product-add-cart">Quick View</a>
-                                        </div>
-                                    </div>
-                                    <span class="product-new-top">New</span>
-
-                                </div>
-                                <div class="item-info-product ">
-                                    <h4>
-                                        <a href="#">Fortune Oil, 5L</a>
-                                    </h4>
-                                    <div class="info-product-price">
-                                        <span class="item_price">$399.99</span>
-                                        <del>$500.00</del>
-                                    </div>
-                                    <div
-                                        class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="#" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart">
-                                                <input type="hidden" name="add" value="1">
-                                                <input type="hidden" name="business" value=" ">
-                                                <input type="hidden" name="item_name" value="Fortune Oil, 5L">
-                                                <input type="hidden" name="amount" value="399.99">
-                                                <input type="hidden" name="discount_amount" value="1.00">
-                                                <input type="hidden" name="currency_code" value="USD">
-                                                <input type="hidden" name="return" value=" ">
-                                                <input type="hidden" name="cancel_return" value=" ">
-                                                <input type="submit" name="submit" value="Add to cart" class="button">
-                                            </fieldset>
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- //third section (oils) -->
-                    <!-- fourth section (Products) -->
-
-                    <!-- //fourth section (noodles) -->
                 </div>
             </div>
             <!-- //product right -->

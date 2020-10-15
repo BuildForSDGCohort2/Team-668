@@ -6,8 +6,10 @@
   <div class="py-5 text-center" style="
     padding-bottom: 3rem!important;
     padding-top: 3rem!important;">
-    
-      <a href="#" style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;"><li style="line-height: 70px;
+
+    <a href="#"
+      style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;">
+      <li style="line-height: 70px;
         font-size: 1em;
         width: 39px;
         height: 75px;
@@ -15,9 +17,10 @@
         padding: 0;
         display: inline-block;
         margin-right: 70px;">HS</li>
-        </a>
+    </a>
     <h2>Checkout form</h2>
-    <p class="lead">Complete you billing information and proceed to Payment and place you order to receive your Groceries</p>
+    <p class="lead">Complete you billing information and proceed to Payment and place you order to receive your
+      Groceries</p>
   </div>
 
   <div class="row" style="
@@ -61,7 +64,7 @@
     vertical-align: baseline;
 ">{{session['Shoppingcart']|length}}</span>
       </h4>
-      
+
 
       <ul class="list-group mb-3" style="
     margin-bottom: 1rem!important;
@@ -72,29 +75,32 @@
     margin-top: 4px;
 ">{% for key,pro in session['Shoppingcart'].items() %}
         <li class="list-group-item d-flex justify-content-between lh-condensed">
-          
+
           <div>
             <h6 class="my-0" style="
               margin-top: 0px;
               margin-bottom: 0px;
               font-size: 20px;">{{pro.name}}</h6>
-             <small class="text-muted" style="
+            <small class="text-muted" style="
               font-size: 16px;">{{pro.description}}</small>
           </div>
+          {% set discount = "%0.2f" |format((pro.discount|float/100) * pro.prize|float) %}
+          {% set products_discount = "%0.2f" |format(discount|float * pro.quantity|int) %}
           {% set subtotal = pro.quantity|int * pro.prize|float %}
-          <span class="text-muted">{{pro.quantity}}x N${{subtotal}}</span>
-           </li>
-           
-      {% endfor %}
+          <span class="text-muted">{{pro.quantity}}x
+            N${{"%0.2f"|format(subtotal|float - products_discount|float)}}</span>
+        </li>
+
+        {% endfor %}
         <li class="list-group-item d-flex justify-content-between" style="
     font-size: 20px;
 ">
           <span>Total (NAM)</span>
           <strong>${{total}}</strong>
         </li>
-       
+
       </ul>
-      
+
     </div>
     <div class="col-md-8 order-md-1" style="order: 1; flex: 0 0 66.666667%;
     max-width: 66.666667%; width: 100%;">
@@ -103,39 +109,46 @@
     font-size: 2.5rem;font-weight: 500;line-height: 1.2;
     margin-top: 0;">Billing address</h4>
 
-<form action="{{url_for('main.checkout')}}" method="post" class="form" role="form">
-  {{ form.csrf_token }}
-    <div class="form-group  required"><label class="control-label" for="first_name" style="font-size: 15px;">First Name</label>       
-          <input class="form-control" id="first_name" name="first_name" required="" type="text" value="">        
-  </div>
+      <form action="{{url_for('main.checkout')}}" method="post" class="form" role="form">
+        {{ form.csrf_token }}
+        <div class="form-group  required"><label class="control-label" for="first_name" style="font-size: 15px;">First
+            Name</label>
+          <input class="form-control" id="first_name" name="first_name" required="" type="text" value="">
+        </div>
 
-    <div class="form-group  required" style="font-size: 15px;"><label class="control-label" for="last_name">Last Name</label>        
-          <input class="form-control" id="last_name" name="last_name" required="" type="text" value="">        
-  </div>
+        <div class="form-group  required" style="font-size: 15px;"><label class="control-label" for="last_name">Last
+            Name</label>
+          <input class="form-control" id="last_name" name="last_name" required="" type="text" value="">
+        </div>
 
-    <div class="form-group  required" style="    font-size: 15px;"><label class="control-label" for="email">Email Address</label>        
-          <input class="form-control" id="email" name="email" required="" type="text" value="">        
-      </div>
+        <div class="form-group  required" style="    font-size: 15px;"><label class="control-label" for="email">Email
+            Address</label>
+          <input class="form-control" id="email" name="email" required="" type="text" value="">
+        </div>
 
-    <div class="form-group  required" style="    font-size: 15px;"><label class="control-label" for="address">Address</label>        
-          <input class="form-control" id="address" name="address" required="" type="text" value="">        
-    </div>
+        <div class="form-group  required" style="    font-size: 15px;"><label class="control-label"
+            for="address">Address</label>
+          <input class="form-control" id="address" name="address" required="" type="text" value="">
+        </div>
 
-    <div class="form-group  required" style="font-size: 15px;"><label class="control-label" for="city">City</label>        
-          <input class="form-control" id="city" name="city" required="" type="text" value="">        
-    </div>
+        <div class="form-group  required" style="font-size: 15px;"><label class="control-label" for="city">City</label>
+          <input class="form-control" id="city" name="city" required="" type="text" value="">
+        </div>
 
-    <div class="form-group  required" style="font-size: 15px;"><label class="control-label" for="mobile">Moble Number</label>        
-          <input class="form-control" id="mobile" name="mobile" required="" type="text" value="">        
-    </div>
-    <label><input id="ship_address" name="ship_address" type="checkbox" value="y">
-         Shipping address is the same as billing address
-        
-    </label>
-    <label><input id="remeber_details" name="remeber_details" type="checkbox" value="y"> Remember details for next order
-      </label>
-  
-    <input class="btn btn-primary btn-lg btn-block" id="proceed" name="proceed" type="submit" value="Proceed to Payment" style="
+        <div class="form-group  required" style="font-size: 15px;"><label class="control-label" for="mobile">Moble
+            Number</label>
+          <input class="form-control" id="mobile" name="mobile" required="" type="text" value="">
+        </div>
+        <label><input id="ship_address" name="ship_address" type="checkbox" value="y">
+          Shipping address is the same as billing address
+
+        </label>
+        <label><input id="remeber_details" name="remeber_details" type="checkbox" value="y"> Remember details for next
+          order
+        </label>
+
+        <input class="btn btn-primary btn-lg btn-block" id="proceed" name="proceed" type="submit"
+          value="Proceed to Payment" style="
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 20px;">

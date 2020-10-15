@@ -73,13 +73,15 @@
               <th>Description</th>
               <th>Quantity</th>
               <th>Prize</th>
+              <th>Discount</th>
               <th>SubTotal</th>
               <th>Update</th>
               <th>Remove</th>
             </thead>
             <tbody>
               {% for key,pro in session['Shoppingcart'].items() %}
-              {% set discount = "%0.2f" |format((pro.discount/100) * pro.prize|float) %}
+              {% set discount = "%0.2f" |format((pro.discount|float/100) * pro.prize|float) %}
+              {% set products_discount = "%0.2f" |format(discount|float * pro.quantity|int) %}
               <tr>
                 <td>{{pro.name}}</td>
                 <td><img src="{{url_for('static', filename='images/spar-products/' + pro.picture)}}" alt="" width="50"
@@ -89,12 +91,12 @@
                   <td><input type="number" name="quantity" min="1" max="30" value="{{pro.quantity}}"></td>
                   <td>N${{pro.prize}}</td>
                   {% if pro.discount %}
-                  <td>{{pro.discount}}</td>
+                  <td>%{{pro.discount}} is {{products_discount}}</td>
                   {% else %}
                   <td></td>
                   {% endif %}
                   {% set subtotal = pro.quantity|int * pro.prize|float %}
-                  <td>N${{"%0.2f"|format((subtotal|float) - discount|float)}}</td>
+                  <td>N${{"%0.2f"|format(subtotal|float - products_discount|float)}}</td>
 
                   <td><button type="submit" class="btn btn-sm btn-info">Update</button></td>
 

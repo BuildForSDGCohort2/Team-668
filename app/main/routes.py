@@ -46,6 +46,8 @@ from werkzeug.utils import secure_filename
 import os
 import imghdr
 import paypalrestsdk
+import json
+from app.message import Messager
 
 
 @bp.before_app_request
@@ -58,7 +60,7 @@ def before_request():
 
 
 @bp.route("/", methods=["GET", "POST"])
-@bp.route("/index", methods=["GET", "POST"])
+@bp.route("/home", methods=["GET", "POST"])
 def index():
     form = RetailStoreForm()
     store = RetailStores.query.all()
@@ -375,8 +377,14 @@ def checkout():
     subtotal = 0
     total = 0
     for key, pro in session["Shoppingcart"].items():
-        subtotal += float(pro["prize"]) * int(pro["quantity"])
-        total = subtotal
+        if pro["discount"]:
+            discount = (float(pro["discount"]) / 100) * float(pro["prize"])
+            discount_prize = float(pro["prize"]) - discount
+            subtotal += discount_prize * int(pro["quantity"])
+            total = subtotal
+        else:
+            subtotal += float(pro["prize"]) * int(pro["quantity"])
+            total = subtotal
     return render_template("checkout2.html", form=form, total=total, cat1=cat1)
 
 
@@ -384,7 +392,19 @@ def checkout():
 @login_required
 def payment():
     cat1 = Category.query.all()
-    return render_template("payment.html", cat1=cat1)
+    client_id = os.environ.get("CLIENT_ID")
+    subtotal = 0
+    total = 0
+    for key, pro in session["Shoppingcart"].items():
+        if pro["discount"]:
+            discount = (float(pro["discount"]) / 100) * float(pro["prize"])
+            discount_prize = float(pro["prize"]) - discount
+            subtotal += discount_prize * int(pro["quantity"])
+            total = subtotal
+        else:
+            subtotal += float(pro["prize"]) * int(pro["quantity"])
+            total = subtotal
+    return render_template("payment.html", cat1=cat1, total=total, client_id=client_id)
 
 
 paypalrestsdk.configure(
@@ -451,13 +471,13 @@ def MagerDict(dict1, dict2):
     return False
 
 
-@bp.route("/add_to_cart", methods=["GET", "POST"])
+@bp.route("/add_to_cart", methods=["POST"])
 def addtocart():
     try:
         product_id = request.form.get("product_id")
-        quantity = request.form.get("quantity")
+        quantity = int(request.form.get("quantity"))
         product = Product.query.filter_by(id=product_id).first()
-        if product_id and quantity and request.method == "POST":
+        if request.method == "POST":
             DictItem = {
                 product_id: {
                     "name": product.pname,
@@ -472,7 +492,10 @@ def addtocart():
             if "Shoppingcart" in session:
                 print(session["Shoppingcart"])
                 if product_id in session["Shoppingcart"]:
-                    print("Item allready in cart")
+                    for key, item in session["Shoppingcart"].items():
+                        if int(key) == int(product_id):
+                            session.modified = True
+                            item["quantity"] += 1
                 else:
                     session["Shoppingcart"] = MagerDict(
                         session["Shoppingcart"], DictItem
@@ -496,18 +519,16 @@ def cart():
     subtotal = 0
     total = 0
     for key, pro in session["Shoppingcart"].items():
-        # if not pro["discount"]:
-        #     discount_prize = float(pro["prize"]) - float(
-        #         float(pro["prize"]) * float(pro["discount"] / 100)
-        #     )
-
-        #     subtotal += discount_prize * int(pro["quantity"])
-        #     total = subtotal
-        # else:
-        #     subtotal += float(pro["prize"]) * int(pro["quantity"])
-        #     total = subtotal
-        subtotal += float(pro["prize"]) * int(pro["quantity"])
-        total = subtotal
+        if pro["discount"]:
+            discount = (float(pro["discount"]) / 100) * float(pro["prize"])
+            discount_prize = float(pro["prize"]) - discount
+            subtotal += discount_prize * int(pro["quantity"])
+            total = subtotal
+        else:
+            subtotal += float(pro["prize"]) * int(pro["quantity"])
+            total = subtotal
+        # subtotal += float(pro["prize"]) * int(pro["quantity"])
+        # total = subtotal
 
     return render_template("cart.html", total=total, cat1=cat1)
 
@@ -543,6 +564,15 @@ def removeitem(id):
     except Exception as e:
         print(e)
         return redirect(url_for("main.cart"))
+
+
+@bp.route("/clearcart")
+def clearcart():
+    try:
+        session.pop("Shoppingcart", None)
+        return redirect(url_for("main.index"))
+    except Exception as e:
+        print(e)
 
 
 @bp.route("/about", methods=["GET"])
@@ -620,3 +650,27 @@ def search():
         cat1=cat1,
     )
 
+
+@bp.route("/fb_webhook", methods=["GET"])
+def fb_webhook():
+    verification_code = current_app.config["APP_VERIFY_CODE"]
+    verify_token = request.args.get("hub.verify_token")
+    if verification_code == verify_token:
+        return request.args.get("hub.challenge")
+
+
+@bp.route("/fb_webhook", methods=["POST"])
+def fb_receive_message():
+    client = Messager(current_app.config["APP_VERIFY_CODE"])
+    message_entries = json.loads(request.data.decode("utf8"))["entry"]
+    for entry in message_entries:
+        for message in entry["messaging"]:
+            user_id = message["sender"]["id"]
+            if message.get("message"):
+                print("{sender[id]} says {message[text]}".format(**message))
+                if "text" in message["message"]:
+                    text_reply = "Hi, How can I help"
+
+                client.send_text(user_id, text_reply)
+
+    return "Hi"

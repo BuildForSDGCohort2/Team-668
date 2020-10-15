@@ -2,12 +2,12 @@ from datetime import datetime
 from hashlib import md5
 from time import time
 from flask import current_app, redirect, url_for
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from app import db, login, admin_control
 from app.search import add_to_index, remove_from_index, query_index
-from flask_admin import BaseView, expose
+from flask_admin import BaseView, expose, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 
 
@@ -259,6 +259,7 @@ class OrderItem(db.Model):
         "Order", secondary=products_con, backref=db.backref("orderitem", lazy="dynamic")
     )
     ordered = db.Column(db.Boolean, default=False)
+    # special = db.Column(db.Integer, db.ForeignKey("special.id"))
 
     def __repr__(self):
         return "Order Item ID: {}".format(self.id)
@@ -327,6 +328,7 @@ class RetailStores(db.Model):
     store_name = db.Column(db.String(64), nullable=False)
     category = db.relationship("Category", backref="rstore", lazy="dynamic")
     product = db.relationship("Product", backref="store", lazy="dynamic")
+    # special = db.relationship("Specials", backref="retstore", lazy="dynamic")
 
     def __repr__(self):
         return "{}".format(self.store_name)
@@ -338,6 +340,7 @@ class Category(db.Model):
     store_id = db.Column(db.Integer, db.ForeignKey("retail_stores.id"))
     aisles_id = db.Column(db.Integer, db.ForeignKey("aisles.id"))
     product = db.relationship("Product", backref="catdetails", lazy="dynamic")
+    # specials = db.relationship("Specials", backref="catspecial", lazy="dynamic")
 
     def __init__(self, name, store_id):
         self.name = name
@@ -357,13 +360,37 @@ class Aisles(db.Model):
         return "{}".format(self.name)
 
 
-admin_control.add_view(ModelView(User, db.session))
-admin_control.add_view(ModelView(CustomerOrderDetails, db.session))
-admin_control.add_view(ModelView(OrderItem, db.session))
-admin_control.add_view(ModelView(Order, db.session))
-admin_control.add_view(ModelView(Product, db.session))
-admin_control.add_view(ModelView(RetailStores, db.session))
-admin_control.add_view(ModelView(Category, db.session))
-admin_control.add_view(ModelView(Aisles, db.session))
+# class Specials(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     pname = db.Column(db.String(64), index=True)
+#     description = db.Column(db.String(140))
+#     prize = db.Column(db.Float)
+#     availabilty = db.Column(db.Boolean)
+#     picture = db.Column(db.String(150))
+#     store_id = db.Column(db.Integer, db.ForeignKey("retail_stores.id"))
+#     orderitem = db.relationship("OrderItem", backref="special", lazy="dynamic")
+#     discount = db.Column(db.Integer)
+
+
+class Controller(ModelView):
+    def is_accessible(self):
+        # return redirect(url_for("main.index"))
+        if current_user.email == current_app.config["ADMIN_MAIL"]:
+            return current_user.is_authenticated
+        else:
+            return redirect(url_for("main.index"))
+
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(url_for("main.index"))
+
+
+admin_control.add_view(Controller(User, db.session))
+admin_control.add_view(Controller(CustomerOrderDetails, db.session))
+admin_control.add_view(Controller(OrderItem, db.session))
+admin_control.add_view(Controller(Order, db.session))
+admin_control.add_view(Controller(Product, db.session))
+admin_control.add_view(Controller(RetailStores, db.session))
+admin_control.add_view(Controller(Category, db.session))
+admin_control.add_view(Controller(Aisles, db.session))
 # admin_control.add_view(ModelView(Payment, db.session))
 

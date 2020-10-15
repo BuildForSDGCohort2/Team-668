@@ -14,41 +14,46 @@
 </head>
 
 <body>
-
     <script>
+
         function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
             console.log('statusChangeCallback');
             console.log(response);                   // The current login status of the person.
-            if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-                testAPI();
+            if (response.status === 'connected') {
+                document.getElementById('status').innerHTML = 'connected'
+                FB.api('/me', function (response) {
+                    console.log('Successful loggin:' + response.name);
+                    document.getElementById('status').innerHTML = 'Thanks for loggin in:' + response.name + '!'
+                });
             } else {                                 // Not logged into your webpage or we are unable to tell.
-                document.getElementById('status').innerHTML = 'Please log ' +
-                    'into this webpage.';
+                document.getElementById('status').innerHTML = 'Please log ' + 'into this webpage.';
+
             }
         }
 
-        function checkLoginState() {               // Called when a person is finished with the Login Button.
-            FB.getLoginStatus(function (response) {   // See the onlogin handler
-                statusChangeCallback(response);
-            });
-        }
 
         window.fbAsyncInit = function () {
             FB.init({
-                appId: '#',
+                appId: '{{appId}}',
                 cookie: true,
                 xfbml: true,
-                version: '#'
+                version: 'v8.0'
+            });
+
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
             });
 
             FB.AppEvents.logPageView();
 
         };
 
-        FB.getLoginStatus(function (response) {   // Called after the JS SDK has been initialized.
-            statusChangeCallback(response);        // Returns the login status.
-        });
-  };
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+
 
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -58,13 +63,20 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+    <div id="fb-root"></div>
+    <div id="status">
+    </div>
+    </script>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId={{appId}}&autoLogAppEvents=1"
+        nonce="OHP6gnXN"></script>
 
     <div class="container" style="
         background: transparent;
         height: 79px;
         text-align: center;
     ">
-        <a href="#"
+        <a href="{{url_for('main.index')}}"
             style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;">
             <li style="line-height: 105px;
      font-size: 1em;
@@ -81,16 +93,18 @@
             <div class="header-social wthree">
 
                 <ul style="text-align: center;">
-                    <div id="status">
-                    </div>
-                    <li>
-                        <div class="fb-login-button" data-size="large" data-button-type="continue_with"
-                            data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"
-                            data-width="">
-                        </div>
-                        <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 
-                        </fb:login-button> -->
+                    <li>
+                        <div class="header-social wthree" style="
+                                background-color:#008AD0;
+                                height: 58px;">
+                            <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();"
+                                data-size="large" data-button-type="continue_with" data-layout="default"
+                                data-auto-logout-link="false" data-use-continue-as="false" data-width="">
+
+                            </div>
+                        </div>
+
                     </li>
 
 
@@ -109,7 +123,7 @@
 
                 <div id="popup1" class="overlay">
                     <div class="popup">
-                        <form action="" method="post" class="form" role="form">
+                        <form action="{{url_for('auth.register')}}" method="post" class="form" role="form">
                             {{ form.hidden_tag() }}
 
                             <div class="form-group  required"><label class="control-label"
@@ -159,6 +173,7 @@
                     <li>
                         <h4>Already had an Account?</h4>
                     </li>
+                    <br><br>
                     <li>
                         <div class="w3ls_su">
                             <a href="{{url_for('auth.login')}}">Sign In</a>
@@ -179,8 +194,6 @@
 
 
 
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="#" nonce="DWiUZTVH"></script>
 </body>
 
 </html>
