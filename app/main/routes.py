@@ -669,7 +669,13 @@ def fb_receive_message():
             if message.get("message"):
                 print("{sender[id]} says {message[text]}".format(**message))
                 if "text" in message["message"]:
-                    text_reply = "Hi, How can I help"
-                    client.send_text(user_id, text_reply)
+                    for key, text in message["message"]:
+                        if key == "text":
+                            if "Hi" in text:
+                                text_reply = "Hi, How can I help"
+                            elif "Order" in text:
+                                text_reply = "Hi, How can I help with your order"
+
+                client.send_text(user_id, text_reply)
 
     return "Hi"
