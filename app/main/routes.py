@@ -47,6 +47,7 @@ import os
 import imghdr
 import paypalrestsdk
 import json
+from main.message import Messager
 
 
 @bp.before_app_request
@@ -650,6 +651,9 @@ def search():
     )
 
 
+client = Messager(current_app.config["APP_VERIFY_CODE"])
+
+
 @bp.route("/fb_webhook", methods=["GET"])
 def fb_webhook():
     verification_code = current_app.config["APP_VERIFY_CODE"]
@@ -663,6 +667,10 @@ def fb_receive_message():
     message_entries = json.loads(request.data.decode("utf8"))["entry"]
     for entry in message_entries:
         for message in entry["messaging"]:
+            user_id = message["sender"]["id"]
             if message.get("message"):
                 print("{sender[id]} says {message[text]}".format(**message))
+                if "text" in message["text"]:
+                    client.send_text(user_id, "Hi, How can I help")
+
     return "Hi"
