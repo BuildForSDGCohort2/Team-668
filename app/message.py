@@ -1,10 +1,9 @@
 import json
 from enum import Enum
 import logging
-
 import requests
 
-__author__ = "enginebai"
+__author__ = "Sergio"
 
 URL_BASE = "https://graph.facebook.com/v8.0/me/"
 logger = logging.getLogger(__name__)
