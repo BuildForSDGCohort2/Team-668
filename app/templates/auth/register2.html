@@ -21,6 +21,7 @@
             console.log(response);                   // The current login status of the person.
             if (response.status === 'connected') {
                 document.getElementById('status').innerHTML = 'connected'
+                window.top.location = "https://homeshopltd.herokuapp.com";
                 var uid = response.authResponse.userID;
                 var accessToken = response.authResponse.accessToken;
                 FB.api('/me', function (response) {
