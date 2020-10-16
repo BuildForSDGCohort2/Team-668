@@ -23,14 +23,6 @@
                 document.getElementById('status').innerHTML = 'connected'
                 var uid = response.authResponse.userID;
                 var accessToken = response.authResponse.accessToken;
-                var requestUri = new Windows.Foundation.Uri(
-                    "https://www.facebook.com/v8.0/dialog/oauth?client_id={{appId}}&response_type=accessToken&redirect_uri=https://homeshopltd.herokuapp.com/home");
-
-                Windows.Security.Authentication.Web.WebAuthenticationBroker.authenticateAsync(options,
-                    requestUri).done(function (result) {
-                        // Handle the response from the Login Dialog
-                    }
-                    );
                 FB.api('/me', function (response) {
                     console.log('Successful loggin:' + response.name);
                     document.getElementById('status').innerHTML = 'Thanks for loggin in:' + response.name + '!'
