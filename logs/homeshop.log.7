@@ -1,4 +1,4 @@
-2020-10-09 13:10:53,189 ERROR: Exception on /admin/product/new/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
+2020-10-09 13:12:56,212 ERROR: Exception on /admin/product/action/ [POST] [in c:\users\sergio\desktop\project\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
     conn = connection.create_connection(
@@ -37,12 +37,12 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\urllib3\connection.py", line 171, in _new_conn
     raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x067055B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x06245E50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1132, in create_model
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1183, in delete_model
     self.session.commit()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
     return getattr(self.registry(), name)(*args, **kwargs)
@@ -52,13 +52,13 @@ Traceback (most recent call last):
     self.session.dispatch.after_commit(self.session)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
     fn(*args, **kw)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\models.py", line 40, in after_commit
-    add_to_index(obj.__tablename__, obj)
-  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\search.py", line 10, in add_to_index
-    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\models.py", line 46, in after_commit
+    remove_from_index(obj.__tablename__, obj)
+  File "C:\Users\Sergio\Desktop\heroku deploy\Team-668\app\search.py", line 16, in remove_from_index
+    current_app.elasticsearch.delete(index=index, id=model.id)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
     return func(*args, params=params, headers=headers, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 391, in index
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\client\__init__.py", line 582, in delete
     return self.transport.perform_request(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\transport.py", line 390, in perform_request
     raise e
@@ -66,7 +66,7 @@ Traceback (most recent call last):
     status, headers_response, data = connection.perform_request(
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 258, in perform_request
     raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x067055B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x067055B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x06245E50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x06245E50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
 
 During handling of the above exception, another exception occurred:
 
@@ -87,9 +87,13 @@ Traceback (most recent call last):
     return self._run_view(f, *args, **kwargs)
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\base.py", line 368, in _run_view
     return fn(self, *args, **kwargs)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\model\base.py", line 2089, in create_view
-    model = self.create_model(form)
-  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1138, in create_model
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\model\base.py", line 2241, in action_view
+    return self.handle_action()
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\actions.py", line 117, in handle_action
+    response = handler[0](ids)
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1218, in action_delete
+    if self.delete_model(m):
+  File "c:\users\sergio\desktop\project\venv\lib\site-packages\flask_admin\contrib\sqla\view.py", line 1189, in delete_model
     self.session.rollback()
   File "c:\users\sergio\desktop\project\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
     return getattr(self.registry(), name)(*args, **kwargs)

@@ -84,11 +84,12 @@
     {% for str in store %}
     <div class="row featurette">
         <div class="col-md-7" style="width: 40%">
-            <h2 class="featurette-heading">Spar<br> <span class="text-muted">It'll blow your mind.</span></h2>
+            <h2 class="featurette-heading">{{str.store_name}}<br> <span class="text-muted">It'll blow your
+                    mind.</span></h2>
             <p class="lead">To just be able to shop all your Groceries at your favourite shop Spar, from the comfort of
                 you Home</p>
             <br><br>
-            <a href="{{ url_for('main.shop', shopname='Spar') }}"><button class="btn btn-sm btn-info"
+            <a href="{{ url_for('main.shop', shopname=str.store_name) }}"><button class="btn btn-sm btn-info"
                     style="width: 70%; height: 40px;"><span style="font-size: 20px;">Enter</span>
                 </button></a>
         </div>

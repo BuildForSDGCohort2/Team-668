@@ -314,6 +314,7 @@ def aisle(shopname, id):
     category1 = Category.query.filter_by(aisles_id=aisle.id).all()
     page = request.args.get("page", 1, type=int)
     category = Category.query.all()
+    specials = Product.query.filter_by(special="Special").all()
     for cat in category1:
         product = Product.query.filter_by(category_id=cat.id).paginate(
             page, current_app.config["PRODUCTS_PER_PAGE"]
@@ -327,6 +328,7 @@ def aisle(shopname, id):
         category1=category1,
         aisle=aisle,
         cat1=cat1,
+        special=specials,
     )
 
 

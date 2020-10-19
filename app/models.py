@@ -293,6 +293,7 @@ class Product(SearchableMixin, db.Model):
         picture,
         store_id,
         discount,
+        special,
     ):
         self.category_id = category_id
         self.pname = pname
@@ -302,6 +303,7 @@ class Product(SearchableMixin, db.Model):
         self.picture = picture
         self.store_id = store_id
         self.discount = discount
+        self.special = special
 
     def get_item(self):
         id = self.id
@@ -359,16 +361,14 @@ class Aisles(db.Model):
         return "{}".format(self.name)
 
 
-
 class Controller(ModelView):
     def is_accessible(self):
         return current_user.is_admin and current_user.is_authenticated
         # return redirect(url_for("main.index"))
         # if current_user.is_admin:
-        #     return current_user.is_authenticated           
+        #     return current_user.is_authenticated
         # else:
-        #     return redirect(url_for("main.index")) 
-                        
+        #     return redirect(url_for("main.index"))
 
     def inaccessible_callback(self, name, **kwargs):
         return redirect(url_for("main.index"))
