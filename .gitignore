@@ -2,7 +2,7 @@ __pycache__
 .vscode
 
 migrations
-app.db
+# app.db
 
 static/*
 venv
