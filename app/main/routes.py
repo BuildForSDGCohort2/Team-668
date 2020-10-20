@@ -281,6 +281,7 @@ def category(shopname, id):
     cat1 = Category.query.all()
     page = request.args.get("page", 1, type=int)
     form = ProductForm()
+    specials = Product.query.filter_by(special="Special").all()
     cat = Category.query.filter_by(id=id).first_or_404()
     get_cat_pro = Product.query.filter_by(category_id=cat.id).paginate(
         page, current_app.config["CATEGORY_PER_PAGE"]
@@ -294,6 +295,7 @@ def category(shopname, id):
         shopname=shopname,
         cat=cat,
         cat1=cat1,
+        special=specials,
     )
 
 
