@@ -18,5 +18,3 @@ def response(message_txt):
         pass
     return (entity, value)
 
-
-print(response("How long will my order take"))
