@@ -48,6 +48,7 @@ import imghdr
 import paypalrestsdk
 import json
 from app.message import Messager
+from app.witai import response
 
 
 @bp.before_app_request
@@ -666,6 +667,8 @@ def fb_webhook():
 @bp.route("/fb_webhook", methods=["POST"])
 def fb_receive_message():
     client = Messager(current_app.config["APP_VERIFY_CODE"])
+    client.subscribe_to_page()
+    client.set_greeting_text("Hi, this is HomeShop")
     message_entries = json.loads(request.data.decode("utf8"))["entry"]
     for entry in message_entries:
         for message in entry["messaging"]:
@@ -673,8 +676,16 @@ def fb_receive_message():
             if message.get("message"):
                 print("{sender[id]} says {message[text]}".format(**message))
                 if "text" in message["message"]:
-                    text_reply = "Hi, How can I help"
-
+                    message_txt = messsage['message']['text']
+                    entity, value = response(message_txt)
+                    if entity == 'greeting':
+                        if value == 'Hi':
+                            text_reply == 'How can I help you'
+                    elif entity == 'product':
+                        if value == 'specials':
+                            text_reply = 'Visit the follwing link to see our specials: '
                 client.send_text(user_id, text_reply)
+                
+
 
     return "Hi"

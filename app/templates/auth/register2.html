@@ -21,9 +21,25 @@
             console.log(response);                   // The current login status of the person.
             if (response.status === 'connected') {
                 document.getElementById('status').innerHTML = 'connected'
-                window.top.location = "https://homeshopltd.herokuapp.com";
-                var uid = response.authResponse.userID;
-                var accessToken = response.authResponse.accessToken;
+                var obj = {
+                    uid = response.authResponse.userID,
+                    accessToken = response.authResponse.accessToken
+                };
+                var data_obj = JSON.stringify(obj);
+                $.ajax({
+                    url: "/auth/fb_login",
+                    type: "POST",
+                    data: data_obj,
+                    dataType: 'json',
+                    async: false,
+                    contentType: "application/json",
+                    success: function (data, textStatus, jqXHR) {
+                        if (data == "11") {
+                            location.replace("/");
+                        }
+                    }
+
+                });
                 FB.api('/me', function (response) {
                     console.log('Successful loggin:' + response.name);
                     document.getElementById('status').innerHTML = 'Thanks for loggin in:' + response.name + '!'

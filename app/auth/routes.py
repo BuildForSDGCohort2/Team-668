@@ -64,6 +64,25 @@ def register():
         "auth/register2.html", title="Register", form=form, appId=appId
     )
 
+@bp.route('/fb_login')
+def fb_login():
+   userID = request.json('uid')
+   accessToken = request.json('accessToken')
+   user = User.query.filter_by(id=userID).first()
+   if user == None:
+       new_user = User(id=userID, username=accessToken)
+       db.session.add(new_user)
+       db.session.commit()
+       login_user(new_user, remember=True)
+       return "11"
+    else:
+        user.username = accessToken
+        user.id = userID
+        db.session.commit()
+        login_user(user, remember=True)
+        return "11"
+    return redirect(url_for('auth.register'))
+
 
 @bp.route("/reset_password_request", methods=["GET", "POST"])
 def reset_password_request():
