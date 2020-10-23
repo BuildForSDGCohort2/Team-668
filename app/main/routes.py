@@ -674,15 +674,8 @@ def fb_receive_message():
             if message.get("message"):
                 print("{sender[id]} says {message[text]}".format(**message))
                 if "text" in message["message"]:
-                    message_txt = message["message"]["text"]
-                    entity, value = response(message_txt)
-                    if entity == "greeting":
-                        if value == "Hi":
-                            text_reply == "How can I help you"
-                            return client.send_text(user_id, text_reply)
-                    elif entity == "product":
-                        if value == "specials":
-                            text_reply = "Visit the follwing link to see our specials: "
-                            return client.send_text(user_id, text_reply)
+                    text_reply = "Hi, How can I help"
+
+                client.send_text(user_id, text_reply)
 
     return "Hi"
