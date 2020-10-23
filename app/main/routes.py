@@ -667,8 +667,6 @@ def fb_webhook():
 @bp.route("/fb_webhook", methods=["POST"])
 def fb_receive_message():
     client = Messager(current_app.config["APP_VERIFY_CODE"])
-    client.subscribe_to_page()
-    client.set_greeting_text("Hi, this is HomeShop")
     message_entries = json.loads(request.data.decode("utf8"))["entry"]
     for entry in message_entries:
         for message in entry["messaging"]:
@@ -681,9 +679,10 @@ def fb_receive_message():
                     if entity == "greeting":
                         if value == "Hi":
                             text_reply == "How can I help you"
+                            return client.send_text(user_id, text_reply)
                     elif entity == "product":
                         if value == "specials":
                             text_reply = "Visit the follwing link to see our specials: "
-                client.send_text(user_id, text_reply)
+                            return client.send_text(user_id, text_reply)
 
     return "Hi"
