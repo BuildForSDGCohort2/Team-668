@@ -1,7 +1,7 @@
 from wit import Wit
 import os
 
-access_token = os.environ.get("WIT_ACCESS_TOKEN")
+access_token = str(os.environ.get("WIT_ACCESS_TOKEN"))
 
 client = Wit(access_token)
 
