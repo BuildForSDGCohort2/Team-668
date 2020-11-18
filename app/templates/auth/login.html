@@ -1,18 +1,24 @@
 <html>
+
 <head>
-    <title>HomeShop Register</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Emporium registration Form Bootstrap Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates">
-    <link href="/static/register/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/static/register/css/style.css" rel="stylesheet" type="text/css">
-    <!--webfonts-->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
-    <!--//webfonts-->
-    
-    </head>
-    <body>
-      
-      <div class="container" style="text-align: center;background: transparent;height: 80px;"><a href="{{url_for('main.index')}}" style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;"><li style="
+  <title>HomeShop Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords"
+    content="Emporium registration Form Bootstrap Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates">
+  <link href="/static/register/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+  <link href="/static/register/css/style.css" rel="stylesheet" type="text/css">
+  <!--webfonts-->
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+  <!--//webfonts-->
+
+</head>
+
+<body>
+
+  <div class="container" style="text-align: center;background: transparent;height: 80px;"><a
+      href="{{url_for('main.index')}}"
+      style="background: gray;color: tan;font-size: 80px;-webkit-border-radius: 50%;position: inherit;display: inline-block;width: 140px;height: 120px;text-align: center;">
+      <li style="
             line-height: 70px;
             font-size: 1em;
             width: 39px;
@@ -22,15 +28,16 @@
             display: inline-block;
             margin-right: 70px;
             margin-top: 20px;
-    ">HS</li></a></div>
-<div class="container" style="text-align:center;">
-        <form action="" method="POST" class="form-signin" style="
+    ">HS</li>
+    </a></div>
+  <div class="container" style="text-align:center;">
+    <form action="{{url_for('auth.login')}}" method="POST" class="form-signin" style="
         width: 100%;
         max-width: 330px;
         padding: 15px;
         margin: auto;" novalidate="">
-           {{ form.hidden_tag() }}
-            <h1 class="h3 mb-3 font-weight-normal" style="
+      {{ form.hidden_tag() }}
+      <h1 class="h3 mb-3 font-weight-normal" style="
             font-weight: 400!important;
             margin-top: 1rem!important;
             margin-bottom: 1rem!important;
@@ -40,8 +47,8 @@
             text-align: center!important;
             color: black;
             ">Please sign in</h1>
-        
-        <label for="username" class="sr-only" style="
+
+      <label for="username" class="sr-only" style="
         position: absolute;
         width: 1px;
         height: 1px;
@@ -51,11 +58,12 @@
         clip: rect(0,0,0,0);
         white-space: nowrap;
         border: 0;">Username</label><br>
-        <input id="username" name="username" required="" size="32" type="text" value="" class="form-control" placeholder="Username">
-        {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
-        <label for="password" style="
+      <input id="username" name="username" required="" size="32" type="text" value="" class="form-control"
+        placeholder="Username">
+      {% for error in form.username.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+      <label for="password" style="
         position: absolute;
         width: 1px;
         height: 1px;
@@ -65,21 +73,23 @@
         clip: rect(0,0,0,0);
         white-space: nowrap;
         border: 0;">Password</label><br>
-                 
-      <input id="password" name="password" required="" size="32" type="password" value="" class="form-control" placeholder="Password">
+
+      <input id="password" name="password" required="" size="32" type="password" value="" class="form-control"
+        placeholder="Password">
       {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}  
+      <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
       <div class="checkbox mb-3" style="font-weight: 400;
         margin-bottom: 1rem!important;">
-        
-      <label for="remember_me"><input id="remember_me" name="remember_me" type="checkbox" value="y">Remember Me</label>
-      
-    
-    </div>
-    
-        
-     
+
+        <label for="remember_me"><input id="remember_me" name="remember_me" type="checkbox" value="y">Remember
+          Me</label>
+
+
+      </div>
+
+
+
       <button class="btn btn-lg btn-primary btn-block" type="submit" style="
         display: block;
         width: 100%;
@@ -96,18 +106,20 @@
         vertical-align: middle;"><input id="submit" name="submit" type="submit" value="Sign In" style="
         background-color: #007bff;
         border: white;"></button>
-        <hr>
-        <p>New User? <a href="/auth/register">Click to Register!</a></p>
-        <hr>
-        <p>
-            Forgot Your Password?
-            <a href="/auth/reset_password_request">Click to Reset It</a>
-        </p>
+      <hr>
+      <p>New User? <a href="/auth/register">Click to Register!</a></p>
+      <hr>
+      <p>
+        Forgot Your Password?
+        <a href="/auth/reset_password_request">Click to Reset It</a>
+      </p>
       <p class="mt-5 mb-3 text-muted" style=" color: #6c757d!important;
         margin-top: 3rem!important;">© 2020 HomeShop</p>
     </form>
-        
-        
-    </div>
-    
-  </body></html>
+
+
+  </div>
+
+</body>
+
+</html>
