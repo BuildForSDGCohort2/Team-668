@@ -104,10 +104,10 @@ def reset_password_request():
 @bp.route("/reset_password/<token>", methods=["GET", "POST"])
 def reset_password(token):
     if current_user.is_authenticated:
-        return redirect(url_for("main.community"))
+        return redirect(url_for("main.index"))
     user = User.verify_reset_password_token(token)
     if not user:
-        return redirect(url_for("main.community"))
+        return redirect(url_for("main.index"))
     form = ResetPasswordForm()
     if form.validate_on_submit():
         user.set_password(form.password.data)
