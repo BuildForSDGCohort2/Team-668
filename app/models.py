@@ -363,7 +363,8 @@ class Aisles(db.Model):
 
 class Controller(ModelView):
     def is_accessible(self):
-        return current_user.is_admin and current_user.is_authenticated
+        return current_user.is_authenticated
+        # return current_user.is_admin and current_user.is_authenticated
         # return redirect(url_for("main.index"))
         # if current_user.is_admin:
         #     return current_user.is_authenticated
