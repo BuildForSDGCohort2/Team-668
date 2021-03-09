@@ -21,7 +21,7 @@ class Config(object):
     SHOPAISLES_PER_PAGE = 15
     PRODUCTS_PER_PAGE = 3
     CATEGORY_PER_PAGE = 15
-    UPLOAD_FOLDER = "/app/static/uploads"
+    UPLOAD_FOLDER = "/app/static/upload"
     ALLOWED_EXTENSIONS = {"txt", "pdf", "png", "jpg", "jpeg", "gif"}
     ELASTICSEARCH_URL = os.environ.get("ELASTICSEARCH_URL")
     UPLOADED_PHOTOS_DEST = os.path.join(basedir, "app/static/images/profileImages")
